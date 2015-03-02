@@ -30,10 +30,6 @@ source $ZSH/oh-my-zsh.sh
 #
 # User configuration
 #
-# Docker host
-export DOCKER_HOST=tcp://192.168.59.103:2376
-export DOCKER_CERT_PATH=/Users/$USER/.boot2docker/certs/boot2docker-vm
-export DOCKER_TLS_VERIFY=1
 
 # GOPATH
 export GOPATH="/Users/$USER/BTSync/Projects/go"
@@ -69,6 +65,3 @@ bindkey -M vicmd v edit-command-line
 
 # Load ~/.zsh directory
 source ~/.zsh
-
-# Private functions
-source ~/.zshfunctions
