@@ -10,7 +10,7 @@ Plugin 'ekalinin/Dockerfile.vim'
 Plugin 'markcornick/vim-terraform'
 Plugin 'bling/vim-airline'
 Plugin 'gnupg.vim'
-Plugin 'jinja.vim'
+"Plugin 'jinja.vim'
 
 call vundle#end()
 filetype plugin indent on

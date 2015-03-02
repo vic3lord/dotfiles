@@ -67,8 +67,8 @@ autoload -U edit-command-line
 zle -N edit-command-line
 bindkey -M vicmd v edit-command-line
 
-# AutoJump
-[[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
+# Load ~/.zsh directory
+source ~/.zsh
 
 # Private functions
 source ~/.zshfunctions
