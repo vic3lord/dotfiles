@@ -1,0 +1,17 @@
+[user]
+	name = Or Elimelech
+	email = 0r3limelech@gmail.com
+	signingkey = 6166633F
+[alias]
+	ci = commit
+	co = checkout
+	br = branch
+	st = status -s
+[push]
+	default = simple
+[color]
+	ui = true
+[color "branch"]
+	current = yellow reverse
+	local = yellow
+	remote = green
