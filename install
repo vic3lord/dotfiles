@@ -1,0 +1,14 @@
+SRC=$HOME/.dotfiles
+dotfiles=(vimrc tmux.conf gitconfig zshrc)
+
+for dotfile in ${dotfiles[@]}
+do
+	if [ ! "$(readlink $HOME/.${dotfile})" == "$HOME/.dotfiles/${dotfile}" ]
+	then
+		if [ -f $HOME/.$dotfile ]
+		then
+			rm $HOME/.$dotfile
+		fi
+		ln -s $SRC/$dotfile $HOME/.$dotfile
+	fi
+done
