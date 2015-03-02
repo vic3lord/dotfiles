@@ -71,4 +71,4 @@ bindkey -M vicmd v edit-command-line
 [[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
 
 # Private functions
-source .zshfunctions
+source ~/.zshfunctions
