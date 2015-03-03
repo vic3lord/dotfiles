@@ -64,4 +64,7 @@ zle -N edit-command-line
 bindkey -M vicmd v edit-command-line
 
 # Load ~/.zsh directory
-source ~/.zsh/*.zsh
+for zsh_file in $(ls ~/.zsh/*.zsh)
+do
+	source $zsh_file
+done
