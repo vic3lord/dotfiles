@@ -22,10 +22,14 @@ then
 fi
 
 # install vim colors
-if [ ! -d ~/.vim ]
+if [ ! -d ~/.vim/colors ]
 then
-	mkdir ~/.vim
-	ln -s $HOME/.dotfiles/vim-colors $HOME/.vim/colors
+	mkdir -p ~/.vim/colors
+	echo "Copying vim colors..."
+	cp -R $SRC/vim-colors/ $HOME/.vim/colors
+elif [ "$1" == "colors" ]
+then
+	cp -R $SRC/vim-colors/ $HOME/.vim/colors
 fi
 
 # install Vundle
