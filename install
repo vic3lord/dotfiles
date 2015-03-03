@@ -1,20 +1,6 @@
 SRC=$HOME/.dotfiles
 dotfiles=(vimrc tmux.conf gitconfig zshrc zsh)
 
-# install oh-my-zsh
-if [ ! -d ~/.oh-my-zsh ]
-then
-	echo "Installing oh-my-zsh..."
-	curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
-fi
-
-# install Vundle
-if [ ! -d ~/.vim/bundle/Vundle.vim ]
-then
-	git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-	vim +PluginInstall +qall
-fi
-
 # symlinks to dotfiles
 for dotfile in ${dotfiles[@]}
 do
@@ -28,3 +14,17 @@ do
 		ln -s $SRC/$dotfile $HOME/.$dotfile
 	fi
 done
+
+# install oh-my-zsh
+if [ ! -d ~/.oh-my-zsh ]
+then
+	echo "Installing oh-my-zsh..."
+	curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
+fi
+
+# install Vundle
+if [ ! -d ~/.vim/bundle/Vundle.vim ]
+then
+	git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+	vim +PluginInstall +qall
+fi
