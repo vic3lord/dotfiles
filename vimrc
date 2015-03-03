@@ -11,7 +11,6 @@ Plugin 'ekalinin/Dockerfile.vim'
 Plugin 'markcornick/vim-terraform'
 Plugin 'bling/vim-airline'
 Plugin 'gnupg.vim'
-"Plugin 'jinja.vim'
 
 call vundle#end()
 filetype plugin indent on
@@ -49,4 +48,3 @@ autocmd FileType java setlocal shiftwidth=4 sts=4 expandtab smartindent
 autocmd FileType python setlocal shiftwidth=4 sts=4 expandtab smartindent
 autocmd BufNewFile,BufRead *.json set shiftwidth=2 sts=2 expandtab smartindent ft=javascript
 autocmd FileType html setlocal shiftwidth=2 sts=2 expandtab smartindent
-
