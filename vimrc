@@ -5,6 +5,7 @@ set runtimepath+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 Plugin 'gmarik/Vundle.vim'
+Plugin 'altercation/vim-colors-solarized'
 Plugin 'fatih/vim-go'
 Plugin 'ekalinin/Dockerfile.vim'
 Plugin 'markcornick/vim-terraform'
