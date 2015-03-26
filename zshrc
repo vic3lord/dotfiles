@@ -32,7 +32,7 @@ source $ZSH/oh-my-zsh.sh
 #
 
 # GOPATH
-export GOPATH="/Users/$USER/BTSync/Projects/go"
+export GOPATH="/Users/$USER/Sync/Projects/go"
 
 # PATH
 export PATH="/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:${GOPATH}/bin"

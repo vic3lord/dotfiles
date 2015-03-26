@@ -37,6 +37,16 @@ set modelines=5
 set laststatus=2
 
 
+" Undo and swap
+set directory=/tmp/
+if exists("&undodir")
+	set undofile
+	let &undodir=&directory
+	set undolevels=500
+	set undoreload=500
+endif
+
+
 " Search
 set incsearch     " show search matches as you type
 set showmatch
