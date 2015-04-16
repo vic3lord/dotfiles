@@ -42,8 +42,8 @@ set directory=/tmp/
 if exists("&undodir")
 	set undofile
 	let &undodir=&directory
-	set undolevels=500
-	set undoreload=500
+	set undolevels=200
+	set undoreload=200
 endif
 
 
@@ -67,3 +67,6 @@ autocmd FileType html setlocal shiftwidth=2 sts=2 expandtab smartindent
 
 " vim-go settings
 let g:go_fmt_command = "goimports"
+
+" airline
+let g:airline#extensions#tabline#enabled = 1
