@@ -24,7 +24,7 @@ silent! colorscheme solarized
 
 " Global
 syntax on
-set background=light
+set background=dark
 set timeoutlen=1000
 set ttimeoutlen=0
 set encoding=utf-8
@@ -64,6 +64,8 @@ autocmd FileType python setlocal shiftwidth=4 sts=4 expandtab smartindent
 autocmd BufNewFile,BufRead *.json set shiftwidth=2 sts=2 expandtab smartindent ft=javascript
 autocmd FileType html setlocal shiftwidth=2 sts=2 expandtab smartindent
 
+" Golang
+imap ;http func Handler(w http.ResponseWrite, r *http.Request) {}<left><return><return><up>
 
 " vim-go settings
 let g:go_fmt_command = "goimports"
