@@ -9,6 +9,7 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'fatih/vim-go'
+Plugin 'rust-lang/rust.vim'
 Plugin 'ekalinin/Dockerfile.vim'
 Plugin 'markcornick/vim-terraform'
 Plugin 'bling/vim-airline'
