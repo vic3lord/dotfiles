@@ -16,11 +16,7 @@ alias git="/usr/local/bin/git"
 # Override tig options to show gpg signatures
 alias tig="tig --show-signature"
 
-# Knife aliases
-alias kbl="knife block list"
-alias kbu="knife block use"
 
-#
 # ZSH Plugins
 #
 plugins=(git ruby golang docker gem github vagrant knife brew jump tmuxinator)
