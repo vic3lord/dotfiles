@@ -10,8 +10,6 @@ zstyle ':completion:*' special-dirs true
 #
 # Aliases
 #
-# Brew GIT Version
-alias git="/usr/local/bin/git"
 
 # Override tig options to show gpg signatures
 alias tig="tig --show-signature"
