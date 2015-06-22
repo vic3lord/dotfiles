@@ -14,6 +14,8 @@ Plugin 'ekalinin/Dockerfile.vim'
 Plugin 'markcornick/vim-terraform'
 Plugin 'bling/vim-airline'
 Plugin 'gnupg.vim'
+Plugin 'vimclojure'
+Plugin 'vim-coffee-script'
 
 call vundle#end()
 filetype plugin indent on

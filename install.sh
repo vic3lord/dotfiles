@@ -1,19 +1,5 @@
 SRC=$HOME/.dotfiles
-dotfiles=(vimrc tmux.conf gitconfig zshrc zsh)
-
-# symlinks to dotfiles
-for dotfile in ${dotfiles[@]}
-do
-	if [ ! "$(readlink $HOME/.${dotfile})" == "$HOME/.dotfiles/${dotfile}" ]
-	then
-		if [ -f $HOME/.$dotfile ]
-		then
-			rm $HOME/.$dotfile
-		fi
-		echo "Creating a symlink for ${dotfile}..."
-		ln -s $SRC/$dotfile $HOME/.$dotfile
-	fi
-done
+DOTFILES="vimrc tmux.conf gitconfig zshrc zsh"
 
 # install oh-my-zsh
 if [ ! -d ~/.oh-my-zsh ]
@@ -28,3 +14,17 @@ then
 	git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 	vim +PluginInstall +qall
 fi
+
+# symlinks to dotfiles
+for dotfile in ${DOTFILES[@]}
+do
+	if [ ! "$(readlink $HOME/.${dotfile})" == "$HOME/.dotfiles/${dotfile}" ]
+	then
+		if [ -f $HOME/.$dotfile ]
+		then
+			rm $HOME/.$dotfile
+		fi
+		echo "Creating a symlink for ${dotfile}..."
+		ln -s $SRC/$dotfile $HOME/.$dotfile
+	fi
+done
