@@ -16,6 +16,7 @@ Plugin 'bling/vim-airline'
 Plugin 'gnupg.vim'
 Plugin 'vimclojure'
 Plugin 'vim-coffee-script'
+Plugin 'vitapluvia/vim-gurl'
 
 call vundle#end()
 filetype plugin indent on
