@@ -61,19 +61,26 @@ set ignorecase
 set hlsearch
 nnoremap <Space> :let @/=""<CR> " cancel search hlight with space
 
-
-autocmd FileType ruby setlocal shiftwidth=2 sts=2 expandtab smartindent
-autocmd FileType yaml setlocal shiftwidth=2 sts=2 expandtab smartindent
-autocmd FileType java setlocal shiftwidth=4 sts=4 expandtab smartindent
-autocmd FileType python setlocal shiftwidth=4 sts=4 expandtab smartindent
-autocmd BufNewFile,BufRead *.json set shiftwidth=2 sts=2 expandtab smartindent ft=javascript
-autocmd FileType html setlocal shiftwidth=2 sts=2 expandtab smartindent
-
-" Golang
-imap ;http func Handler(w http.ResponseWrite, r *http.Request) {}<left><return><return><up>
-
 " vim-go settings
 let g:go_fmt_command = "goimports"
 
 " airline
 let g:airline#extensions#tabline#enabled = 1
+
+" Ruby
+autocmd FileType ruby setlocal shiftwidth=2 sts=2 expandtab smartindent
+
+" YAML
+autocmd FileType yaml setlocal shiftwidth=2 sts=2 expandtab smartindent
+
+" JSON
+autocmd BufNewFile,BufRead *.json set shiftwidth=2 sts=2 expandtab smartindent ft=javascript
+
+" Java
+autocmd FileType java setlocal shiftwidth=4 sts=4 expandtab smartindent
+
+" Python
+autocmd FileType python setlocal shiftwidth=4 sts=4 expandtab smartindent
+
+" HTML
+autocmd FileType html setlocal shiftwidth=2 sts=2 expandtab smartindent
