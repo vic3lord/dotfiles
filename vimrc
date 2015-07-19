@@ -38,6 +38,7 @@ set numberwidth=1
 set modeline
 set modelines=5
 set laststatus=2
+set relativenumber
 
 
 " Undo and swap
@@ -45,8 +46,8 @@ set directory=/tmp/
 if exists("&undodir")
 	set undofile
 	let &undodir=&directory
-	set undolevels=200
-	set undoreload=200
+	set undolevels=100
+	set undoreload=100
 endif
 
 

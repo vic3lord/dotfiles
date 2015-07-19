@@ -1,3 +1,4 @@
+alias gssh='gcloud compute ssh'
 
 # The next line updates PATH for the Google Cloud SDK.
 source "$HOME/google-cloud-sdk/path.zsh.inc"
