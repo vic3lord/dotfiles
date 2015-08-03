@@ -1,8 +1,7 @@
 set nocompatible " Be iMproved
 filetype off
 
-
-" Vundle
+" Manage Vundle and its plugins
 set runtimepath+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
@@ -21,10 +20,8 @@ Plugin 'vitapluvia/vim-gurl'
 call vundle#end()
 filetype plugin indent on
 
-
 " Silent errors if colorscheme not exist
 silent! colorscheme solarized
-
 
 " Global
 syntax on
@@ -41,7 +38,6 @@ set modelines=5
 set laststatus=2
 set relativenumber
 
-
 " Undo and swap
 set directory=/tmp/
 if exists("&undodir")
@@ -51,7 +47,6 @@ if exists("&undodir")
 	set undoreload=100
 endif
 
-
 " Search
 set incsearch     " show search matches as you type
 set showmatch
@@ -59,7 +54,22 @@ set hlsearch
 set smartcase	  " ignore case if search pattern is all lowercase, case-sensitive otherwise
 set ignorecase
 set hlsearch
-nnoremap <Space> :let @/=""<CR> " cancel search hlight with space
+
+" cancel search highlight with space
+nnoremap <Space> :let @/=""<CR>
+
+" Find tasks and todos in files
+command Todo noautocmd vimgrep /TODO\|FIXME/j ** | cw
+
+" Keybinding to remind me that I suck at VIM
+map <up> :startinsert<cr>I suck at Vim.
+map <down> :startinsert<cr>I suck at Vim.
+map <left> :startinsert<cr>I suck at Vim.
+map <right> :startinsert<cr>I suck at Vim.
+imap <up> I suck at Vim.
+imap <down> I suck at Vim.
+imap <left> I suck at Vim.
+imap <right> I suck at Vim.
 
 " vim-go settings
 let g:go_fmt_command = "goimports"

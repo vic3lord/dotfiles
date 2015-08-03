@@ -7,6 +7,7 @@
 	co = checkout
 	br = branch
 	st = status -s
+	edit = "!vim `git ls-files -m` -p"
 [push]
 	default = simple
 [color]
