@@ -1,7 +1,6 @@
 [user]
 	name = Or Elimelech
 	email = 0r3limelech@gmail.com
-	signingkey = 6166633F
 [alias]
 	ci = commit
 	co = checkout
