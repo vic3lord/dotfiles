@@ -17,7 +17,7 @@ alias tig="tig --show-signature"
 
 # ZSH Plugins
 #
-plugins=(git ruby golang docker gem github vagrant knife brew jump tmuxinator)
+plugins=(git ruby golang docker gem vagrant brew jump)
 
 source $ZSH/oh-my-zsh.sh
 
