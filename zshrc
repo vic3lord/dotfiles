@@ -14,6 +14,9 @@ zstyle ':completion:*' special-dirs true
 # Override tig options to show gpg signatures
 alias tig="tig --show-signature"
 
+# vi alias to neovim
+alias vi="nvim"
+
 
 # ZSH Plugins
 #
