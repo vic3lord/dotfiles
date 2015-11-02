@@ -13,7 +13,6 @@ Plugin 'ekalinin/Dockerfile.vim'
 Plugin 'markcornick/vim-terraform'
 Plugin 'bling/vim-airline'
 Plugin 'gnupg.vim'
-Plugin 'vimclojure'
 Plugin 'vim-coffee-script'
 Plugin 'vitapluvia/vim-gurl'
 Plugin 'unblevable/quick-scope'
@@ -33,20 +32,12 @@ set encoding=utf-8
 set fileencoding=utf-8
 set showmatch
 set number
+set relativenumber
 set numberwidth=1
 set modeline
 set modelines=5
 set laststatus=2
-set relativenumber
-
-" Undo and swap
-set directory=/tmp/
-if exists("&undodir")
-	set undofile
-	let &undodir=&directory
-	set undolevels=100
-	set undoreload=100
-endif
+set undofile
 
 " Search
 set incsearch     " show search matches as you type
@@ -78,20 +69,10 @@ let g:go_fmt_command = "goimports"
 " airline
 let g:airline#extensions#tabline#enabled = 1
 
-" Ruby
+" Language specifics
 autocmd FileType ruby setlocal shiftwidth=2 sts=2 expandtab smartindent
-
-" YAML
 autocmd FileType yaml setlocal shiftwidth=2 sts=2 expandtab smartindent
-
-" JSON
 autocmd BufNewFile,BufRead *.json set shiftwidth=2 sts=2 expandtab smartindent ft=javascript
-
-" Java
 autocmd FileType java setlocal shiftwidth=4 sts=4 expandtab smartindent
-
-" Python
 autocmd FileType python setlocal shiftwidth=4 sts=4 expandtab smartindent
-
-" HTML
 autocmd FileType html setlocal shiftwidth=2 sts=2 expandtab smartindent

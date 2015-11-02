@@ -13,6 +13,9 @@ if [ ! -d ~/.vim/bundle/Vundle.vim ]
 then
 	git clone https://github.com/VundleVim/Vundle.vim ~/.vim/bundle/Vundle.vim
 	vim +PluginInstall +qall
+	mkdir $HOME/.config
+	ln -s $HOME/.vim $HOME/.config/nvim
+	ln -s $HOME/.vimrc $HOME/.config/nvim/init.vim
 fi
 
 # symlinks to dotfiles
