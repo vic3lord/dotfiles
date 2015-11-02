@@ -38,6 +38,7 @@ set modeline
 set modelines=5
 set laststatus=2
 set undofile
+set mouse=nv
 
 " Search
 set incsearch     " show search matches as you type
