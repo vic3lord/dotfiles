@@ -8,11 +8,11 @@ then
 	curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
 fi
 
-# install Vundle
-if [ ! -d ~/.vim/bundle/Vundle.vim ]
+# install vim-plug
+if [ ! -f ~/.vim/autoload/plug.vim ]
 then
-	git clone https://github.com/VundleVim/Vundle.vim ~/.vim/bundle/Vundle.vim
-	vim +PluginInstall +qall
+	curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+	vim +PlugInstall +qall
 	mkdir $HOME/.config
 	ln -s $HOME/.vim $HOME/.config/nvim
 	ln -s $HOME/.vimrc $HOME/.config/nvim/init.vim

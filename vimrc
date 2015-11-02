@@ -1,23 +1,20 @@
 set nocompatible " Be iMproved
 filetype off
 
-" Manage Vundle and its plugins
-set runtimepath+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+" vim-plug
+call plug#begin('~/.vim/plugged')
+Plug 'altercation/vim-colors-solarized'
+Plug 'fatih/vim-go'
+Plug 'rust-lang/rust.vim'
+Plug 'ekalinin/Dockerfile.vim'
+Plug 'markcornick/vim-terraform'
+Plug 'bling/vim-airline'
+Plug 'gnupg.vim'
+Plug 'vim-coffee-script'
+Plug 'vitapluvia/vim-gurl'
+Plug 'unblevable/quick-scope'
+call plug#end()
 
-Plugin 'gmarik/Vundle.vim'
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'fatih/vim-go'
-Plugin 'rust-lang/rust.vim'
-Plugin 'ekalinin/Dockerfile.vim'
-Plugin 'markcornick/vim-terraform'
-Plugin 'bling/vim-airline'
-Plugin 'gnupg.vim'
-Plugin 'vim-coffee-script'
-Plugin 'vitapluvia/vim-gurl'
-Plugin 'unblevable/quick-scope'
-
-call vundle#end()
 filetype plugin indent on
 
 " Silent errors if colorscheme not exist

@@ -16,6 +16,7 @@ alias tig="tig --show-signature"
 
 # vi alias to neovim
 alias vi="nvim"
+alias vimdiff="nvim -d"
 
 
 # ZSH Plugins
