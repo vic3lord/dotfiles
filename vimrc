@@ -13,6 +13,7 @@ Plug 'gnupg.vim'
 Plug 'vim-coffee-script'
 Plug 'vitapluvia/vim-gurl'
 Plug 'unblevable/quick-scope'
+Plug 'tpope/vim-surround'
 call plug#end()
 
 filetype plugin indent on
@@ -36,8 +37,6 @@ set modelines=5
 set laststatus=2
 set undofile
 set mouse=nv
-
-" Search
 set incsearch     " show search matches as you type
 set showmatch
 set hlsearch
@@ -47,19 +46,6 @@ set hlsearch
 
 " cancel search highlight with space
 nnoremap <Space> :let @/=""<CR>
-
-" Find tasks and todos in files
-command Todo noautocmd vimgrep /TODO\|FIXME/j ** | cw
-
-" Keybinding to remind me that I suck at VIM
-map <up> :startinsert<cr>I suck at Vim.
-map <down> :startinsert<cr>I suck at Vim.
-map <left> :startinsert<cr>I suck at Vim.
-map <right> :startinsert<cr>I suck at Vim.
-imap <up> I suck at Vim.
-imap <down> I suck at Vim.
-imap <left> I suck at Vim.
-imap <right> I suck at Vim.
 
 " vim-go settings
 let g:go_fmt_command = "goimports"
