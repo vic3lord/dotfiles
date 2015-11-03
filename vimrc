@@ -42,7 +42,6 @@ set showmatch
 set hlsearch
 set smartcase	  " ignore case if search pattern is all lowercase, case-sensitive otherwise
 set ignorecase
-set hlsearch
 
 " cancel search highlight with space
 nnoremap <Space> :let @/=""<CR>
