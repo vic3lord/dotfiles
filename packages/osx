@@ -1,6 +1,9 @@
 # Updating cache
 brew update
 
+# Adding custom taps
+brew tap neovim/neovim
+
 # Installing packages
 brew install \
 	ansible \
@@ -27,3 +30,15 @@ brew install \
 	docker \
 	docker-compose \
 	docker-machine
+
+# Installing cask packages
+brew cask install \
+	flux \
+	transmission \
+	vlc \
+	steam \
+	virtualbox \
+	netspot \
+	google-chrome \
+	google-drive \
+	google-cloud-sdk
