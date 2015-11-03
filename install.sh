@@ -5,14 +5,12 @@ OS=`uname`
 
 if [ "$PACKAGES" == "packages" ]
 then
-	case $OS in
-	Darwin)
-		$SRC/packages/osx
-		;;
-	*)
+	if [ -f $SRC/packages/$OS ]
+	then
+		$SRC/packages/$OS
+	else
 		echo "Unsupported OS: ${OS}"
-		exit 0
-	esac
+	fi
 fi
 
 # install oh-my-zsh
