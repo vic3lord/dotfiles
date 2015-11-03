@@ -1,5 +1,19 @@
 SRC=$HOME/.dotfiles
 DOTFILES="vimrc tmux.conf gitconfig zshrc zsh"
+PACKAGES=$1
+OS=`uname`
+
+if [ "$PACKAGES" == "packages" ]
+then
+	case $OS in
+	Darwin)
+		$SRC/packages/osx
+		;;
+	*)
+		echo "Unsupported OS: ${OS}"
+		exit 0
+	esac
+fi
 
 # install oh-my-zsh
 if [ ! -d ~/.oh-my-zsh ]

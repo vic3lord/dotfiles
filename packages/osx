@@ -1,0 +1,29 @@
+# Updating cache
+brew update
+
+# Installing packages
+brew install \
+	ansible \
+	autojump \
+	caskroom/cask/brew-cask \
+	gnupg2 \
+	reop \
+	go \
+	hugo \
+	iperf \
+	jq \
+	keybase \
+	mercurial \
+	neovim \
+	nmap \
+	node \
+	packer \
+	terraform \
+	tig \
+	tmux \
+	tree \
+	weechat \
+	wget \
+	docker \
+	docker-compose \
+	docker-machine
