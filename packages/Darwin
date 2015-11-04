@@ -37,7 +37,9 @@ brew cask install \
 	transmission \
 	vlc \
 	steam \
+	boxer \
 	virtualbox \
+	otto \
 	netspot \
 	google-chrome \
 	google-drive \

@@ -14,6 +14,7 @@ Plug 'vim-coffee-script'
 Plug 'vitapluvia/vim-gurl'
 Plug 'unblevable/quick-scope'
 Plug 'tpope/vim-surround'
+Plug 'commentary.vim'
 call plug#end()
 
 filetype plugin indent on
