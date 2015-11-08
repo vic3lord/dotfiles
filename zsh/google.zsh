@@ -1,7 +1,7 @@
 alias gssh='gcloud compute ssh'
 
-if [ $(hostname) != "Ors-MacBook-Air.local" ]
+if [ $(uname) == "Darwin" ]
 then
-	source "$HOME/google-cloud-sdk/path.zsh.inc"
-	source "$HOME/google-cloud-sdk/completion.zsh.inc"
+	source "/opt/homebrew-cask/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc"
+	source "/opt/homebrew-cask/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc"
 fi
