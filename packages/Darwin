@@ -41,6 +41,7 @@ brew cask install \
 	virtualbox \
 	otto \
 	netspot \
+	torbrowser \
 	google-chrome \
 	google-drive \
 	google-cloud-sdk

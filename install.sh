@@ -11,6 +11,8 @@ then
 	else
 		echo "Unsupported OS: ${OS}"
 	fi
+	echo "Install Go packages"
+	$SRC/packages/GoPackages
 fi
 
 # install oh-my-zsh

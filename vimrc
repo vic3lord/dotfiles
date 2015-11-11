@@ -3,18 +3,19 @@ filetype off
 
 " vim-plug
 call plug#begin('~/.vim/plugged')
-Plug 'altercation/vim-colors-solarized'
-Plug 'fatih/vim-go'
-Plug 'rust-lang/rust.vim'
-Plug 'ekalinin/Dockerfile.vim'
-Plug 'markcornick/vim-terraform'
-Plug 'bling/vim-airline'
-Plug 'gnupg.vim'
-Plug 'vim-coffee-script'
-Plug 'vitapluvia/vim-gurl'
-Plug 'unblevable/quick-scope'
-Plug 'tpope/vim-surround'
-Plug 'commentary.vim'
+	Plug 'altercation/vim-colors-solarized'
+	Plug 'fatih/vim-go'
+	Plug 'rust-lang/rust.vim'
+	Plug 'ekalinin/Dockerfile.vim'
+	Plug 'markcornick/vim-terraform'
+	Plug 'bling/vim-airline'
+	Plug 'gnupg.vim'
+	Plug 'vim-coffee-script'
+	Plug 'vitapluvia/vim-gurl'
+	Plug 'unblevable/quick-scope'
+	Plug 'tpope/vim-surround'
+	Plug 'commentary.vim'
+	Plug 'junegunn/fzf'
 call plug#end()
 
 filetype plugin indent on
