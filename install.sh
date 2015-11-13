@@ -12,7 +12,10 @@ then
 		echo "Unsupported OS: ${OS}"
 	fi
 	echo "Install Go packages"
-	$SRC/packages/GoPackages
+	for pkg in $(cat $SRC/packages/GoPackages)
+	do
+		go get -u $pkg
+	done
 fi
 
 # install oh-my-zsh
