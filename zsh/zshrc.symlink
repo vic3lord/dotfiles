@@ -8,18 +8,6 @@ ZSH_THEME="sorin"
 zstyle ':completion:*' special-dirs true
 
 #
-# Aliases
-#
-
-# Override tig options to show gpg signatures
-alias tig="tig --show-signature"
-
-# vi alias to neovim
-alias vi="nvim"
-alias vim="nvim"
-alias vimdiff="nvim -d"
-
-
 # ZSH Plugins
 #
 plugins=(git ruby golang docker gem vagrant brew jump)
@@ -30,14 +18,7 @@ source $ZSH/oh-my-zsh.sh
 # User configuration
 #
 
-# GOPATH
-export GOPATH="/Users/$USER/go"
-
-# PATH
-export PATH="/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:${GOPATH}/bin"
-
-# Preferred editor for local and remote sessions
-export EDITOR='vim'
+export PATH="/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin"
 
 # ZSH Vim Mode
 bindkey -v
