@@ -21,7 +21,7 @@ Fail () {
 }
 
 Usage() {
-	Info "Usage: $0 [packages] - use packages to install OS specific packages"
+	echo "Usage: $0 [packages] - use packages to install OS specific packages"
 	exit 0
 }
 
