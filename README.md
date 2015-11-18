@@ -7,5 +7,9 @@ Helps me automate my environment on new systems.
 
 ```
 git clone https://github.com/vic3lord/dotfiles ~/.dotfiles
-~/.dotfiles/install.sh
+~/.dotfiles/bootstrap
 ```
+
+## Credits
+
+Borrowed some stuff from [holman/dotfiles](https://github.com/holman/dotfiles)
