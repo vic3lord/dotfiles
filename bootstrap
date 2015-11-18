@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-DOTFILES=$HOME/git/dotfiles
+DOTFILES=$HOME/.dotfiles
 OS=$(uname)
 
 Info () {
