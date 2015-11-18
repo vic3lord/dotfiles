@@ -1,31 +1,30 @@
 #!/usr/bin/env bash
+#
+# Bootstrap
+#
+# Help boostrapping a system config files and environment
+#
 DOTFILES=$HOME/.dotfiles
-OS=$(uname)
 
-Info () {
+function Info() {
   printf "\r  [ \033[00;34m..\033[0m ] $1\n"
 }
 
-User () {
+function User() {
   printf "\r  [ \033[0;33m??\033[0m ] $1\n"
 }
 
-Success () {
+function Success() {
   printf "\r\033[2K  [ \033[00;32mOK\033[0m ] $1\n"
 }
 
-Fail () {
+function Fail() {
   printf "\r\033[2K  [\033[0;31mFAIL\033[0m] $1\n"
   echo ''
   exit
 }
 
-Usage() {
-	echo "Usage: $0 [packages] - use packages to install OS specific packages"
-	exit 0
-}
-
-link_file() {
+function link_file() {
   local src=$1 dst=$2
 
   local overwrite= backup= skip=
@@ -100,25 +99,22 @@ link_file() {
   fi
 }
 
-case $1 in
-	packages)
-		if [ -f $DOTFILES/packages/$OS ]
-		then
-			$DOTFILES/packages/$OS
-		else
-			 Fail "Unsupported OS: ${OS}"
-		fi
-		echo "Install Go packages"
-		for pkg in $(cat $DOTFILES/packages/GoPackages)
-		do
-			go get -u $pkg
-		done
-		;;
-	usage|help)
-		Usage
-esac
+function Packages() {
+	if [ -f $DOTFILES/packages/$OS ]
+	then
+		$DOTFILES/packages/$OS
+	else
+		 Fail "Unsupported OS: ${OS}"
+	fi
 
-Dotfiles_install() {
+	echo "Install Go packages"
+	for pkg in $(cat $DOTFILES/packages/GoPackages)
+	do
+		go get -u $pkg
+	done
+}
+
+function Dotfiles_install() {
 	Info 'installing dotfiles'
 	local overwrite_all=false backup_all=false skip_all=false
 
@@ -131,5 +127,8 @@ Dotfiles_install() {
 
 Dotfiles_install
 
+# install OS and lang packages
+if [ "$1" == "packages" ]; then Packages; fi
+
 # look for install.sh and execute
-find $DOTFILES -name install.sh | while read installer ; do sh -c "${installer}" ; done
+find $DOTFILES -name install.sh | while read installer; do sh -c "${installer}"; done
