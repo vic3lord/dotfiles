@@ -5,6 +5,7 @@
 # Help boostrapping a system config files and environment
 #
 DOTFILES=$HOME/.dotfiles
+OS=$(uname)
 
 function Info() {
   printf "\r  [ \033[00;34m..\033[0m ] $1\n"
