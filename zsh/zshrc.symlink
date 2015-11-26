@@ -13,7 +13,7 @@ zstyle ':completion:*' special-dirs true
 #
 # ZSH Plugins
 #
-plugins=(git ruby golang docker gem vagrant brew jump)
+plugins=(git golang docker vagrant brew)
 
 source $ZSH/oh-my-zsh.sh
 
