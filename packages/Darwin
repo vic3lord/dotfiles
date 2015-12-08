@@ -20,6 +20,7 @@ brew install \
 	mercurial \
 	neovim \
 	nmap \
+	mitmproxy \
 	node \
 	packer \
 	terraform \
@@ -28,6 +29,7 @@ brew install \
 	tree \
 	weechat \
 	wget \
+	caddy \
 	docker \
 	docker-compose \
 	docker-machine

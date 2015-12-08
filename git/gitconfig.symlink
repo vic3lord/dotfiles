@@ -15,3 +15,7 @@
 	current = yellow reverse
 	local = yellow
 	remote = green
+[filter "lfs"]
+	clean = git-lfs clean %f
+	smudge = git-lfs smudge %f
+	required = true
