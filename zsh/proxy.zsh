@@ -31,7 +31,7 @@ function set-proxy() {
 		PORT="$(get-proxy | grep Port | cut -d: -f2)"
 		if [[ "$2" == "on" ]]
 		then
-			_start-proxy-server $PORT $4 && \
+			_start-proxy-server $PORT $3 && \
 			networksetup -setsocksfirewallproxystate Wi-Fi on
 		else
 			networksetup -setsocksfirewallproxystate Wi-Fi off
