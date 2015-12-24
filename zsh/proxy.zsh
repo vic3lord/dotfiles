@@ -5,12 +5,20 @@
 # Support Darwin
 #
 function usage() {
-	echo "Usage: set-proxy [state] [setup] user@example.com"
-	echo
-	echo "Examples:"
-	echo "  set-proxy setup localhost 9000 user@example.com   # turn on socks proxy pointing to localhost:9000 with ssh socks to example.com"
-	echo "  set-proxy state on user@example.com               # turn on proxy and set up ssh socks server"
-	echo "  set-proxy state off                               # turn off proxy"
+	cat <<- EOF
+	USAGE: set-proxy [state] [setup] user@example.com
+
+	Socks proxy setup.
+
+	OPTIONS:
+	  setup           setup proxy settings (local ip and port)
+	  state           turn socks proxy on/off
+
+	EXAMPLES:
+	  set-proxy setup localhost 9000 user@example.com   turn on socks proxy pointing to localhost:9000 with ssh socks to example.com"
+	  set-proxy state on user@example.com               turn on proxy and set up ssh socks server"
+	  set-proxy state off                               turn off proxy"
+	EOF
 }
 
 function get-proxy() {
@@ -18,7 +26,9 @@ function get-proxy() {
 }
 
 function _start-proxy-server() {
-	ssh -D $1 -N -f $2
+	local port=$1
+	local server=$2
+	ssh -D $port -N -f $server
 }
 
 function _stop-proxy-server() {
@@ -26,12 +36,13 @@ function _stop-proxy-server() {
 }
 
 function set-proxy() {
-	case $1 in
+	local flag=$1
+	case $flag in
 	state)
-		PORT="$(get-proxy | grep Port | cut -d: -f2)"
+		local port="$(get-proxy | grep Port | cut -d: -f2)"
 		if [[ "$2" == "on" ]]
 		then
-			_start-proxy-server $PORT $3 && \
+			_start-proxy-server $port $3 && \
 			networksetup -setsocksfirewallproxystate Wi-Fi on
 		else
 			networksetup -setsocksfirewallproxystate Wi-Fi off
@@ -42,11 +53,7 @@ function set-proxy() {
 		_start-proxy-server $3 $4 && \
 		networksetup -setsocksfirewallproxy Wi-Fi $2 $3
 		;;
-	-help|-h|help)
-		usage
-		;;
 	*)
-		echo "Invalid argument"
 		usage
 	esac
 }
