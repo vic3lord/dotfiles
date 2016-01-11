@@ -51,3 +51,9 @@ for file in $(ls $DOTFILES/**/*.zsh)
 do
 	source $file
 done
+
+# Load ~/.local.zsh for local functions and vars
+if [ -f $HOME/.local.zsh ]
+then
+	source $HOME/.local.zsh
+fi
