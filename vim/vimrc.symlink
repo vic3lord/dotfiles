@@ -54,6 +54,9 @@ let g:go_fmt_command = "goimports"
 " airline
 let g:airline#extensions#tabline#enabled = 1
 
+" FZF
+nnoremap <Leader>f :FZF<CR>
+
 " Language specifics
 autocmd FileType ruby setlocal shiftwidth=2 sts=2 expandtab smartindent
 autocmd FileType yaml setlocal shiftwidth=2 sts=2 expandtab smartindent
