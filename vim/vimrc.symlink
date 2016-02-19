@@ -8,7 +8,8 @@ call plug#begin('~/.vim/plugged')
 	Plug 'rust-lang/rust.vim'
 	Plug 'ekalinin/Dockerfile.vim'
 	Plug 'markcornick/vim-terraform'
-	Plug 'bling/vim-airline'
+	Plug 'vim-airline/vim-airline'
+	Plug 'vim-airline/vim-airline-themes'
 	Plug 'gnupg.vim'
 	Plug 'vim-coffee-script'
 	Plug 'vitapluvia/vim-gurl'
@@ -16,6 +17,7 @@ call plug#begin('~/.vim/plugged')
 	Plug 'tpope/vim-surround'
 	Plug 'commentary.vim'
 	Plug 'junegunn/fzf'
+	Plug 'junegunn/fzf.vim'
 call plug#end()
 
 filetype plugin indent on
@@ -53,6 +55,7 @@ let g:go_fmt_command = "goimports"
 
 " airline
 let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
 
 " FZF
 nnoremap <Leader>f :FZF<CR>
@@ -64,3 +67,4 @@ autocmd BufNewFile,BufRead *.json set shiftwidth=2 sts=2 expandtab smartindent f
 autocmd FileType java setlocal shiftwidth=4 sts=4 expandtab smartindent
 autocmd FileType python setlocal shiftwidth=4 sts=4 expandtab smartindent
 autocmd FileType html setlocal shiftwidth=2 sts=2 expandtab smartindent
+autocmd BufNewFile,BufReadPost *.coffee setl shiftwidth=2 expandtab
