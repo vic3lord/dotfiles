@@ -10,6 +10,7 @@ call plug#begin('~/.vim/plugged')
 	Plug 'markcornick/vim-terraform'
 	Plug 'vim-airline/vim-airline'
 	Plug 'vim-airline/vim-airline-themes'
+	Plug 'ryanoasis/vim-devicons'
 	Plug 'gnupg.vim'
 	Plug 'vim-coffee-script'
 	Plug 'vitapluvia/vim-gurl'
