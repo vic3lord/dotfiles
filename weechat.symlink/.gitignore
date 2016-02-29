@@ -1,0 +1,4 @@
+logs/
+ssl/
+*.log
+irc.conf
