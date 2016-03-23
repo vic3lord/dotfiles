@@ -8,7 +8,6 @@ brew tap neovim/neovim
 brew install \
 	ansible \
 	autojump \
-	caskroom/cask/brew-cask \
 	gnupg2 \
 	reop \
 	go \

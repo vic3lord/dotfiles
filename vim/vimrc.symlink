@@ -11,6 +11,7 @@ call plug#begin('~/.vim/plugged')
 	Plug 'vim-airline/vim-airline'
 	Plug 'vim-airline/vim-airline-themes'
 	Plug 'gnupg.vim'
+	Plug 'fugitive.vim'
 	Plug 'vim-coffee-script'
 	Plug 'vitapluvia/vim-gurl'
 	Plug 'unblevable/quick-scope'
@@ -18,6 +19,7 @@ call plug#begin('~/.vim/plugged')
 	Plug 'commentary.vim'
 	Plug 'junegunn/fzf'
 	Plug 'junegunn/fzf.vim'
+	Plug 'elzr/vim-json'
 call plug#end()
 
 filetype plugin indent on
@@ -65,7 +67,6 @@ nnoremap <Leader>f :FZF<CR>
 " Language specifics
 autocmd FileType ruby setlocal shiftwidth=2 sts=2 expandtab smartindent
 autocmd FileType yaml setlocal shiftwidth=2 sts=2 expandtab smartindent
-autocmd BufNewFile,BufRead *.json set shiftwidth=2 sts=2 expandtab smartindent ft=javascript
 autocmd FileType java setlocal shiftwidth=4 sts=4 expandtab smartindent
 autocmd FileType python setlocal shiftwidth=4 sts=4 expandtab smartindent
 autocmd FileType html setlocal shiftwidth=2 sts=2 expandtab smartindent
