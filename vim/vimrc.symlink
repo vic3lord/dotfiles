@@ -3,23 +3,26 @@ filetype off
 
 " vim-plug
 call plug#begin('~/.vim/plugged')
-	Plug 'altercation/vim-colors-solarized'
-	Plug 'fatih/vim-go'
-	Plug 'rust-lang/rust.vim'
-	Plug 'ekalinin/Dockerfile.vim'
-	Plug 'markcornick/vim-terraform'
-	Plug 'vim-airline/vim-airline'
-	Plug 'vim-airline/vim-airline-themes'
-	Plug 'gnupg.vim'
-	Plug 'fugitive.vim'
-	Plug 'vim-coffee-script'
-	Plug 'vitapluvia/vim-gurl'
-	Plug 'unblevable/quick-scope'
-	Plug 'tpope/vim-surround'
-	Plug 'commentary.vim'
-	Plug 'junegunn/fzf'
-	Plug 'junegunn/fzf.vim'
-	Plug 'elzr/vim-json'
+
+Plug 'altercation/vim-colors-solarized'
+Plug 'markcornick/vim-terraform'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'gnupg.vim'
+Plug 'fugitive.vim'
+Plug 'vitapluvia/vim-gurl'
+Plug 'unblevable/quick-scope'
+Plug 'tpope/vim-surround'
+Plug 'commentary.vim'
+Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
+Plug 'fatih/vim-go', { 'for': 'go' }
+Plug 'rust-lang/rust.vim', { 'for': 'rust' }
+Plug 'ekalinin/Dockerfile.vim'
+Plug 'vim-coffee-script', { 'for': 'coffee' }
+Plug 'elzr/vim-json', { 'for': 'json' }
+
+" Add plugins to runtime
 call plug#end()
 
 filetype plugin indent on
@@ -51,6 +54,13 @@ set ignorecase
 
 " cancel search highlight with space
 nnoremap <Space> :let @/=""<CR>
+
+" Copy to OSX clipboard
+let os=substitute(system('uname'), '\n', '', '')
+if os == 'Darwin'
+  set clipboard^=unnamed
+  set clipboard^=unnamedplus"
+endif
 
 " vim-go settings
 let g:go_fmt_command = "goimports"
