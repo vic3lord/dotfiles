@@ -115,7 +115,7 @@ function Packages() {
 	done
 }
 
-function Dotfiles_install() {
+function DotfilesInstall() {
 	Info 'installing dotfiles'
 	local overwrite_all=false backup_all=false skip_all=false
 
@@ -126,7 +126,7 @@ function Dotfiles_install() {
 	done
 }
 
-Dotfiles_install
+DotfilesInstall
 
 # install OS and lang packages
 if [ "$1" == "packages" ]; then Packages; fi

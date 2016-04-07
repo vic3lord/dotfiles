@@ -4,10 +4,8 @@ filetype off
 " vim-plug
 call plug#begin('~/.vim/plugged')
 
-Plug 'altercation/vim-colors-solarized'
+" Common stuff
 Plug 'markcornick/vim-terraform'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
 Plug 'gnupg.vim'
 Plug 'fugitive.vim'
 Plug 'vitapluvia/vim-gurl'
@@ -16,9 +14,17 @@ Plug 'tpope/vim-surround'
 Plug 'commentary.vim'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
+Plug 'editorconfig/editorconfig-vim'
+
+" Themes
+Plug 'altercation/vim-colors-solarized'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
+" Language specific plugins
+Plug 'ekalinin/Dockerfile.vim'
 Plug 'fatih/vim-go', { 'for': 'go' }
 Plug 'rust-lang/rust.vim', { 'for': 'rust' }
-Plug 'ekalinin/Dockerfile.vim'
 Plug 'vim-coffee-script', { 'for': 'coffee' }
 Plug 'elzr/vim-json', { 'for': 'json' }
 
@@ -37,7 +43,6 @@ set timeoutlen=1000
 set ttimeoutlen=0
 set encoding=utf-8
 set fileencoding=utf-8
-set showmatch
 set number
 set relativenumber
 set numberwidth=1
@@ -46,13 +51,13 @@ set modelines=5
 set laststatus=2
 set undofile
 set mouse=nv
+
+" Search settings
 set incsearch     " show search matches as you type
 set showmatch
 set hlsearch
 set smartcase	  " ignore case if search pattern is all lowercase, case-sensitive otherwise
 set ignorecase
-
-" cancel search highlight with space
 nnoremap <Space> :let @/=""<CR>
 
 " Copy to OSX clipboard
