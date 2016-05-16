@@ -51,6 +51,7 @@ set modelines=5
 set laststatus=2
 set undofile
 set mouse=nv
+set cursorline
 
 " Search settings
 set incsearch     " show search matches as you type
@@ -61,11 +62,11 @@ set ignorecase
 nnoremap <Space> :let @/=""<CR>
 
 " Copy to OSX clipboard
-let os=substitute(system('uname'), '\n', '', '')
-if os == 'Darwin'
-  set clipboard^=unnamed
-  set clipboard^=unnamedplus"
-endif
+" let os=substitute(system('uname'), '\n', '', '')
+" if os == 'Darwin'
+"   set clipboard^=unnamed
+"   set clipboard^=unnamedplus"
+" endif
 
 " vim-go settings
 let g:go_fmt_command = "goimports"

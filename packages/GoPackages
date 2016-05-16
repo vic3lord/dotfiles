@@ -1,4 +1,2 @@
 github.com/rakyll/boom
-github.com/jfrazelle/weather
-github.com/otium/ytdl/...
-github.com/tools/godep
+github.com/kardianos/govendor

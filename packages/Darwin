@@ -27,11 +27,7 @@ brew install \
 	tmux \
 	tree \
 	weechat \
-	wget \
-	caddy \
-	docker \
-	docker-compose \
-	docker-machine
+	wget
 
 # Installing cask packages
 brew cask install \
@@ -41,9 +37,10 @@ brew cask install \
 	steam \
 	boxer \
 	virtualbox \
-	otto \
 	netspot \
 	torbrowser \
+	whatsapp \
+	wireshark \
 	google-chrome \
 	google-drive \
 	google-cloud-sdk
