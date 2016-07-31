@@ -2,6 +2,8 @@
 	name = Or Elimelech
 	email = 0r3limelech@gmail.com
 [alias]
+	compare = log --oneline master..
+	author = shortlog -s -e
 	ci = commit
 	co = checkout
 	br = branch

@@ -26,30 +26,24 @@ function Fail() {
 }
 
 function link_file() {
-  local src=$1 dst=$2
-
+  local src=$1
+  local dst=$2
   local overwrite= backup= skip=
   local action=
 
   if [ -f "$dst" -o -d "$dst" -o -L "$dst" ]
   then
-
     if [ "$overwrite_all" == "false" ] && [ "$backup_all" == "false" ] && [ "$skip_all" == "false" ]
     then
-
       local currentSrc="$(readlink $dst)"
 
       if [ "$currentSrc" == "$src" ]
       then
-
         skip=true;
-
       else
-
         User "File already exists: $dst ($(basename "$src")), what do you want to do?\n\
         [s]kip, [S]kip all, [o]verwrite, [O]verwrite all, [b]ackup, [B]ackup all?"
         read -n 1 action
-
         case "$action" in
           o )
             overwrite=true;;
@@ -66,9 +60,7 @@ function link_file() {
           * )
             ;;
         esac
-
       fi
-
     fi
 
     overwrite=${overwrite:-$overwrite_all}
@@ -129,7 +121,10 @@ function DotfilesInstall() {
 DotfilesInstall
 
 # install OS and lang packages
-if [ "$1" == "packages" ]; then Packages; fi
+if [ "$1" == "packages" ]
+then
+	Packages
+fi
 
 # look for install.sh and execute
 find $DOTFILES -name install.sh | while read installer; do sh -c "${installer}"; done

@@ -12,6 +12,7 @@ brew install \
 	reop \
 	go \
 	hugo \
+	glide \
 	iperf \
 	fzf \
 	jq \
@@ -27,6 +28,7 @@ brew install \
 	tmux \
 	tree \
 	weechat \
+	ipcalc
 	wget
 
 # Installing cask packages
@@ -41,6 +43,7 @@ brew cask install \
 	torbrowser \
 	whatsapp \
 	wireshark \
+	openzfs \
 	google-chrome \
 	google-drive \
 	google-cloud-sdk

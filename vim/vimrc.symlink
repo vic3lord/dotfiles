@@ -24,6 +24,7 @@ Plug 'vim-airline/vim-airline-themes'
 " Language specific plugins
 Plug 'ekalinin/Dockerfile.vim'
 Plug 'fatih/vim-go', { 'for': 'go' }
+Plug 'nsf/gocode', { 'for': 'go', 'rtp': 'nvim', 'do': '~/.config/nvim/plugged/gocode/nvim/symlink.sh' }
 Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 Plug 'vim-coffee-script', { 'for': 'coffee' }
 Plug 'elzr/vim-json', { 'for': 'json' }
@@ -70,6 +71,11 @@ nnoremap <Space> :let @/=""<CR>
 
 " vim-go settings
 let g:go_fmt_command = "goimports"
+au FileType go nmap <Leader>te <Plug>(go-test)
+au FileType go nmap <Leader>ds <Plug>(go-def-split)
+au FileType go nmap <Leader>dv <Plug>(go-def-vertical)
+au FileType go nmap <Leader>dt <Plug>(go-def-tab)
+au FileType go nmap <Leader>gd <Plug>(go-doc)
 
 " airline
 let g:airline_right_sep=' '
@@ -85,5 +91,6 @@ autocmd FileType ruby setlocal shiftwidth=2 sts=2 expandtab smartindent
 autocmd FileType yaml setlocal shiftwidth=2 sts=2 expandtab smartindent
 autocmd FileType java setlocal shiftwidth=4 sts=4 expandtab smartindent
 autocmd FileType python setlocal shiftwidth=4 sts=4 expandtab smartindent
+autocmd FileType javascript setlocal shiftwidth=4 sts=4 expandtab smartindent
 autocmd FileType html setlocal shiftwidth=2 sts=2 expandtab smartindent
 autocmd BufNewFile,BufReadPost *.coffee setl shiftwidth=2 expandtab
