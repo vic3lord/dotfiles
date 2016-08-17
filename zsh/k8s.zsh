@@ -1,3 +1,4 @@
-# kubectl config view -o jsonpath='{.contexts[0].context.namespace}'
-alias kc='kubectl --namespace=production'
+# kubectl command completion
+source <(kubectl completion zsh)
+
 alias kca='kubectl get --all-namespaces'
