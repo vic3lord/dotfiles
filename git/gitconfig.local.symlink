@@ -1,5 +1,5 @@
 [user]
-        name = AUTHORNAME
-        email = AUTHOREMAIL
+        name = Or Elimelech
+        email = or.elimelech@blazemeter.com
 [credential]
-        helper = GIT_CREDENTIAL_HELPER
+        helper = osxkeychain
