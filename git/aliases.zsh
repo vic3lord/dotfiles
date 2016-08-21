@@ -5,4 +5,3 @@ alias tig="tig --show-signature"
 function gi() {
 	curl -L -s https://www.gitignore.io/api/$@
 }
-

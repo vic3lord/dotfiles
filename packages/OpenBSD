@@ -1,5 +1,0 @@
-# Install packages
-pkg_add -v \
-	vim \
-	go \
-	zsh

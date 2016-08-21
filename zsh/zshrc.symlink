@@ -17,43 +17,39 @@ plugins=(git golang docker vagrant brew)
 
 source $ZSH/oh-my-zsh.sh
 
-#
-# User configuration
-#
-
 export PATH="/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/sbin"
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
 
-# ZSH Vi Mode
-bindkey -v
-export KEYTIMEOUT=1
+if [[ -a ~/.localrc ]]
+then
+  source ~/.localrc
+fi
 
-# Use vim cli mode
-bindkey '^P' up-history
-bindkey '^N' down-history
+# all of our zsh files
+typeset -U config_files
+config_files=($ZSH/**/*.zsh)
 
-# backspace and ^h working even after
-# returning from command mode
-bindkey '^?' backward-delete-char
-bindkey '^h' backward-delete-char
-
-# ctrl-w removed word backwards
-bindkey '^w' backward-kill-word
-
-# ctrl-r starts searching history backward
-bindkey '^r' history-incremental-search-backward
-
-autoload -U edit-command-line
-zle -N edit-command-line
-bindkey -M vicmd v edit-command-line
-
-# Load *.zsh files
-for file in $(ls $DOTFILES/**/*.zsh)
+# load the path files
+for file in ${(M)config_files:#*/path.zsh}
 do
-	source $file
+  source $file
 done
 
-# Load ~/.local.zsh for local functions and vars
-if [ -f $HOME/.local.zsh ]
-then
-	source $HOME/.local.zsh
-fi
+# load everything but the path and completion files
+for file in ${${config_files:#*/path.zsh}:#*/completion.zsh}
+do
+  source $file
+done
+
+# initialize autocomplete here, otherwise functions won't be loaded
+autoload -U compinit
+compinit
+
+# load every completion after autocomplete loads
+for file in ${(M)config_files:#*/completion.zsh}
+do
+  source $file
+done
+
+unset config_files
