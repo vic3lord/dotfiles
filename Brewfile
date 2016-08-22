@@ -25,6 +25,7 @@ brew 'tree'
 brew 'weechat'
 brew 'ipcalc'
 brew 'wget'
+brew 'zsh-syntax-highlighting'
 
 # Casks
 cask 'flux'
