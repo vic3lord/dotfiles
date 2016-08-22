@@ -1,16 +1,11 @@
 # Dotfiles location
 DOTFILES=$HOME/.dotfiles
 
-# oh-my-zsh
-export ZSH=$HOME/.oh-my-zsh
-ZSH_THEME="sorin"
-plugins=(git docker golang)
-source $ZSH/oh-my-zsh.sh
+# PATH
+export PATH="/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/sbin"
 
 # Special dirs
 zstyle ':completion:*' special-dirs true
-
-export PATH="/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/sbin"
 
 # vi-mode
 bindkey -v
