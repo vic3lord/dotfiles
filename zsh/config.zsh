@@ -35,5 +35,9 @@ setopt complete_aliases
 
 zle -N newtab
 
+# delete words bash style
 autoload -U select-word-style
 select-word-style bash
+
+# bring up menu selection
+zstyle ':completion:*' menu select
