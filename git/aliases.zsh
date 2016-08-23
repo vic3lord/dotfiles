@@ -1,4 +1,5 @@
 alias tig="tig --show-signature"
+alias gl="git pull --rebase"
 
 # gitignore.io
 # gi list to get all supported types
