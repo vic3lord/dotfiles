@@ -29,7 +29,6 @@ git_dirty() {
 
 git_prompt_info () {
  ref=$($git symbolic-ref HEAD 2>/dev/null) || return
-# echo "(%{\e[0;33m%}${ref#refs/heads/}%{\e[0m%})"
  echo "${ref#refs/heads/}"
 }
 
@@ -61,19 +60,19 @@ ruby_version() {
 rb_prompt() {
   if ! [[ -z "$(ruby_version)" ]]
   then
-    echo "%{$fg_bold[yellow]%}$(ruby_version)%{$reset_color%} "
+    echo "%{$fg[yellow]%}$(ruby_version)%{$reset_color%} "
   else
     echo ""
   fi
 }
 
 directory_name() {
-  echo "%{$fg_bold[cyan]%}%1/%{$reset_color%}"
+  echo "%{$fg[cyan]%}%1/%{$reset_color%}"
 }
 
 export PROMPT=$'$(rb_prompt)$(directory_name)$(git_dirty)$(need_push)› '
 set_prompt () {
-  export RPROMPT="%{$fg_bold[cyan]%}%{$reset_color%}"
+  export RPROMPT="%{$fg[cyan]%}%{$reset_color%}"
 }
 
 precmd() {
