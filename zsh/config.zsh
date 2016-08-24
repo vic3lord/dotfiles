@@ -16,7 +16,6 @@ setopt HIST_VERIFY
 setopt SHARE_HISTORY # share history between sessions ???
 setopt EXTENDED_HISTORY # add timestamps to history
 setopt PROMPT_SUBST
-setopt CORRECT
 setopt COMPLETE_IN_WORD
 
 # don't expand aliases _before_ completion has finished

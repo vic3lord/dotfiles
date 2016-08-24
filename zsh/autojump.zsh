@@ -1,5 +1,7 @@
-# AutoJump
-if [[ "$OSTYPE" == darwin* ]]
-then
-	[[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
-fi
+function j() {
+    (( $+commands[brew] )) && {
+        local pfx=$(brew --prefix)
+        [[ -f "$pfx/etc/autojump.sh" ]] && . "$pfx/etc/autojump.sh"
+        j "$@"
+    }
+}

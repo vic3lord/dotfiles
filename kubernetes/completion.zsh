@@ -1,5 +1,4 @@
-if $(test $(which kubectl) 2>/dev/null)
+if which kubectl > /dev/null 2>&1
 then
 	source <(kubectl completion zsh)
 fi
-
