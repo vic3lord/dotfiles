@@ -22,24 +22,26 @@ set-option -g renumber-windows on
 
 # Set status bar
   set-window-option -g window-status-current-bg yellow
+  set -g status-justify centre
   set -g status-bg black
   set -g status-fg white
-  set -g status-left-length 70
+  set -g status-left-length 100
   set -g status-left "#[fg=green]: #h : "
-  set -g status-right-length 60
+  set -g status-right-length 100
   set -g status-right "#[fg=green]: %d %b %Y #[fg=green]: %l:%M %p :"
   
 # large history
   set-option -g history-limit 100000
 
 # display active pane in diff background
-  set-option -g pane-active-border-fg green
-  set-option -g pane-active-border-bg green 
+  set-option -g pane-active-border-fg yellow
+  set-option -g pane-active-border-bg black 
 
 # highlight status bar on activity
   setw -g monitor-activity on
   set -g visual-activity on
   set -g visual-bell on
+
 # automatically set window title
   set -g automatic-rename
 
@@ -69,6 +71,7 @@ set-option -s escape-time 10
   bind C-s split-window -v -l 22 -c "#{pane_current_path}"
   bind v split-window -h -c "#{pane_current_path}"
   bind C-v split-window -h -l 131 -c "#{pane_current_path}"
+  bind c new-window -c "#{pane_current_path}"
 
 # navigate panes with hjkl
   bind h select-pane -L
@@ -91,3 +94,6 @@ set-option -s escape-time 10
 
 # enable mouse scrolling
   set -g mouse on
+
+# launch man page in split screen
+  bind / command-prompt "split-window 'exec man %%'"
