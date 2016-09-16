@@ -1,6 +1,5 @@
-export EDITOR="vim"
+BREW_VIM=/usr/local/bin/vim
 
-# vi alias to neovim
-alias vi="nvim"
-alias vim="nvim"
-alias vimdiff="nvim -d"
+export EDITOR="vim"
+alias vi=$BREW_VIM
+alias vim=$BREW_VIM
