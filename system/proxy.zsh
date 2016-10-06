@@ -15,9 +15,9 @@ function usage() {
 	  state           turn socks proxy on/off
 
 	EXAMPLES:
-	  set-proxy setup localhost 9000 user@example.com   turn on socks proxy pointing to localhost:9000 with ssh socks to example.com"
-	  set-proxy state on user@example.com               turn on proxy and set up ssh socks server"
-	  set-proxy state off                               turn off proxy"
+	  set-proxy setup localhost 9000 user@example.com   turn on socks proxy
+	  set-proxy state on user@example.com               turn on proxy and set up ssh socks server
+	  set-proxy state off                               turn off proxy
 	EOF
 }
 

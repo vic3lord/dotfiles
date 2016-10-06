@@ -3,7 +3,7 @@ DOTFILES=$HOME/.dotfiles
 WORKSPACE=$HOME/space
 
 # PATH
-export PATH="/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/sbin"
+export PATH="/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin"
 
 # Special dirs
 zstyle ':completion:*' special-dirs true
