@@ -29,6 +29,7 @@ brew 'wget'
 # Casks
 cask 'flux'
 cask 'transmission'
+cask 'webtorrent'
 cask 'vlc'
 cask 'steam'
 cask 'boxer'
