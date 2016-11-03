@@ -5,7 +5,6 @@ filetype off
 call plug#begin('~/.vim/plugged')
 
 " Common stuff
-Plug 'markcornick/vim-terraform'
 Plug 'gnupg.vim'
 Plug 'fugitive.vim'
 Plug 'vitapluvia/vim-gurl'
@@ -22,6 +21,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
 " Language specific plugins
+Plug 'hashivim/vim-terraform'
 Plug 'ekalinin/Dockerfile.vim'
 Plug 'fatih/vim-go', { 'for': 'go' }
 Plug 'nsf/gocode', { 'for': 'go', 'rtp': 'nvim', 'do': '~/.config/nvim/plugged/gocode/nvim/symlink.sh' }
@@ -63,14 +63,7 @@ set smartcase	  " ignore case if search pattern is all lowercase, case-sensitive
 set ignorecase
 nnoremap <Space> :let @/=""<CR>
 
-" Copy to OSX clipboard
-" let os=substitute(system('uname'), '\n', '', '')
-" if os == 'Darwin'
-"   set clipboard^=unnamed
-"   set clipboard^=unnamedplus"
-" endif
-
-" vim-go settings
+" vim-go
 let g:go_fmt_command = "goimports"
 au FileType go nmap <Leader>te <Plug>(go-test)
 au FileType go nmap <Leader>ds <Plug>(go-def-split)
@@ -84,13 +77,15 @@ let g:airline_left_sep=' '
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ' '
 
+" terraform
+let g:terraform_fmt_on_save = 1
+
 " FZF
 nnoremap <Leader>f :FZF<CR>
 
 " Language specifics
 autocmd FileType ruby setlocal shiftwidth=2 sts=2 expandtab smartindent
 autocmd FileType yaml setlocal shiftwidth=2 sts=2 expandtab smartindent
-autocmd FileType java setlocal shiftwidth=4 sts=4 expandtab smartindent
 autocmd FileType python setlocal shiftwidth=4 sts=4 expandtab smartindent
 autocmd FileType javascript setlocal shiftwidth=4 sts=4 expandtab smartindent
 autocmd FileType html setlocal shiftwidth=2 sts=2 expandtab smartindent
