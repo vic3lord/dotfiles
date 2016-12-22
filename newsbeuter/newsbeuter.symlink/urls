@@ -1,0 +1,10 @@
+http://xkcd.com/rss.xml comics
+https://www.reddit.com/.rss?feed=82baac1841187471f02e0a1cc014628d547f45fe&user=vic3lord reddit
+
+https://github.com/kubernetes/kubernetes/releases.atom github
+https://github.com/prometheus/prometheus/releases.atom github
+https://github.com/prometheus/alertmanager/releases.atom github
+https://github.com/hashicorp/nomad/releases.atom github
+https://github.com/hashicorp/vault/releases.atom github
+https://github.com/hashicorp/consul/releases.atom github
+https://github.com/hashicorp/terraform/releases.atom github

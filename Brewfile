@@ -28,6 +28,7 @@ brew 'ipcalc'
 brew 'wget'
 brew 'pandoc'
 brew 'jsonnet'
+brew 'newsbeuter'
 
 # Casks
 cask 'flux'

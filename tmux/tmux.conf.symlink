@@ -27,7 +27,7 @@ set-option -g renumber-windows on
   set -g status-fg blue
   set -g status-left ""
   set -g status-right-length 60
-  set -g status-right "#[fg=green]#(ifconfig en0 | grep -w inet | cut -d ' ' -f 2) | %a %d %b %Y | %l:%M %p |"
+  set -g status-right "#[fg=green]#(ifconfig en0 | grep -w inet | cut -d ' ' -f 2) | %a %d %b %Y | %H:%M |"
   
 # large history
   set-option -g history-limit 100000
