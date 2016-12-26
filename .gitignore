@@ -1,1 +1,4 @@
 git/gitconfig.local.symlink
+
+weechat.symlink/sec.conf
+weechat.symlink/irc.conf
