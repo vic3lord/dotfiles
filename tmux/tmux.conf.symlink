@@ -1,5 +1,4 @@
 ## global config
-
 set -g default-shell $SHELL 			# zsh
 set -g mouse on 				# enable mouse
 set -g terminal-overrides ',xterm-256color:Tc' 	# true colors
