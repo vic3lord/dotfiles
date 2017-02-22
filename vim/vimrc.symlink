@@ -54,6 +54,7 @@ set undofile
 set undodir=$HOME/.local/share/nvim/undo
 set mouse=nv
 set cursorline
+set cursorcolumn
 
 " Search settings
 set incsearch     " show search matches as you type

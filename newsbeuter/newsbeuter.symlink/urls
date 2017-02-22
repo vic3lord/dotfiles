@@ -1,4 +1,11 @@
+# Comics
 http://xkcd.com/rss.xml comics
+
+# Blogs
+https://blog.filippo.io/rss/ blog
+https://jvns.ca/atom.xml blog
+
+# Github releases
 https://github.com/kubernetes/kubernetes/releases.atom github
 https://github.com/prometheus/prometheus/releases.atom github
 https://github.com/prometheus/alertmanager/releases.atom github

@@ -1,98 +1,103 @@
-# use zsh
-  set -g default-shell $SHELL
+## global config
 
-# use CTRL-A as modifier
-  set-option -g prefix C-a
-  unbind C-b
+set -g default-shell $SHELL 			# zsh
+set -g mouse on 				# enable mouse
+set -g terminal-overrides ',xterm-256color:Tc' 	# true colors
+set-option -s escape-time 10 			# speed up
+set -g base-index 1 				# start window index at 1
+set-window-option -g pane-base-index 1 		# pane index at 1
+set-option -g renumber-windows on 		# auto renumber when tab is deleted
+set-option -g history-limit 100000 		# large history
+setw -g monitor-activity on			# monitor window activity
+set -g visual-activity on 			# enable visual activity
+set -g visual-bell on				# enable visual bell
+set-window-option -g automatic-rename off	# auto rename off
+set-option -g allow-rename off			# disable renaming
 
-# Support for 256 colors
-  set -g default-terminal "screen-256color"
 
-# bind vi key-mapping
-  set -g status-keys vi
+## key bindings
+set-option -g prefix C-a			# bind CTRL-a
+unbind C-b					# unbind CTRL-b
+bind-key C-a last-window			# bind C-a to the previously active window
 
-# Window index base 1
-  set -g base-index 1
+set -g status-keys vi				# bind vi key-mapping
+set-window-option -g mode-keys vi		# vi-style controls for copy mode
+bind-key -t vi-copy v begin-selection		# setup 'v' to begin selection as in Vim
 
-# Pane index base 1
-  set-window-option -g pane-base-index 1
-
-# Auto renumber when tab is deleted
-set-option -g renumber-windows on
-
-# Set status bar
-  set-window-option -g window-status-current-bg blue
-  set-window-option -g window-status-current-fg white
-  set -g status-bg black
-  set -g status-fg blue
-  set -g status-left ""
-  set -g status-right-length 60
-  set -g status-right "#[fg=green]#(ifconfig en0 | grep -w inet | cut -d ' ' -f 2) | %a %d %b %Y | %H:%M |"
-  
-# large history
-  set-option -g history-limit 100000
-
-# display active pane in diff background
-  set-option -g pane-active-border-fg yellow
-  set-option -g pane-active-border-bg black 
-
-# highlight status bar on activity
-  setw -g monitor-activity on
-  set -g visual-activity on
-  set -g visual-bell on
-
-# automatically set window title
-  set -g automatic-rename
-
-# speed up 
-set-option -s escape-time 10
-
-# vi-style controls for copy mode
-  set-window-option -g mode-keys vi
-
-# Setup 'v' to begin selection as in Vim
-  bind-key -t vi-copy v begin-selection
-  bind-key -t vi-copy y copy-pipe "reattach-to-user-namespace pbcopy"
-
-# Update default binding of `Enter` to use copy-pipe
-  unbind -t vi-copy Enter
-  bind-key -t vi-copy Enter copy-pipe "reattach-to-user-namespace pbcopy"
-
-# bind C-a to the previously active window
-  bind-key C-a last-window
+# macOS clipboard
+bind-key -t vi-copy y copy-pipe "reattach-to-user-namespace pbcopy"
 
 # force a reload of the config file
-  bind C-r source-file ~/.tmux.conf \; run-shell "echo 'Configuration Reloaded'"
+bind C-r source-file ~/.tmux.conf \; display "reloaded configuration"
 
-# split windows like vim.  - Note: vim's definition of a horizontal/vertical split is reversed from tmux's
-  unbind s
-  bind s split-window -v -c "#{pane_current_path}"
-  bind C-s split-window -v -l 22 -c "#{pane_current_path}"
-  bind v split-window -h -c "#{pane_current_path}"
-  bind C-v split-window -h -l 131 -c "#{pane_current_path}"
-  bind c new-window -c "#{pane_current_path}"
+# split windows like vim
+unbind s
+bind s split-window -v -c "#{pane_current_path}"
+bind C-s split-window -v -l 22 -c "#{pane_current_path}"
+bind v split-window -h -c "#{pane_current_path}"
+bind C-v split-window -h -l 131 -c "#{pane_current_path}"
+bind c new-window -c "#{pane_current_path}"
 
 # navigate panes with hjkl
-  bind h select-pane -L
-  bind j select-pane -D
-  bind k select-pane -U
-  bind l select-pane -R
+bind h select-pane -L
+bind j select-pane -D
+bind k select-pane -U
+bind l select-pane -R
 
 # resize panes like vim
-  bind < resize-pane -L 10 
-  bind L resize-pane -L 100
-  bind > resize-pane -R 10
-  bind R resize-pane -R 100
-  bind - resize-pane -D 5
-  bind D resize-pane -D 36
-  bind + resize-pane -U 5
-  bind U resize-pane -U 35
-
-# bind : to command-prompt like vim this is the default in tmux already
-  bind : command-prompt
-
-# enable mouse scrolling
-  set -g mouse on
+bind -r < resize-pane -L 10 
+bind -r L resize-pane -L 100
+bind -r > resize-pane -R 10
+bind -r R resize-pane -R 100
+bind -r - resize-pane -D 5
+bind -r D resize-pane -D 36
+bind -r + resize-pane -U 5
+bind -r U resize-pane -U 35
 
 # launch man page in split screen
-  bind / command-prompt "split-window 'exec man %%'"
+bind / command-prompt "split-window 'exec man %%'"
+
+## colors and status bar
+set -g status-bg black
+set -g status-fg cyan
+
+# window status
+set -g window-status-format " #I:#W#F "
+set -g window-status-current-format " #I:#W#F "
+set -g window-status-separator ""
+set -g window-status-current-bg yellow
+set -g window-status-current-fg black
+set -g window-status-activity-bg red
+set -g window-status-activity-fg black
+
+# panes
+set -g pane-border-bg default
+set -g pane-border-fg default
+set -g pane-active-border-bg default
+set -g pane-active-border-fg green
+set -g display-panes-colour default
+set -g display-panes-active-colour default
+
+# left
+set -g status-left-bg black
+set -g status-left-fg green
+set -g status-left-length 40
+set -g status-left "#[fg=yellow]#I #[fg=cyan]#P #[fg=white]» "
+
+# right
+set -g status-right-bg black
+set -g status-right-fg cyan
+set -g status-right-length 40
+set -g status-right "#(ifconfig en0 | grep -w inet | cut -d ' ' -f 2) | %a %d %b %Y | %H:%M "
+
+# clock mode
+set -g clock-mode-colour red
+set -g clock-mode-style 24
+
+# message
+set -g message-bg default
+set -g message-fg default
+
+# command message
+set -g message-command-bg default
+set -g message-command-fg default
