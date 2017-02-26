@@ -9,8 +9,7 @@ set-option -g renumber-windows on 		# auto renumber when tab is deleted
 set-option -g history-limit 100000 		# large history
 setw -g monitor-activity on			# monitor window activity
 set -g visual-bell on				# enable visual bell
-set-window-option -g automatic-rename off	# auto rename off
-set-option -g allow-rename off			# disable renaming
+set-option -g allow-rename off			# disable window renaming
 
 
 ## key bindings
