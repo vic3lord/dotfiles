@@ -36,6 +36,7 @@ filetype plugin indent on
 
 " Silent errors if colorscheme not exist
 silent! colorscheme solarized
+set t_Co=256 " true colors
 
 " Global
 syntax on
@@ -73,10 +74,10 @@ au FileType go nmap <Leader>dt <Plug>(go-def-tab)
 au FileType go nmap <Leader>gd <Plug>(go-doc)
 
 " airline
-let g:airline_right_sep=' '
-let g:airline_left_sep=' '
+let g:airline_right_sep=''
+let g:airline_left_sep=''
 let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_sep = ''
 
 " terraform
 let g:terraform_fmt_on_save = 1
