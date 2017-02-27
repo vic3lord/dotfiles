@@ -22,11 +22,12 @@ bind-key O open-in-browser
 bind-key o open-in-browser article
 
 # Solarized dark
-color background   default   default
-color listnormal   default   default
-color listfocus    black     yellow
-color info         default   black
-color article      default   default
+color background	default   default
+color listnormal	default   default
+color listfocus		white     black
+color listfocus_unread	black	  white
+color info		cyan      black
+color article		default   default
 highlight article "^(Title):.*$" blue default
 highlight article "https?://[^ ]+" red default
 highlight article "\\[image\\ [0-9]+\\]" green default

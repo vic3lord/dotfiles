@@ -2,8 +2,9 @@
 http://xkcd.com/rss.xml comics
 
 # Blogs
-https://blog.filippo.io/rss/ blog
+https://blog.filippo.io/rss/ blog security
 https://jvns.ca/atom.xml blog
+http://www.geektime.co.il/feed blog news
 
 # Github releases
 https://github.com/kubernetes/kubernetes/releases.atom github
@@ -14,3 +15,4 @@ https://github.com/hashicorp/nomad/releases.atom github
 https://github.com/hashicorp/vault/releases.atom github
 https://github.com/hashicorp/consul/releases.atom github
 https://github.com/hashicorp/terraform/releases.atom github
+https://github.com/bitly/oauth2_proxy/releases.atom github
