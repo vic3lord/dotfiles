@@ -2,9 +2,11 @@
 http://xkcd.com/rss.xml comics
 
 # Blogs
-https://blog.filippo.io/rss/ blog security
+https://blog.filippo.io/rss/ blog 
 https://jvns.ca/atom.xml blog
-http://www.geektime.co.il/feed blog news
+http://www.geektime.co.il/feed blog 
+http://googlecloudplatform.blogspot.com/atom.xml blog 
+https://blog.google/products/g-suite/rss blog 
 
 # Github releases
 https://github.com/kubernetes/kubernetes/releases.atom github
