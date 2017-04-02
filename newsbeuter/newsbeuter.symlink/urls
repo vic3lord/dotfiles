@@ -7,6 +7,7 @@ https://jvns.ca/atom.xml blog
 http://www.geektime.co.il/feed blog 
 http://googlecloudplatform.blogspot.com/atom.xml blog 
 https://blog.google/products/g-suite/rss blog 
+http://google-opensource.blogspot.com/atom.xml blog
 
 # Github releases
 https://github.com/kubernetes/kubernetes/releases.atom github
