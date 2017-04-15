@@ -1,2 +1,2 @@
-export GOPATH="$WORKSPACE/go"
-export PATH="$GOPATH/bin:$PATH"
+export PATH="$HOME/go/bin:$PATH"
+export CDPATH=".:$HOME/go/src"
