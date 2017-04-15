@@ -1,5 +1,8 @@
-[include]
-        path = ~/.gitconfig.local
+[user]
+        name = Or Elimelech
+        email = 0r3limelech@gmail.com
+[github]
+	user = vic3lord
 [alias]
 	compare = log --oneline master..
 	author = shortlog -s -e
