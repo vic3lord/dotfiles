@@ -1,28 +1,26 @@
 ## global config
 set -g default-shell $SHELL 			# zsh
+set -g prefix C-a				# change prefix to CTRL-a
 set -g mouse on 				# enable mouse
 set -g terminal-overrides ',xterm-256color:Tc' 	# true colors
-set-option -s escape-time 10 			# speed up
+set -s escape-time 10 				# speed up
 set -g base-index 1 				# start window index at 1
-set-window-option -g pane-base-index 1 		# pane index at 1
-set-option -g renumber-windows on 		# auto renumber when tab is deleted
-set-option -g history-limit 100000 		# large history
-setw -g monitor-activity on			# monitor window activity
+set -g renumber-windows on 			# auto renumber when tab is deleted
+set -g history-limit 100000 			# large history
 set -g visual-bell on				# enable visual bell
-set-option -g allow-rename off			# disable window renaming
+set -g allow-rename off				# disable window renaming
+setw -g monitor-activity on			# monitor window activity
+setw -g pane-base-index 1 			# pane index at 1
 
 
 ## key bindings
-set-option -g prefix C-a			# bind CTRL-a
 unbind C-b					# unbind CTRL-b
-bind-key C-a last-window			# bind C-a to the previously active window
-
+bind C-a last-window				# bind C-a to the previously active window
 set -g status-keys vi				# bind vi key-mapping
-set-window-option -g mode-keys vi		# vi-style controls for copy mode
-bind-key -t vi-copy v begin-selection		# setup 'v' to begin selection as in Vim
+setw -g mode-keys vi				# vi-style controls for copy mode
 
-# macOS clipboard
-bind-key -t vi-copy y copy-pipe "reattach-to-user-namespace pbcopy"
+# vi yank to macOS clipboard
+bind -T copy-mode-vi y send -X copy-pipe-and-cancel "reattach-to-user-namespace pbcopy"
 
 # force a reload of the config file
 bind C-r source-file ~/.tmux.conf \; display "reloaded configuration"
