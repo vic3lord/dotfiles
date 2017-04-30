@@ -9,3 +9,20 @@ Helps me automate my environment on new systems.
 git clone https://github.com/vic3lord/dotfiles ~/.dotfiles
 cd ~/.dotfiles && make
 ```
+
+## What's included?
+
+- tmux
+- homebrew
+- vim plug
+  - solarized dark
+  - airline
+  - editorconfig
+  - vim-surround
+  - fugitive
+  - google/searchindex
+  - quick-scope
+  - fzf
+  - commentary
+- pure zsh configs (no heavy oh-my-zsh etc.)
+- newsbeuter
