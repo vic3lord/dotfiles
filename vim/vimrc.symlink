@@ -15,6 +15,7 @@ Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'google/vim-searchindex'
+Plug 'KeyboardFire/vim-minisnip'
 
 " Themes
 Plug 'altercation/vim-colors-solarized'
@@ -25,10 +26,11 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'hashivim/vim-terraform'
 Plug 'ekalinin/Dockerfile.vim'
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries','for': 'go' }
-Plug 'nsf/gocode', { 'for': 'go', 'rtp': 'nvim', 'do': '~/.config/nvim/plugged/gocode/nvim/symlink.sh' }
+Plug 'nsf/gocode', { 'for': 'go', 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' }
 Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 Plug 'vim-coffee-script', { 'for': 'coffee' }
 Plug 'elzr/vim-json', { 'for': 'json' }
+Plug 'uarun/vim-protobuf', { 'for': 'proto' }
 
 " Add plugins to runtime
 call plug#end()
