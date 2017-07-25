@@ -5,17 +5,19 @@ filetype off
 call plug#begin('~/.vim/plugged')
 
 " Common stuff
-Plug 'gnupg.vim'
-Plug 'fugitive.vim'
+Plug 'jamessan/vim-gnupg'
+Plug 'tpope/vim-fugitive'
 Plug 'vitapluvia/vim-gurl'
 Plug 'unblevable/quick-scope'
 Plug 'tpope/vim-surround'
-Plug 'commentary.vim'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-repeat'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'google/vim-searchindex'
 Plug 'KeyboardFire/vim-minisnip'
+Plug 'vim-syntastic/syntastic'
 
 " Themes
 Plug 'altercation/vim-colors-solarized'
@@ -28,7 +30,7 @@ Plug 'ekalinin/Dockerfile.vim'
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries','for': 'go' }
 Plug 'nsf/gocode', { 'for': 'go', 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' }
 Plug 'rust-lang/rust.vim', { 'for': 'rust' }
-Plug 'vim-coffee-script', { 'for': 'coffee' }
+Plug 'kchmck/vim-coffee-script', { 'for': 'coffee' }
 Plug 'elzr/vim-json', { 'for': 'json' }
 Plug 'uarun/vim-protobuf', { 'for': 'proto' }
 
@@ -74,6 +76,17 @@ map <C-n> :cnext<CR>
 map <C-m> :cprevious<CR>
 nnoremap <leader>a :cclose<CR>
 
+" syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_go_checkers = ['golint', 'govet']
+
 " vim-go
 let g:go_fmt_command = "goimports"
 augroup golang
@@ -103,6 +116,6 @@ nnoremap <Leader>f :FZF<CR>
 autocmd FileType ruby setlocal shiftwidth=2 sts=2 expandtab smartindent
 autocmd FileType yaml setlocal shiftwidth=2 sts=2 expandtab smartindent
 autocmd FileType python setlocal shiftwidth=4 sts=4 expandtab smartindent
-autocmd FileType javascript setlocal shiftwidth=4 sts=4 expandtab smartindent
+autocmd FileType javascript setlocal shiftwidth=2 sts=2 expandtab smartindent
 autocmd FileType html setlocal shiftwidth=2 sts=2 expandtab smartindent
 autocmd BufNewFile,BufReadPost *.coffee setl shiftwidth=2 expandtab
