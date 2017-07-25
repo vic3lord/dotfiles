@@ -22,6 +22,9 @@ setw -g mode-keys vi				# vi-style controls for copy mode
 # vi yank to macOS clipboard
 bind -T copy-mode-vi y send -X copy-pipe-and-cancel "reattach-to-user-namespace pbcopy"
 
+# mouse drag and copy selection to clipboard
+bind -T copy-mode-vi MouseDragEnd1Pane send-keys -X copy-pipe-and-cancel "reattach-to-user-namespace pbcopy"
+
 # force a reload of the config file
 bind C-r source-file ~/.tmux.conf \; display "reloaded configuration"
 
@@ -69,8 +72,8 @@ set -g window-status-activity-fg black
 # panes
 set -g pane-border-bg default
 set -g pane-border-fg default
-set -g pane-active-border-bg default
-set -g pane-active-border-fg green
+set -g pane-active-border-bg default	
+set -g pane-active-border-fg cyan
 set -g display-panes-colour red
 set -g display-panes-active-colour red
 
@@ -84,7 +87,7 @@ set -g status-left "#[fg=yellow]#I #[fg=cyan]#P #[fg=white]» "
 set -g status-right-bg black
 set -g status-right-fg cyan
 set -g status-right-length 200
-set -g status-right "(kubernetes/#(kubectl config current-context | cut -d'_' -f4)) | %a %d %b %Y | %H:%M "
+set -g status-right "(kubernetes/#(kubectl config current-context | cut -d'_' -f4)) [%a %d/%m/%Y][%H:%M]"
 
 # clock mode
 set -g clock-mode-colour red
