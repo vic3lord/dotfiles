@@ -4,14 +4,15 @@ http://xkcd.com/rss.xml comics
 # Blogs
 https://blog.filippo.io/rss/ blog 
 https://jvns.ca/atom.xml blog
-http://www.geektime.co.il/feed blog 
 http://googlecloudplatform.blogspot.com/atom.xml blog 
 https://blog.google/products/g-suite/rss blog 
 http://google-opensource.blogspot.com/atom.xml blog
+http://undeadly.org/cgi?action=rss blog openbsd
 
 # Github releases
 https://github.com/kubernetes/kubernetes/releases.atom github
 https://github.com/kubernetes/ingress/releases.atom github
+https://github.com/istio/istio/releases.atom github
 https://github.com/prometheus/prometheus/releases.atom github
 https://github.com/prometheus/alertmanager/releases.atom github
 https://github.com/grafana/grafana/releases.atom github
@@ -21,3 +22,4 @@ https://github.com/hashicorp/consul/releases.atom github
 https://github.com/hashicorp/terraform/releases.atom github
 https://github.com/bitly/oauth2_proxy/releases.atom github
 https://github.com/metabase/metabase/releases.atom github
+https://github.com/spinnaker/spinnaker/releases.atom github
