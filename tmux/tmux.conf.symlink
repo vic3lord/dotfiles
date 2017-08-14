@@ -87,7 +87,7 @@ set -g status-left "#[fg=yellow]#I #[fg=cyan]#P #[fg=white]» "
 set -g status-right-bg black
 set -g status-right-fg cyan
 set -g status-right-length 200
-set -g status-right "(kubernetes/#(kubectl config current-context | cut -d'_' -f4)) [%a %d/%m/%Y][%H:%M]"
+set -g status-right "(kubernetes/#(kubectl config current-context)) [%a %d/%m/%Y][%H:%M]"
 
 # clock mode
 set -g clock-mode-colour red
