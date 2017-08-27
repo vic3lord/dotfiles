@@ -4,6 +4,11 @@ filetype off
 " vim-plug
 call plug#begin('~/.vim/plugged')
 
+" Themes
+Plug 'altercation/vim-colors-solarized'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
 " Common stuff
 Plug 'jamessan/vim-gnupg'
 Plug 'tpope/vim-fugitive'
@@ -16,13 +21,13 @@ Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'google/vim-searchindex'
-Plug 'KeyboardFire/vim-minisnip'
 Plug 'vim-syntastic/syntastic'
 
-" Themes
-Plug 'altercation/vim-colors-solarized'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+" completion
+Plug 'Shougo/neocomplete.vim'
+Plug 'Shougo/neosnippet.vim'
+Plug 'Shougo/neosnippet-snippets'
+Plug 'jiangmiao/auto-pairs'
 
 " Language specific plugins
 Plug 'hashivim/vim-terraform'
@@ -62,6 +67,7 @@ set mouse=nv
 set cursorline
 set cursorcolumn
 set autowrite
+set backspace=2
 
 " Search settings
 set incsearch     " show search matches as you type
@@ -76,6 +82,14 @@ map <C-n> :cnext<CR>
 map <C-m> :cprevious<CR>
 nnoremap <leader>a :cclose<CR>
 
+" neocomplete
+let g:neocomplete#enable_at_startup = 1
+
+" neosnippet
+imap <C-k> <Plug>(neosnippet_expand_or_jump)
+smap <C-k> <Plug>(neosnippet_expand_or_jump)
+xmap <C-k> <Plug>(neosnippet_expand_target)
+
 " syntastic
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
@@ -89,6 +103,7 @@ let g:syntastic_go_checkers = ['golint', 'govet']
 
 " vim-go
 let g:go_fmt_command = "goimports"
+let g:go_snippet_engine = "neosnippet"
 augroup golang
   au!
   au FileType go nmap <leader>b  <Plug>(go-build)
