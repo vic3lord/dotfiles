@@ -31,6 +31,7 @@ brew 'watch'
 brew 'wget'
 brew 'xhyve'
 brew 'yarn'
+brew 'graphviz'
 
 # Casks
 cask 'airflow'
