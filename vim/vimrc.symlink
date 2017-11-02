@@ -17,13 +17,14 @@ Plug 'unblevable/quick-scope'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
-Plug 'junegunn/fzf'
-Plug 'junegunn/fzf.vim'
+Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'google/vim-searchindex'
-Plug 'vim-syntastic/syntastic'
 
-" completion
+" Linting & fixing
+Plug 'w0rp/ale'
+
+" Completion
 Plug 'Shougo/neocomplete.vim'
 Plug 'Shougo/neosnippet.vim'
 Plug 'Shougo/neosnippet-snippets'
@@ -32,12 +33,16 @@ Plug 'jiangmiao/auto-pairs'
 " Language specific plugins
 Plug 'hashivim/vim-terraform'
 Plug 'ekalinin/Dockerfile.vim'
-Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries','for': 'go' }
-Plug 'nsf/gocode', { 'for': 'go', 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' }
-Plug 'rust-lang/rust.vim', { 'for': 'rust' }
-Plug 'kchmck/vim-coffee-script', { 'for': 'coffee' }
-Plug 'elzr/vim-json', { 'for': 'json' }
-Plug 'uarun/vim-protobuf', { 'for': 'proto' }
+Plug 'fatih/vim-go', {'do': ':GoInstallBinaries','for': 'go'}
+Plug 'nsf/gocode', {'for': 'go', 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh'}
+Plug 'rust-lang/rust.vim', {'for': 'rust'}
+Plug 'kchmck/vim-coffee-script', {'for': 'coffee'}
+Plug 'elzr/vim-json', {'for': 'json'}
+Plug 'uarun/vim-protobuf', {'for': 'proto'}
+Plug 'elmcast/elm-vim', {'for': 'elm'}
+
+" Games :)
+Plug 'johngrib/vim-game-code-break'
 
 " Add plugins to runtime
 call plug#end()
@@ -63,7 +68,7 @@ set modelines=5
 set laststatus=2
 set undofile
 set undodir=$HOME/.vim/undo
-set mouse=nv
+" set mouse=nv
 set cursorline
 set cursorcolumn
 set autowrite
@@ -90,16 +95,16 @@ imap <C-k> <Plug>(neosnippet_expand_or_jump)
 smap <C-k> <Plug>(neosnippet_expand_or_jump)
 xmap <C-k> <Plug>(neosnippet_expand_target)
 
-" syntastic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+" " syntastic
+" set statusline+=%#warningmsg#
+" set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%*
 
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_go_checkers = ['golint', 'govet']
+" let g:syntastic_always_populate_loc_list = 1
+" let g:syntastic_auto_loc_list = 1
+" let g:syntastic_check_on_open = 1
+" let g:syntastic_check_on_wq = 0
+" let g:syntastic_go_checkers = ['golint', 'govet']
 
 " vim-go
 let g:go_fmt_command = "goimports"
@@ -120,6 +125,7 @@ let g:airline_right_sep=''
 let g:airline_left_sep=''
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ''
+let g:airline_powerline_fonts = 1
 
 " terraform
 let g:terraform_fmt_on_save = 1

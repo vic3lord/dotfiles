@@ -9,7 +9,7 @@ git_dirty() {
   then
 	echo ""
   else
-	if [[ $(git status --porcelain) == "" ]]
+	if [[ $(git status --porcelain --untracked-files=no) == "" ]]
 	then
 	    echo ":%{$fg_bold[green]%}$(git_prompt_info)%{$reset_color%}"
 	else
