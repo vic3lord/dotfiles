@@ -1,6 +1,3 @@
-# Comics
-http://xkcd.com/rss.xml comics
-
 # Blogs
 https://blog.filippo.io/rss/ blog 
 https://jvns.ca/atom.xml blog
@@ -8,10 +5,12 @@ http://googlecloudplatform.blogspot.com/atom.xml blog
 https://blog.google/products/g-suite/rss blog 
 http://google-opensource.blogspot.com/atom.xml blog
 http://undeadly.org/cgi?action=rss blog openbsd
+https://cloud.google.com/feeds/container-engine-release-notes.xml
 
 # Github releases
 https://github.com/kubernetes/kubernetes/releases.atom github
 https://github.com/kubernetes/ingress/releases.atom github
+https://github.com/kubernetes/kube-state-metrics/releases.atom github
 https://github.com/istio/istio/releases.atom github
 https://github.com/prometheus/prometheus/releases.atom github
 https://github.com/prometheus/alertmanager/releases.atom github
