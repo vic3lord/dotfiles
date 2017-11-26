@@ -1,8 +1,8 @@
 ## global config
 set -g default-shell $SHELL 			# zsh
+set -g default-terminal screen-256color 	# true colors
 set -g prefix C-a				# change prefix to CTRL-a
 set -g mouse on 				# enable mouse
-set -g terminal-overrides ',xterm-256color:Tc' 	# true colors
 set -s escape-time 10 				# speed up
 set -g base-index 1 				# start window index at 1
 set -g renumber-windows on 			# auto renumber when tab is deleted
