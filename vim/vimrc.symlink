@@ -40,6 +40,7 @@ Plug 'kchmck/vim-coffee-script', {'for': 'coffee'}
 Plug 'elzr/vim-json', {'for': 'json'}
 Plug 'uarun/vim-protobuf', {'for': 'proto'}
 Plug 'elmcast/elm-vim', {'for': 'elm'}
+Plug 'elixir-lang/vim-elixir', {'for': 'elixir'}
 
 " Games :)
 Plug 'johngrib/vim-game-code-break'
