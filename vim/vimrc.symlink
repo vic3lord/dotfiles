@@ -6,6 +6,7 @@ call plug#begin('~/.vim/plugged')
 
 " Themes
 Plug 'altercation/vim-colors-solarized'
+Plug 'dracula/vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
@@ -51,7 +52,7 @@ call plug#end()
 filetype plugin indent on
 
 " Silent errors if colorscheme not exist
-silent! colorscheme solarized
+silent! colorscheme dracula
 set t_Co=256 " true colors
 
 " Global
