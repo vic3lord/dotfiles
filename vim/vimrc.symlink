@@ -97,17 +97,6 @@ imap <C-k> <Plug>(neosnippet_expand_or_jump)
 smap <C-k> <Plug>(neosnippet_expand_or_jump)
 xmap <C-k> <Plug>(neosnippet_expand_target)
 
-" " syntastic
-" set statusline+=%#warningmsg#
-" set statusline+=%{SyntasticStatuslineFlag()}
-" set statusline+=%*
-
-" let g:syntastic_always_populate_loc_list = 1
-" let g:syntastic_auto_loc_list = 1
-" let g:syntastic_check_on_open = 1
-" let g:syntastic_check_on_wq = 0
-" let g:syntastic_go_checkers = ['golint', 'govet']
-
 " vim-go
 let g:go_fmt_command = "goimports"
 let g:go_snippet_engine = "neosnippet"
@@ -121,6 +110,9 @@ augroup golang
   au FileType go nmap <Leader>dt <Plug>(go-def-tab)
   au FileType go nmap <Leader>gd <Plug>(go-doc)
 augroup END
+
+" rust.vim
+let g:rustfmt_autosave = 1
 
 " airline
 let g:airline_right_sep=''
