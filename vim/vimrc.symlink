@@ -21,6 +21,7 @@ Plug 'tpope/vim-repeat'
 Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'google/vim-searchindex'
+Plug 'jremmen/vim-ripgrep'
 
 " Linting & fixing
 Plug 'w0rp/ale'

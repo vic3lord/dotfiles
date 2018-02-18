@@ -1,1 +1,1 @@
-alias bup="brew update && brew upgrade && brew cleanup"
+alias b="brew update && brew upgrade && brew cleanup"

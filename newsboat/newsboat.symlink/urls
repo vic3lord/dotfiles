@@ -6,6 +6,7 @@ https://blog.google/products/g-suite/rss blog
 http://google-opensource.blogspot.com/atom.xml blog
 http://undeadly.org/cgi?action=rss blog openbsd
 https://cloud.google.com/feeds/container-engine-release-notes.xml
+https://derflounder.wordpress.com/feed macos
 
 # Github releases
 https://github.com/kubernetes/kubernetes/releases.atom github

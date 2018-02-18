@@ -1,5 +1,5 @@
 auto-reload yes
-reload-time 480
+reload-time 600
 reload-threads 5
 
 browser "open %u"
