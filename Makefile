@@ -9,7 +9,7 @@ dotfiles:
 	$(foreach src,$(DOTFILES),$(shell ln -sfn $(src) $(HOME)/.$(shell basename $(subst .symlink,,$(src)))))
 
 install:
-	@echo "› brew bundle"
-	brew bundle
 	@echo "find the installers and run them iteratively"
 	find . -name install.sh | xargs -I '{}' sh -c "{}"
+	@echo "› brew bundle"
+	brew bundle
