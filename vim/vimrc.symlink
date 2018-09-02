@@ -35,7 +35,7 @@ Plug 'jiangmiao/auto-pairs'
 " Language specific plugins
 Plug 'hashivim/vim-terraform'
 Plug 'ekalinin/Dockerfile.vim'
-Plug 'fatih/vim-go', {'do': ':GoInstallBinaries','for': 'go'}
+Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries', 'for': ['go', 'gomod'] }
 Plug 'nsf/gocode', {'for': 'go', 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh'}
 Plug 'rust-lang/rust.vim', {'for': 'rust'}
 Plug 'kchmck/vim-coffee-script', {'for': 'coffee'}
@@ -43,6 +43,7 @@ Plug 'elzr/vim-json', {'for': 'json'}
 Plug 'uarun/vim-protobuf', {'for': 'proto'}
 Plug 'elmcast/elm-vim', {'for': 'elm'}
 Plug 'elixir-lang/vim-elixir', {'for': 'elixir'}
+Plug 'rodjek/vim-puppet', {'for': 'puppet'}
 
 " Games :)
 Plug 'johngrib/vim-game-code-break'
