@@ -1,6 +1,7 @@
 [user]
         name = Or Elimelech
         email = 0r3limelech@gmail.com
+	signingkey = 504A2E8DB1B0BD5F
 [github]
 	user = vic3lord
 [alias]

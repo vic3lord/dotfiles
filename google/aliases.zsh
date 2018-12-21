@@ -1,2 +1,11 @@
 alias g='gcloud config configurations activate'
 alias gssh='gcloud compute ssh --ssh-key-file ~/.ssh/id_ed25519'
+
+# purge cdn
+function pcdn() {
+	local urlmap=$1
+	local urlpath=$2
+	local name=$(gcloud compute url-maps list --filter="name~$urlmap" --format='value(name)')
+	echo "invalidating path $urlpath for $name"
+	gcloud compute url-maps invalidate-cdn-cache $name --path "$urlpath"
+}
