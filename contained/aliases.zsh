@@ -6,4 +6,5 @@ function contained() {
 
 alias mongo='contained mongo:4 mongo'
 alias mongoexport='contained mongo:4 mongoexport'
+alias mongodump='contained mongo:4 mongodump'
 alias crystal='contained crystallang/crystal crystal'

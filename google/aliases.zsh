@@ -2,6 +2,7 @@ alias g='gcloud config configurations activate'
 alias gssh='gcloud compute ssh --ssh-key-file ~/.ssh/id_ed25519'
 
 # purge cdn
+# pcdn service-name-here "/some-path/*"
 function pcdn() {
 	local urlmap=$1
 	local urlpath=$2
