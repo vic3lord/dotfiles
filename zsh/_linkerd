@@ -1,0 +1,20 @@
+#compdef linkerd
+
+_arguments \
+  '1: :->level1' \
+  '2: :_files'
+case $state in
+  level1)
+    case $words[1] in
+      linkerd)
+        _arguments '1: :(check completion dashboard get help inject install profile routes stat tap top version)'
+      ;;
+      *)
+        _arguments '*: :_files'
+      ;;
+    esac
+  ;;
+  *)
+    _arguments '*: :_files'
+  ;;
+esac
