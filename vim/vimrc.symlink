@@ -88,25 +88,16 @@ let g:ale_fixers = { 'go': ['goimports'] }
 let g:ale_completion_enabled = 1
 let g:ale_fix_on_save = 1
 " let g:ale_set_balloons = 1
+nmap <Leader>gd <Plug>(ale_hover)
+nmap <Leader>g <Plug>(ale_go_to_definition)
+nmap <Leader>ds <Plug>(ale_go_to_definition_in_split)
+nmap <Leader>dv <Plug>(ale_go_to_definition_in_vsplit)
+nmap <Leader>dt <Plug>(ale_go_to_definition_in_tab)
 
 " neosnippet
 imap <C-k> <Plug>(neosnippet_expand_or_jump)
 smap <C-k> <Plug>(neosnippet_expand_or_jump)
 xmap <C-k> <Plug>(neosnippet_expand_target)
-
-" vim-go
-let g:go_fmt_command = "goimports"
-let g:go_snippet_engine = "neosnippet"
-augroup golang
-  au!
-  au FileType go nmap <leader>b  <Plug>(go-build)
-  au FileType go nmap <leader>r  <Plug>(go-run)
-  au FileType go nmap <Leader>te <Plug>(go-test)
-  au FileType go nmap <Leader>ds <Plug>(go-def-split)
-  au FileType go nmap <Leader>dv <Plug>(go-def-vertical)
-  au FileType go nmap <Leader>dt <Plug>(go-def-tab)
-  au FileType go nmap <Leader>gd <Plug>(go-doc)
-augroup END
 
 " rust.vim
 let g:rustfmt_autosave = 1
