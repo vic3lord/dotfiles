@@ -24,6 +24,7 @@ Plug 'google/vim-searchindex'
 
 " Completion, lint, fix
 Plug 'w0rp/ale'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'Shougo/neosnippet.vim'
 Plug 'Shougo/neosnippet-snippets'
 Plug 'jiangmiao/auto-pairs'
@@ -82,12 +83,20 @@ map <C-n> :cnext<CR>
 map <C-m> :cprevious<CR>
 nnoremap <leader>a :cclose<CR>
 
+" deoplete
+let g:deoplete#enable_at_startup = 1
+
 " ale
-let g:ale_linters = { 'go': ['golangserver'] }
-let g:ale_fixers = { 'go': ['goimports'] }
 let g:ale_completion_enabled = 1
 let g:ale_fix_on_save = 1
+let g:ale_echo_msg_error_str = 'E'
+let g:ale_echo_msg_warning_str = 'W'
+let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+let g:ale_linters = { 'go': ['golangserver'] }
+let g:ale_fixers = { 'go': ['goimports'] }
 " let g:ale_set_balloons = 1
+
+" ale mappings
 nmap <Leader>gd <Plug>(ale_hover)
 nmap <Leader>g <Plug>(ale_go_to_definition)
 nmap <Leader>ds <Plug>(ale_go_to_definition_in_split)
@@ -118,7 +127,6 @@ nnoremap <Leader>f :FZF<CR>
 " Language specifics
 autocmd FileType ruby setlocal shiftwidth=2 sts=2 expandtab smartindent
 autocmd FileType yaml setlocal shiftwidth=2 sts=2 expandtab smartindent
-autocmd FileType python setlocal shiftwidth=4 sts=4 expandtab smartindent
 autocmd FileType javascript setlocal shiftwidth=2 sts=2 expandtab smartindent
 autocmd FileType html setlocal shiftwidth=2 sts=2 expandtab smartindent
 autocmd BufNewFile,BufReadPost *.coffee setl shiftwidth=2 expandtab
