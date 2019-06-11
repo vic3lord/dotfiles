@@ -1,3 +1,13 @@
+# News
+http://rss.slashdot.org/Slashdot/slashdotMain news
+http://krebsonsecurity.com/feed news security
+http://feeds.feedburner.com/HighScalability news
+https://www.reddit.com/r/technology/.rss news tech
+https://www.reddit.com/r/worldnews/top/.rss news
+
+# comics
+http://xkcd.com/atom.xml comics
+
 # Blogs
 https://blog.filippo.io/rss/ blog 
 https://jvns.ca/atom.xml blog
@@ -5,6 +15,7 @@ https://cloudblog.withgoogle.com/rss/ blog
 http://google-opensource.blogspot.com/atom.xml blog
 http://undeadly.org/cgi?action=rss blog openbsd
 https://derflounder.wordpress.com/feed macos
+https://www.hashicorp.com/feed.xml hashicorp opensource
 
 # Github releases
 https://github.com/kubernetes/kubernetes/releases.atom github
@@ -13,17 +24,17 @@ https://github.com/kubernetes/kube-state-metrics/releases.atom github
 https://github.com/istio/istio/releases.atom github
 https://github.com/prometheus/prometheus/releases.atom github
 https://github.com/prometheus/alertmanager/releases.atom github
+https://github.com/improbable-eng/thanos/releases.atom github
 https://github.com/grafana/grafana/releases.atom github
 https://github.com/hashicorp/nomad/releases.atom github
 https://github.com/hashicorp/vault/releases.atom github
 https://github.com/hashicorp/consul/releases.atom github
 https://github.com/hashicorp/terraform/releases.atom github
-https://github.com/bitly/oauth2_proxy/releases.atom github
 https://github.com/spinnaker/spinnaker/releases.atom github
 https://github.com/terraform-providers/terraform-provider-kubernetes/releases.atom  github
 https://github.com/terraform-providers/terraform-provider-google/releases.atom  github
 https://github.com/kolide/fleet/releases.atom github
 https://github.com/GoogleCloudPlatform/skaffold/releases.atom github
 https://github.com/linkerd/linkerd2/releases.atom github
-https://cloud.google.com/feeds/cloud-build-release-notes.xml
 https://github.com/cockroachdb/cockroach/releases.atom github
+https://cloud.google.com/feeds/cloud-build-release-notes.xml

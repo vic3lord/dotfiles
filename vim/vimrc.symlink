@@ -6,7 +6,6 @@ call plug#begin('~/.vim/plugged')
 
 " Themes
 Plug 'altercation/vim-colors-solarized'
-Plug 'dracula/vim', {'as': 'dracula'}
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
@@ -21,6 +20,9 @@ Plug 'tpope/vim-repeat'
 Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'google/vim-searchindex'
+Plug 'junegunn/limelight.vim'
+Plug 'junegunn/goyo.vim'
+Plug 'godlygeek/tabular'
 
 " Completion, lint, fix
 Plug 'w0rp/ale'
@@ -92,7 +94,7 @@ let g:ale_fix_on_save = 1
 let g:ale_echo_msg_error_str = 'E'
 let g:ale_echo_msg_warning_str = 'W'
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
-let g:ale_linters = { 'go': ['golangserver'] }
+let g:ale_linters = { 'go': ['gopls', 'golint', 'govet', 'staticcheck'] }
 let g:ale_fixers = { 'go': ['goimports'] }
 " let g:ale_set_balloons = 1
 
@@ -118,11 +120,20 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ''
 let g:airline_powerline_fonts = 1
 
+" limelight
+let g:limelight_conceal_ctermfg = 'gray'
+let g:limelight_conceal_ctermfg = 240
+autocmd! User GoyoEnter Limelight
+autocmd! User GoyoLeave Limelight!
+
 " terraform
 let g:terraform_fmt_on_save = 1
 
 " FZF
-nnoremap <Leader>f :FZF<CR>
+nnoremap <Leader>f :Files<CR>
+nnoremap <Leader>b :Buffers<CR>
+nnoremap <Leader>l :Lines<CR>
+nnoremap <Leader>c :BCommits<CR>
 
 " Language specifics
 autocmd FileType ruby setlocal shiftwidth=2 sts=2 expandtab smartindent
