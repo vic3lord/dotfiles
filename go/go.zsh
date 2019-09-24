@@ -1,2 +1,1 @@
-export GOPROXY=https://proxy.golang.org
-
+export GOPROXY=https://proxy.golang.org,direct
