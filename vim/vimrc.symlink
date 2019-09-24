@@ -25,7 +25,7 @@ Plug 'junegunn/goyo.vim'
 Plug 'godlygeek/tabular'
 
 " Completion, lint, fix
-Plug 'w0rp/ale'
+Plug 'autozimu/LanguageClient-neovim', {'branch': 'next', 'do': 'bash install.sh'}
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'Shougo/neosnippet.vim'
 Plug 'Shougo/neosnippet-snippets'
@@ -73,10 +73,10 @@ set autowrite
 set backspace=2
 
 " Search settings
-set incsearch     " show search matches as you type
+set incsearch " show search matches as you type
 set showmatch
 set hlsearch
-set smartcase	  " ignore case if search pattern is all lowercase, case-sensitive otherwise
+set smartcase " ignore case if search pattern is all lowercase, case-sensitive otherwise
 set ignorecase
 nnoremap <Space> :let @/=""<CR>
 
@@ -88,22 +88,12 @@ nnoremap <leader>a :cclose<CR>
 " deoplete
 let g:deoplete#enable_at_startup = 1
 
-" ale
-let g:ale_completion_enabled = 1
-let g:ale_fix_on_save = 1
-let g:ale_echo_msg_error_str = 'E'
-let g:ale_echo_msg_warning_str = 'W'
-let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
-let g:ale_linters = { 'go': ['gopls', 'golint', 'govet', 'staticcheck'] }
-let g:ale_fixers = { 'go': ['goimports'] }
-" let g:ale_set_balloons = 1
+" LanguageClient
+let g:LanguageClient_serverCommands = {'go': ['gopls']}
 
-" ale mappings
-nmap <Leader>gd <Plug>(ale_hover)
-nmap <Leader>g <Plug>(ale_go_to_definition)
-nmap <Leader>ds <Plug>(ale_go_to_definition_in_split)
-nmap <Leader>dv <Plug>(ale_go_to_definition_in_vsplit)
-nmap <Leader>dt <Plug>(ale_go_to_definition_in_tab)
+nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
+nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
+nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
 
 " neosnippet
 imap <C-k> <Plug>(neosnippet_expand_or_jump)
@@ -134,6 +124,7 @@ nnoremap <Leader>f :Files<CR>
 nnoremap <Leader>b :Buffers<CR>
 nnoremap <Leader>l :Lines<CR>
 nnoremap <Leader>c :BCommits<CR>
+nnoremap <Leader>g :Rg<CR>
 
 " Language specifics
 autocmd FileType ruby setlocal shiftwidth=2 sts=2 expandtab smartindent
@@ -141,3 +132,4 @@ autocmd FileType yaml setlocal shiftwidth=2 sts=2 expandtab smartindent
 autocmd FileType javascript setlocal shiftwidth=2 sts=2 expandtab smartindent
 autocmd FileType html setlocal shiftwidth=2 sts=2 expandtab smartindent
 autocmd BufNewFile,BufReadPost *.coffee setl shiftwidth=2 expandtab
+autocmd BufWritePre *.go :call LanguageClient#textDocument_formatting_sync()
