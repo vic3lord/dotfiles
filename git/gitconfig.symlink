@@ -12,6 +12,7 @@
 	br = branch
 	st = status -s
 	edit = "!vim `git ls-files -m` -p"
+	flux = log --author="flux" --oneline
 [push]
 	default = simple
 [color]
@@ -21,8 +22,9 @@
 	local = yellow
 	remote = green
 [filter "lfs"]
-	clean = git-lfs clean %f
-	smudge = git-lfs smudge %f
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
 	required = true
+	process = git-lfs filter-process
 [merge]
 	tool = vimdiff
