@@ -66,11 +66,11 @@ set modelines=5
 set laststatus=2
 set undofile
 set undodir=$HOME/.vim/undo
-" set mouse=nv
 set cursorline
 set cursorcolumn
 set autowrite
 set backspace=2
+set completeopt-=preview " disable preview on completion
 
 " Search settings
 set incsearch " show search matches as you type
@@ -78,6 +78,7 @@ set showmatch
 set hlsearch
 set smartcase " ignore case if search pattern is all lowercase, case-sensitive otherwise
 set ignorecase
+set clipboard+=unnamedplus " add clipboard support
 nnoremap <Space> :let @/=""<CR>
 
 " custom mappings
