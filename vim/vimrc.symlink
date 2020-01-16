@@ -12,6 +12,7 @@ Plug 'vim-airline/vim-airline-themes'
 " Common stuff
 Plug 'jamessan/vim-gnupg'
 Plug 'tpope/vim-fugitive'
+Plug 'APZelos/blamer.nvim'
 Plug 'vitapluvia/vim-gurl'
 Plug 'unblevable/quick-scope'
 Plug 'tpope/vim-surround'
@@ -100,6 +101,9 @@ nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
 imap <C-k> <Plug>(neosnippet_expand_or_jump)
 smap <C-k> <Plug>(neosnippet_expand_or_jump)
 xmap <C-k> <Plug>(neosnippet_expand_target)
+
+" blamer.nvim
+let g:blamer_enabled = 1
 
 " rust.vim
 let g:rustfmt_autosave = 1
