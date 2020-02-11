@@ -28,3 +28,5 @@
 	process = git-lfs filter-process
 [merge]
 	tool = vimdiff
+[url "git@github.com:stackpulse"]
+	insteadOf = https://github.com/stackpulse
