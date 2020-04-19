@@ -21,11 +21,6 @@
 	current = yellow reverse
 	local = yellow
 	remote = green
-[filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	required = true
-	process = git-lfs filter-process
 [merge]
 	tool = vimdiff
 [url "git@github.com:stackpulse"]

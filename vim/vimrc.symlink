@@ -103,7 +103,7 @@ smap <C-k> <Plug>(neosnippet_expand_or_jump)
 xmap <C-k> <Plug>(neosnippet_expand_target)
 
 " blamer.nvim
-let g:blamer_enabled = 1
+let g:blamer_enabled = 0
 let g:blamer_delay = 2000
 
 " rust.vim
