@@ -13,6 +13,7 @@
 	st = status -s
 	edit = "!vim `git ls-files -m` -p"
 	flux = log --author="flux" --oneline
+	ticket = "!open https://stackpulse.atlassian.net/browse/$(git branch --show-current)"
 [push]
 	default = simple
 [color]
@@ -23,5 +24,13 @@
 	remote = green
 [merge]
 	tool = vimdiff
+[diff]
+	tool = vimdiff
+[difftool]
+	prompt = false
+[mergetool]
+	path = nvim
 [url "git@github.com:stackpulse"]
 	insteadOf = https://github.com/stackpulse
+[mergetool "vimdiff"]
+	path = nvim

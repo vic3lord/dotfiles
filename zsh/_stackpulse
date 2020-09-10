@@ -1,0 +1,314 @@
+#compdef _stackpulse stackpulse
+
+
+function _stackpulse {
+  local -a commands
+
+  _arguments -C \
+    '(-c --config)'{-c,--config}'[Path to config file]:' \
+    '(-v --verbose)'{-v,--verbose}'[verbose output]' \
+    "1: :->cmnds" \
+    "*::arg:->args"
+
+  case $state in
+  cmnds)
+    commands=(
+      "apply:Apply a configuration to a resource"
+      "cancel:Cancel a running resource"
+      "completion:Output shell completion code"
+      "delete:Delete resources"
+      "describe:Show details of a specific resource"
+      "get:Display resources"
+      "help:Help about any command"
+      "init:Initialize and configure SP CLI options"
+      "version:Print StackPulse CLI version information"
+    )
+    _describe "command" commands
+    ;;
+  esac
+
+  case "$words[1]" in
+  apply)
+    _stackpulse_apply
+    ;;
+  cancel)
+    _stackpulse_cancel
+    ;;
+  completion)
+    _stackpulse_completion
+    ;;
+  delete)
+    _stackpulse_delete
+    ;;
+  describe)
+    _stackpulse_describe
+    ;;
+  get)
+    _stackpulse_get
+    ;;
+  help)
+    _stackpulse_help
+    ;;
+  init)
+    _stackpulse_init
+    ;;
+  version)
+    _stackpulse_version
+    ;;
+  esac
+}
+
+
+function _stackpulse_apply {
+  local -a commands
+
+  _arguments -C \
+    '(-c --config)'{-c,--config}'[Path to config file]:' \
+    '(-v --verbose)'{-v,--verbose}'[verbose output]' \
+    "1: :->cmnds" \
+    "*::arg:->args"
+
+  case $state in
+  cmnds)
+    commands=(
+      "integration:Apply settings for specific integration"
+      "playbook:Apply a configuration to playbooks"
+      "trigger:apply trigger configs"
+    )
+    _describe "command" commands
+    ;;
+  esac
+
+  case "$words[1]" in
+  integration)
+    _stackpulse_apply_integration
+    ;;
+  playbook)
+    _stackpulse_apply_playbook
+    ;;
+  trigger)
+    _stackpulse_apply_trigger
+    ;;
+  esac
+}
+
+function _stackpulse_apply_integration {
+  _arguments \
+    '(-f --file)'{-f,--file}'[JSON integration settings]:' \
+    '(-i --integration)'{-i,--integration}'[integration name]:' \
+    '(-c --config)'{-c,--config}'[Path to config file]:' \
+    '(-v --verbose)'{-v,--verbose}'[verbose output]'
+}
+
+function _stackpulse_apply_playbook {
+  _arguments \
+    '(-d --dry-run)'{-d,--dry-run}'[Don'\''t actually apply, just validate resource]' \
+    '(-f --file)'{-f,--file}'[file to use]:' \
+    '(-i --integration)'{-i,--integration}'[integration name for the playbook]:' \
+    '(-c --config)'{-c,--config}'[Path to config file]:' \
+    '(-v --verbose)'{-v,--verbose}'[verbose output]'
+}
+
+function _stackpulse_apply_trigger {
+  _arguments \
+    '--dry-run[Don'\''t actually apply, just validate resource]' \
+    '(-f --file)'{-f,--file}'[file to use]:' \
+    '(-c --config)'{-c,--config}'[Path to config file]:' \
+    '(-v --verbose)'{-v,--verbose}'[verbose output]'
+}
+
+
+function _stackpulse_cancel {
+  local -a commands
+
+  _arguments -C \
+    '(-c --config)'{-c,--config}'[Path to config file]:' \
+    '(-v --verbose)'{-v,--verbose}'[verbose output]' \
+    "1: :->cmnds" \
+    "*::arg:->args"
+
+  case $state in
+  cmnds)
+    commands=(
+      "execution:cancels specific execution ID"
+    )
+    _describe "command" commands
+    ;;
+  esac
+
+  case "$words[1]" in
+  execution)
+    _stackpulse_cancel_execution
+    ;;
+  esac
+}
+
+function _stackpulse_cancel_execution {
+  _arguments \
+    '(-c --config)'{-c,--config}'[Path to config file]:' \
+    '(-v --verbose)'{-v,--verbose}'[verbose output]'
+}
+
+function _stackpulse_completion {
+  _arguments \
+    '(-h --help)'{-h,--help}'[help for completion]' \
+    '(-c --config)'{-c,--config}'[Path to config file]:' \
+    '(-v --verbose)'{-v,--verbose}'[verbose output]' \
+    '1: :("bash" "zsh" "fish")'
+}
+
+
+function _stackpulse_delete {
+  local -a commands
+
+  _arguments -C \
+    '(-c --config)'{-c,--config}'[Path to config file]:' \
+    '(-v --verbose)'{-v,--verbose}'[verbose output]' \
+    "1: :->cmnds" \
+    "*::arg:->args"
+
+  case $state in
+  cmnds)
+    commands=(
+      "trigger:"
+    )
+    _describe "command" commands
+    ;;
+  esac
+
+  case "$words[1]" in
+  trigger)
+    _stackpulse_delete_trigger
+    ;;
+  esac
+}
+
+function _stackpulse_delete_trigger {
+  _arguments \
+    '(-c --config)'{-c,--config}'[Path to config file]:' \
+    '(-v --verbose)'{-v,--verbose}'[verbose output]'
+}
+
+
+function _stackpulse_describe {
+  local -a commands
+
+  _arguments -C \
+    '(-c --config)'{-c,--config}'[Path to config file]:' \
+    '(-v --verbose)'{-v,--verbose}'[verbose output]' \
+    "1: :->cmnds" \
+    "*::arg:->args"
+
+  case $state in
+  cmnds)
+    commands=(
+      "integration:Show settings of a specific integration"
+      "playbook:Show details of a specific playbook"
+    )
+    _describe "command" commands
+    ;;
+  esac
+
+  case "$words[1]" in
+  integration)
+    _stackpulse_describe_integration
+    ;;
+  playbook)
+    _stackpulse_describe_playbook
+    ;;
+  esac
+}
+
+function _stackpulse_describe_integration {
+  _arguments \
+    '(-c --config)'{-c,--config}'[Path to config file]:' \
+    '(-v --verbose)'{-v,--verbose}'[verbose output]'
+}
+
+function _stackpulse_describe_playbook {
+  _arguments \
+    '(-c --config)'{-c,--config}'[Path to config file]:' \
+    '(-v --verbose)'{-v,--verbose}'[verbose output]'
+}
+
+
+function _stackpulse_get {
+  local -a commands
+
+  _arguments -C \
+    '(-c --config)'{-c,--config}'[Path to config file]:' \
+    '(-v --verbose)'{-v,--verbose}'[verbose output]' \
+    "1: :->cmnds" \
+    "*::arg:->args"
+
+  case $state in
+  cmnds)
+    commands=(
+      "integrations:Display integrations"
+      "integrations:Display integrations"
+      "playbooks:Display playbooks"
+      "trigger:"
+    )
+    _describe "command" commands
+    ;;
+  esac
+
+  case "$words[1]" in
+  integrations)
+    _stackpulse_get_integrations
+    ;;
+  integrations)
+    _stackpulse_get_integrations
+    ;;
+  playbooks)
+    _stackpulse_get_playbooks
+    ;;
+  trigger)
+    _stackpulse_get_trigger
+    ;;
+  esac
+}
+
+function _stackpulse_get_integrations {
+  _arguments \
+    '(-c --config)'{-c,--config}'[Path to config file]:' \
+    '(-v --verbose)'{-v,--verbose}'[verbose output]'
+}
+
+function _stackpulse_get_integrations {
+  _arguments \
+    '(-c --config)'{-c,--config}'[Path to config file]:' \
+    '(-v --verbose)'{-v,--verbose}'[verbose output]'
+}
+
+function _stackpulse_get_playbooks {
+  _arguments \
+    '(-o --outpt)'{-o,--outpt}'[Output format. One of: [wide]]:' \
+    '(-c --config)'{-c,--config}'[Path to config file]:' \
+    '(-v --verbose)'{-v,--verbose}'[verbose output]'
+}
+
+function _stackpulse_get_trigger {
+  _arguments \
+    '(-c --config)'{-c,--config}'[Path to config file]:' \
+    '(-v --verbose)'{-v,--verbose}'[verbose output]'
+}
+
+function _stackpulse_help {
+  _arguments \
+    '(-c --config)'{-c,--config}'[Path to config file]:' \
+    '(-v --verbose)'{-v,--verbose}'[verbose output]'
+}
+
+function _stackpulse_init {
+  _arguments \
+    '(-c --config)'{-c,--config}'[Path to config file]:' \
+    '(-v --verbose)'{-v,--verbose}'[verbose output]'
+}
+
+function _stackpulse_version {
+  _arguments \
+    '(-c --config)'{-c,--config}'[Path to config file]:' \
+    '(-v --verbose)'{-v,--verbose}'[verbose output]'
+}
+
