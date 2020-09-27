@@ -1,8 +1,13 @@
-auto-reload yes
-reload-time 600
-reload-threads 5
+# Reload settings
+auto-reload	yes
+reload-time	120
 
-browser "open %u"
+# News settings
+max-items			20
+text-width			80
+browser				"open %u"
+feedlist-format			"%4n %9u %t"
+articlelist-title-format	"%N %V - '%T' (%u unread, %t total)"
 
 # vim-like bindings
 bind-key j down

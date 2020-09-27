@@ -5,6 +5,6 @@ export FZF_TMUX=1
 
 # Solarized dark
 export FZF_DEFAULT_OPTS="
-	--color dark,hl:33,hl+:37,fg+:235,bg+:136,fg+:254
-	--color info:254,prompt:37,spinner:108,pointer:235,marker:235
+	--color fg:#ebdbb2,bg:#282828,hl:#fabd2f,fg+:#ebdbb2,bg+:#3c3836,hl+:#fabd2f
+	--color info:#83a598,prompt:#bdae93,spinner:#fabd2f,pointer:#83a598,marker:#fe8019,header:#665c54
 "

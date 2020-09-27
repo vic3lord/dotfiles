@@ -1,5 +1,3 @@
-alias git="hub"
-alias tig="tig --show-signature"
 alias gl="git pull --rebase"
 
 # gitignore.io

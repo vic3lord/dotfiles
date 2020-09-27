@@ -1,52 +1,45 @@
-http://undeadly.org/cgi?action=rss
-http://google-opensource.blogspot.com/atom.xml
-https://engineering.fb.com/feed/
-https://beckyhansmeyer.com/feed/
-https://jvns.ca/atom.xml
-https://www.omnigroup.com/blog/rss/
-https://ericasadun.com/feed/
-https://mjtsai.com/blog/feed/
-https://onefoottsunami.com/feed/json/
-http://ep00.epimg.net/rss/tags/noticias_mas_vistas.xml
-http://xkcd.com/atom.xml
-https://www.hashicorp.com/feed.xml
-https://derflounder.wordpress.com/feed
-http://rachelbythebay.com/w/atom.xml
-https://daringfireball.net/feeds/json
-https://sixcolors.com/feed.json
-http://www.loopinsight.com/feed/
-https://inessential.com/feed.json
-http://krebsonsecurity.com/feed
 https://www.reddit.com/r/technology/.rss
-https://blog.filippo.io/rss/
-http://feeds.kottke.org/json
-https://cloudblog.withgoogle.com/rss/
-https://www.reddit.com/r/worldnews/top/.rss
-https://cloud.google.com/feeds/cloud-build-release-notes.xml
-https://eng.uber.com/feed/atom/
 https://cate.blog/feed/
-http://rss.slashdot.org/Slashdot/slashdotMain
-https://www.manton.org/feed/json
+https://beckyhansmeyer.com/feed/
+https://cloudblog.withgoogle.com/rss/
+https://cloud.google.com/feeds/cloud-build-release-notes.xml
+https://daringfireball.net/feeds/json
+https://derflounder.wordpress.com/feed
+http://ep00.epimg.net/rss/tags/noticias_mas_vistas.xml
+https://ericasadun.com/feed/
+https://engineering.fb.com/feed/
+https://blog.filippo.io/rss/
+http://google-opensource.blogspot.com/atom.xml
+https://www.hashicorp.com/feed.xml
+https://inessential.com/feed.json
+https://jvns.ca/atom.xml
+http://krebsonsecurity.com/feed
+http://undeadly.org/cgi?action=rss
+https://www.omnigroup.com/blog/rss/
 https://shapeof.com/feed.json
-https://github.com/cockroachdb/cockroach/releases.atom "Github releases"
-https://github.com/kubernetes/kube-state-metrics/releases.atom "Github releases"
-https://github.com/markphelps/flipt/releases.atom "Github releases"
-https://github.com/terraform-providers/terraform-provider-kubernetes/releases.atom "Github releases"
-https://github.com/neovim/neovim/releases.atom "Github releases"
-https://github.com/hashicorp/nomad/releases.atom "Github releases"
-https://github.com/grafana/grafana/releases.atom "Github releases"
-https://github.com/fluxcd/flux/releases.atom "Github releases"
-https://github.com/prometheus/prometheus/releases.atom "Github releases"
-https://github.com/kolide/fleet/releases.atom "Github releases"
-https://github.com/hashicorp/terraform/releases.atom "Github releases"
-https://github.com/hashicorp/vault/releases.atom "Github releases"
+https://eng.uber.com/feed/atom/
+http://rachelbythebay.com/w/atom.xml
+http://xkcd.com/atom.xml
+https://github.com/alacritty/alacritty/releases.atom "Github releases"
 https://github.com/prometheus/alertmanager/releases.atom "Github releases"
-https://github.com/kubernetes/ingress-nginx/releases.atom "Github releases"
+https://github.com/cockroachdb/cockroach/releases.atom "Github releases"
 https://github.com/weaveworks/flagger/releases.atom "Github releases"
-https://github.com/linkerd/linkerd2/releases.atom "Github releases"
-https://github.com/GoogleCloudPlatform/skaffold/releases.atom "Github releases"
-https://github.com/improbable-eng/thanos/releases.atom "Github releases"
-https://github.com/imgproxy/imgproxy/releases.atom "Github releases"
 https://github.com/checkr/flagr/releases.atom "Github releases"
-https://github.com/terraform-providers/terraform-provider-google/releases.atom "Github releases"
+https://github.com/kolide/fleet/releases.atom "Github releases"
+https://github.com/markphelps/flipt/releases.atom "Github releases"
+https://github.com/fluxcd/flux/releases.atom "Github releases"
+https://github.com/grafana/grafana/releases.atom "Github releases"
+https://github.com/imgproxy/imgproxy/releases.atom "Github releases"
+https://github.com/kubernetes/kube-state-metrics/releases.atom "Github releases"
 https://github.com/kubernetes/kubernetes/releases.atom "Github releases"
+https://github.com/linkerd/linkerd2/releases.atom "Github releases"
+https://github.com/neovim/neovim/releases.atom "Github releases"
+https://github.com/kubernetes/ingress-nginx/releases.atom "Github releases"
+https://github.com/hashicorp/nomad/releases.atom "Github releases"
+https://github.com/prometheus/prometheus/releases.atom "Github releases"
+https://github.com/GoogleCloudPlatform/skaffold/releases.atom "Github releases"
+https://github.com/hashicorp/terraform/releases.atom "Github releases"
+https://github.com/terraform-providers/terraform-provider-google/releases.atom "Github releases"
+https://github.com/terraform-providers/terraform-provider-kubernetes/releases.atom "Github releases"
+https://github.com/improbable-eng/thanos/releases.atom "Github releases"
+https://github.com/hashicorp/vault/releases.atom "Github releases"
