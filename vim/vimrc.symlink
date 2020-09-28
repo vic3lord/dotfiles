@@ -121,9 +121,6 @@ let g:blamer_delay = 2000
 " rust.vim
 let g:rustfmt_autosave = 1
 
-" airline
-let g:airline#extensions#tabline#enabled = 1
-
 " limelight
 let g:limelight_conceal_ctermfg = 'gray'
 let g:limelight_conceal_ctermfg = 240
