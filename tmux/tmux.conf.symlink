@@ -59,8 +59,8 @@ bind / command-prompt "split-window 'exec man %%'"
 set -g status-style bg=colour237,fg=colour223
 
 # window status
-setw -g window-status-format "#[fg=colour237,bg=colour239,noitalics]#[fg=colour223,bg=colour239] #I #[fg=colour223, bg=colour239] #W #[fg=colour239, bg=colour237, noitalics]"
-set -g window-status-current-format "#[fg=colour237, bg=colour214, nobold, noitalics, nounderscore]#[fg=colour239, bg=colour214] #I #[fg=colour239, bg=colour214, bold] #W #[fg=colour214, bg=colour237, nobold, noitalics, nounderscore]"
+setw -g window-status-format "#[fg=colour237,bg=colour239,noitalics]#[fg=colour223,bg=colour239] #I #[fg=colour223,bg=colour239]#W #[fg=colour239, bg=colour237, noitalics] "
+set -g window-status-current-format "#[fg=colour237,bg=colour214,nobold,noitalics,nounderscore]#[fg=colour239,bg=colour214] #I #[fg=colour239,bg=colour214,bold]#W #[fg=colour214,bg=colour237,nobold,noitalics,nounderscore] "
 set -g window-status-separator ""
 setw -g window-status-style bg=colour214,fg=colour237
 setw -g window-status-activity-style bg=colour237,fg=colour248
@@ -78,12 +78,12 @@ set -g display-panes-colour colour237
 set -g status-justify "left"
 set -g status-left-style none
 set -g status-left-length 80
-set -g status-left "#[fg=colour248, bg=colour241] #I #P » #[fg=colour241, bg=colour237, nobold, noitalics, nounderscore] "
+set -g status-left "#[fg=colour248,bg=colour241] #I:#P #[fg=colour241,bg=colour237,nobold,noitalics,nounderscore] "
 
 # right
 set -g status-right-style none
 set -g status-right-length 80
-set -g status-right "#[fg=colour239,bg=colour237,nobold,nounderscore,noitalics]#[fg=colour246,bg=colour239] %d-%m  %H:%M #[fg=colour248,bg=colour239,nobold,nounderscore,noitalics]#[fg=colour237,bg=colour248] [k8s/#(kubectl config current-context)] [gcp/#(gcloud config configurations list|awk '/True/ {print $1}')] "
+set -g status-right "#[fg=colour239,bg=colour237,nobold,nounderscore,noitalics]#[fg=colour246,bg=colour239] %d-%m %H:%M#[fg=colour248,bg=colour239,nobold,nounderscore,noitalics]#[fg=colour237,bg=colour248][k8s/#(kubectl config current-context)] [gcp/#(gcloud config configurations list|awk '/True/ {print $1}')]"
 
 # clock mode
 set -g clock-mode-colour colour109

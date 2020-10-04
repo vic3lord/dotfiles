@@ -1,6 +1,5 @@
 [user]
         name = Or Elimelech
-        email = 0r3limelech@gmail.com
 	signingkey = F097B3449561603A
 [github]
 	user = vic3lord
@@ -13,7 +12,8 @@
 	st = status -s
 	edit = "!vim `git ls-files -m` -p"
 	flux = log --author="flux" --oneline
-	ticket = "!open https://stackpulse.atlassian.net/browse/$(git branch --show-current)"
+	jira = "!open https://stackpulse.atlassian.net/browse/$(git branch --show-current)"
+	pr = "!gh pr"
 [push]
 	default = simple
 [color]
@@ -30,7 +30,7 @@
 	prompt = false
 [mergetool]
 	path = nvim
-[url "git@github.com:stackpulse"]
-	insteadOf = https://github.com/stackpulse
 [mergetool "vimdiff"]
 	path = nvim
+[url "git@github.com:stackpulse"]
+	insteadOf = https://github.com/stackpulse
