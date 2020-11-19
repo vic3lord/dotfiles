@@ -15,6 +15,7 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-fugitive' " Git client
 Plug 'tpope/vim-unimpaired'
 Plug 'APZelos/blamer.nvim'
+Plug 'f-person/git-blame.nvim'
 Plug 'vitapluvia/vim-gurl' " Github URL to clipboard
 Plug 'editorconfig/editorconfig-vim'
 Plug 'junegunn/limelight.vim'
@@ -28,14 +29,12 @@ Plug 'google/vim-searchindex'
 Plug 'mcchrish/nnn.vim'
 
 " Completion, lint, fix
-Plug 'autozimu/LanguageClient-neovim', {'branch': 'next', 'do': 'bash install.sh'}
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'Shougo/neosnippet.vim'
 Plug 'Shougo/neosnippet-snippets'
 Plug 'jiangmiao/auto-pairs'
-" Plug 'neovim/nvim-lspconfig'
-" Plug 'nvim-lua/completion-nvim'
-" Plug 'nvim-lua/diagnostic-nvim'
+Plug 'neovim/nvim-lspconfig'
+Plug 'nvim-lua/completion-nvim'
+Plug 'steelsojka/completion-buffers'
 
 " Language specific plugins
 Plug 'hashivim/vim-terraform'
@@ -71,7 +70,8 @@ set cursorline
 set cursorcolumn
 set autowrite
 set backspace=2
-set completeopt-=preview " disable preview on completion
+set completeopt=menuone,noinsert,noselect
+set shortmess+=c
 
 " Search settings
 set incsearch " show search matches as you type
@@ -87,39 +87,46 @@ map <C-n> :cnext<CR>
 map <C-m> :cprevious<CR>
 nnoremap <leader>a :cclose<CR>
 
-" deoplete
-let g:deoplete#enable_at_startup = 1
+" completion-nvim
+let g:completion_auto_change_source = 1
+let g:completion_enable_snippet = 'Neosnippet'
+autocmd BufEnter * lua require'completion'.on_attach()
 
-" LanguageClient
-let g:LanguageClient_serverCommands = {'go': ['gopls'], 'json': ['vscode-json-languageserver', '--stdio'], 'yaml': ['yaml-language-server', '--stdio']}
+lua <<END
+local lspconfig = require 'lspconfig'
+lspconfig.gopls.setup{}
+lspconfig.jsonls.setup{}
+lspconfig.vuels.setup{}
+lspconfig.yamlls.setup{}
+lspconfig.tsserver.setup{}
 
-nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
-nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
-nnoremap <silent> gr :call LanguageClient#textDocument_references()<CR>
-nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
+vim.g.completion_chain_complete_list = {
+  { complete_items = { 'lsp' } },
+  { complete_items = { 'snippet' } },
+  { complete_items = { 'buffers' } },
+  { complete_items = { 'path' } },
+  { mode = { '<c-p>' } },
+  { mode = { '<c-n>' } }
+}
+END
+" nvim_lsp.terraformls.setup{}
 
-" lua << EOF
-" require'nvim_lsp'.gopls.setup{}
-" EOF
+nnoremap <silent> <c-]> <cmd>lua vim.lsp.buf.declaration()<CR>
+nnoremap <silent> gd 	<cmd>lua vim.lsp.buf.definition()<CR>
+nnoremap <silent> K     <cmd>lua vim.lsp.buf.hover()<CR>
+nnoremap <silent> gD    <cmd>lua vim.lsp.buf.implementation()<CR>
+nnoremap <silent> <c-k> <cmd>lua vim.lsp.buf.signature_help()<CR>
+nnoremap <silent> 1gD   <cmd>lua vim.lsp.buf.type_definition()<CR>
+nnoremap <silent> gr    <cmd>lua vim.lsp.buf.references()<CR>
+nnoremap <silent> g0    <cmd>lua vim.lsp.buf.document_symbol()<CR>
+nnoremap <silent> gW    <cmd>lua vim.lsp.buf.workspace_symbol()<CR>
+nnoremap <silent> <F2>  <cmd>lua vim.lsp.buf.rename()<CR>
 
-" nnoremap <silent> gd    <cmd>lua vim.lsp.buf.declaration()<CR>
-" nnoremap <silent> <c-]> <cmd>lua vim.lsp.buf.definition()<CR>
-" nnoremap <silent> K     <cmd>lua vim.lsp.buf.hover()<CR>
-" nnoremap <silent> gD    <cmd>lua vim.lsp.buf.implementation()<CR>
-" nnoremap <silent> <c-k> <cmd>lua vim.lsp.buf.signature_help()<CR>
-" nnoremap <silent> 1gD   <cmd>lua vim.lsp.buf.type_definition()<CR>
-" nnoremap <silent> gr    <cmd>lua vim.lsp.buf.references()<CR>
-" nnoremap <silent> g0    <cmd>lua vim.lsp.buf.document_symbol()<CR>
-" nnoremap <silent> gW    <cmd>lua vim.lsp.buf.workspace_symbol()<CR>
 
 " neosnippet
 imap <C-k> <Plug>(neosnippet_expand_or_jump)
 smap <C-k> <Plug>(neosnippet_expand_or_jump)
 xmap <C-k> <Plug>(neosnippet_expand_target)
-
-" blamer.nvim
-let g:blamer_enabled = 1
-let g:blamer_delay = 2000
 
 " rust.vim
 let g:rustfmt_autosave = 1
@@ -151,5 +158,4 @@ autocmd FileType ruby setlocal shiftwidth=2 sts=2 expandtab smartindent
 autocmd FileType yaml setlocal shiftwidth=2 sts=2 expandtab smartindent
 autocmd FileType html setlocal shiftwidth=2 sts=2 expandtab smartindent
 autocmd BufNewFile,BufReadPost *.coffee setl shiftwidth=2 expandtab
-autocmd BufWritePre *.go :call LanguageClient#textDocument_formatting_sync()
-" autocmd BufWritePost *.go lua vim.lsp.buf.formatting()
+autocmd BufWritePost *.go lua vim.lsp.buf.formatting()

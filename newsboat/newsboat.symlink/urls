@@ -3,7 +3,6 @@ https://cate.blog/feed/
 https://beckyhansmeyer.com/feed/
 https://cloudblog.withgoogle.com/rss/
 https://cloud.google.com/feeds/cloud-build-release-notes.xml
-https://daringfireball.net/feeds/json
 https://derflounder.wordpress.com/feed
 http://ep00.epimg.net/rss/tags/noticias_mas_vistas.xml
 https://ericasadun.com/feed/
@@ -18,13 +17,12 @@ http://undeadly.org/cgi?action=rss
 https://shapeof.com/feed.json
 https://eng.uber.com/feed/atom/
 http://rachelbythebay.com/w/atom.xml
-http://xkcd.com/atom.xml
 https://github.com/alacritty/alacritty/releases.atom "Github releases"
 https://github.com/prometheus/alertmanager/releases.atom "Github releases"
 https://github.com/cockroachdb/cockroach/releases.atom "Github releases"
 https://github.com/weaveworks/flagger/releases.atom "Github releases"
 https://github.com/checkr/flagr/releases.atom "Github releases"
-https://github.com/kolide/fleet/releases.atom "Github releases"
+https://github.com/fleetdm/fleet/releases.atom "Github releases"
 https://github.com/markphelps/flipt/releases.atom "Github releases"
 https://github.com/fluxcd/flux/releases.atom "Github releases"
 https://github.com/grafana/grafana/releases.atom "Github releases"
