@@ -1,6 +1,6 @@
 # Reload settings
 auto-reload	yes
-reload-time	120
+reload-time	600
 
 # News settings
 max-items			20
@@ -26,7 +26,7 @@ bind-key o open-in-browser-and-mark-read
 bind-key O open-in-browser
 bind-key o open-in-browser article
 
-# Solarized dark
+# # Solarized dark
 color background	default   default
 color listnormal	default   default
 color listfocus		white     black

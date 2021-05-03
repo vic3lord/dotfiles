@@ -1,6 +1,8 @@
 ## global config
 set -g default-shell $SHELL 			# zsh
-set -g default-terminal "alacritty"		# Alacritty
+# set -g default-terminal "alacritty"		# Alacritty
+set -g default-terminal "screen-256color"		# Alacritty
+set-option -sa terminal-overrides ',alacritty:RGB'
 set -g prefix C-a				# change prefix to CTRL-a
 set -g mouse on 				# enable mouse
 set -s escape-time 10 				# speed up
@@ -9,6 +11,7 @@ set -g visual-bell on				# enable visual bell
 set -g allow-rename off				# disable window renaming
 set -g renumber-windows on 			# auto renumber when tab is deleted
 set -g base-index 1 				# start window index at 1
+set -g focus-events on
 setw -g pane-base-index 1 			# pane index at 1
 setw -g monitor-activity on			# monitor window activity
 
