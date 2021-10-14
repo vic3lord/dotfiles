@@ -1,6 +1,6 @@
 [user]
         name = Or Elimelech
-	email = 0r3limelech@gmail.com
+	email = vic3lord@users.noreply.github.com
 	signingkey = F097B3449561603A
 [github]
 	user = vic3lord
@@ -11,10 +11,9 @@
 	co = checkout
 	br = branch
 	st = status -s
-	edit = "!vim `git ls-files -m` -p"
+	edit = !vim $(git ls-files -m) -p
 	flux = log --author="flux" --oneline
-	jira = "!open https://stackpulse.atlassian.net/browse/$(git branch --show-current)"
-	pr = "!gh pr"
+	pr = !gh pr create -a @me -f
 [push]
 	default = simple
 [color]
@@ -33,5 +32,7 @@
 	path = nvim
 [mergetool "vimdiff"]
 	path = nvim
+[url "git@github.com:torqio"]
+	insteadOf = https://github.com/torqio
 [url "git@github.com:stackpulse"]
 	insteadOf = https://github.com/stackpulse

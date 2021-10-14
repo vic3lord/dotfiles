@@ -15,18 +15,9 @@ http://undeadly.org/cgi?action=rss
 https://shapeof.com/feed.json
 https://eng.uber.com/feed/atom/
 http://rachelbythebay.com/w/atom.xml
+http://antirez.com/rss
+https://feross.org/atom.xml
+https://www.justuseemail.com/index.xml
 
 # Vlogs / Podcasts
 http://www.youtube.com/feeds/videos.xml?channel_id=UC_BzFbxG2za3bp5NRRRXJSw podcasts vlogs
-
-# Github releases
-https://github.com/cockroachdb/cockroach/releases.atom "Github releases"
-https://github.com/fleetdm/fleet/releases.atom "Github releases"
-https://github.com/imgproxy/imgproxy/releases.atom "Github releases"
-https://github.com/kubernetes/kube-state-metrics/releases.atom "Github releases"
-https://github.com/kubernetes/kubernetes/releases.atom "Github releases"
-https://github.com/kubernetes/ingress-nginx/releases.atom "Github releases"
-https://github.com/hashicorp/nomad/releases.atom "Github releases"
-https://github.com/GoogleCloudPlatform/skaffold/releases.atom "Github releases"
-https://github.com/terraform-providers/terraform-provider-google/releases.atom "Github releases"
-https://github.com/terraform-providers/terraform-provider-kubernetes/releases.atom "Github releases"
