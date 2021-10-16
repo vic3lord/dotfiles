@@ -16,6 +16,7 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-fugitive' " Git client
 Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-dadbod' " Database client
 Plug 'APZelos/blamer.nvim'
 Plug 'f-person/git-blame.nvim'
 Plug 'vitapluvia/vim-gurl' " Github URL to clipboard
@@ -29,7 +30,6 @@ Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
 Plug 'ojroques/nvim-lspfuzzy' " FZF navigation for LSP
 Plug 'unblevable/quick-scope'
 Plug 'google/vim-searchindex'
-Plug 'mcchrish/nnn.vim'
 
 " Completion, lint, fix
 Plug 'jiangmiao/auto-pairs'
@@ -43,6 +43,7 @@ Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/cmp-path'
 Plug 'notomo/cmp-neosnippet'
+Plug 'ray-x/cmp-treesitter'
 
 " Language specific plugins
 Plug 'hashivim/vim-terraform'
@@ -142,6 +143,7 @@ cmp.setup({
     { name = 'buffer' },
     { name = 'neosnippet' },
     { name = 'path' },
+    { name = 'treesitter' },
   },
   formatting = {
     format = lspkind.cmp_format()
@@ -193,9 +195,6 @@ nnoremap <Leader>b :Buffers<CR>
 nnoremap <Leader>l :Lines<CR>
 nnoremap <Leader>c :BCommits<CR>
 nnoremap <Leader>g :Rg<CR>
-
-" nnn
-let g:nnn#layout = { 'left': '~20%' }
 
 " Base64 decode selection
 vnoremap <leader>64 c<c-r>=system('base64 --decode', @")<cr><esc>

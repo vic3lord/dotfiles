@@ -44,7 +44,6 @@ brew 'tree'
 brew 'vault'
 brew 'watch'
 brew 'youtube-dl'
-brew 'nnn'
 brew 'k3d'
 brew 'k6'
 
