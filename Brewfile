@@ -2,6 +2,7 @@
 tap 'homebrew/bundle'
 tap 'homebrew/core'
 tap 'homebrew/services'
+tap 'homebrew/cask-fonts'
 
 # Brews
 brew 'ansible'
@@ -54,9 +55,7 @@ cask 'firefox'
 cask 'brave-browser'
 cask 'google-cloud-sdk'
 cask 'iina'
-cask 'netnewswire'
 cask 'tableplus'
 cask 'tor-browser'
 cask 'transmission'
-cask 'virtualbox'
 cask 'whatsapp'

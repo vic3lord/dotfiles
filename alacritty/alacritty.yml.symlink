@@ -9,15 +9,15 @@ window:
 font:
   size: 16.0
   normal:
-    family: SF Mono
+    family: Hack Nerd Font Mono
     style: Regular
 
   bold:
-    family: SF Mono
+    family: Hack Nerd Font Mono
     style: Bold
 
   italic:
-    family: SF Mono
+    family: Hack Nerd Font Mono
     style: Italic
 
 # Gruvbox dark

@@ -6,8 +6,9 @@ call plug#begin('~/.vim/plugged')
 
 " Themes
 Plug 'morhetz/gruvbox'
-" Plug 'vim-airline/vim-airline'
 Plug 'hoob3rt/lualine.nvim'
+Plug 'onsails/lspkind-nvim'
+Plug 'kyazdani42/nvim-web-devicons'
 
 " Common stuff
 Plug 'tpope/vim-surround'
@@ -35,17 +36,13 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'Shougo/neosnippet.vim'
 Plug 'Shougo/neosnippet-snippets'
 Plug 'neovim/nvim-lspconfig'
+Plug 'ray-x/lsp_signature.nvim'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-
-Plug 'nvim-lua/completion-nvim'
-Plug 'steelsojka/completion-buffers'
-Plug 'nvim-treesitter/completion-treesitter'
-
-" Plug 'hrsh7th/nvim-cmp'
-" Plug 'hrsh7th/cmp-nvim-lsp'
-" Plug 'hrsh7th/cmp-buffer'
-" Plug 'hrsh7th/cmp-path'
-" Plug 'notomo/cmp-neosnippet'
+Plug 'hrsh7th/nvim-cmp'
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/cmp-path'
+Plug 'notomo/cmp-neosnippet'
 
 " Language specific plugins
 Plug 'hashivim/vim-terraform'
@@ -104,11 +101,6 @@ nnoremap - <C-x>
 xnoremap + g<C-a>
 xnoremap - g<C-x>
 
-" completion-nvim
-let g:completion_auto_change_source = 1
-let g:completion_enable_snippet = 'Neosnippet'
-autocmd BufEnter * lua require'completion'.on_attach()
-
 lua <<END
 require('lualine').setup{}
 
@@ -130,37 +122,40 @@ require'nvim-treesitter.configs'.setup {
   },
 }
 
-vim.g.completion_chain_complete_list = {
-  { complete_items = { 'lsp' } },
-  { complete_items = { 'ts' } },
-  -- { complete_items = { 'snippet' } },
-  { complete_items = { 'buffers' } },
-  { complete_items = { 'path' } },
-  { mode = { '<c-p>' } },
-  { mode = { '<c-n>' } }
-}
+local lspkind = require('lspkind')
+local cmp = require'cmp'
+cmp.setup({
+  snippet = {
+    expand = function(args)
+    -- unused due to neosnippet
+    end,
+  },
+  mapping = {
+    ['<C-d>'] = cmp.mapping.scroll_docs(-4),
+    ['<C-f>'] = cmp.mapping.scroll_docs(4),
+    -- ['<C-Space>'] = cmp.mapping.complete(),
+    ['<C-e>'] = cmp.mapping.close(),
+    ['<CR>'] = cmp.mapping.confirm({ select = true }),
+  },
+  sources = {
+    { name = 'nvim_lsp' },
+    { name = 'buffer' },
+    { name = 'neosnippet' },
+    { name = 'path' },
+  },
+  formatting = {
+    format = lspkind.cmp_format()
+  },
+})
 
--- local cmp = require'cmp'
--- cmp.setup({
---   snippet = {
---     expand = function(args)
---     -- unused due to neosnippet
---     end,
---   },
---   mapping = {
---     ['<C-d>'] = cmp.mapping.scroll_docs(-4),
---     ['<C-f>'] = cmp.mapping.scroll_docs(4),
---     -- ['<C-Space>'] = cmp.mapping.complete(),
---     ['<C-e>'] = cmp.mapping.close(),
---     ['<CR>'] = cmp.mapping.confirm({ select = true }),
---   },
---   sources = {
---     { name = 'nvim_lsp' },
---     { name = 'buffer' },
---     { name = 'neosnippet' },
---     { name = 'path' },
---   }
--- })
+require'lsp_signature'.setup {
+  bind = true,
+  doc_lines = 5,
+  floating_window = true,
+  hint_enable = false,
+  handler_opts = {border = "single"},
+  extra_trigger_chars = {"(", ","},
+}
 END
 
 " Neovim LSP
