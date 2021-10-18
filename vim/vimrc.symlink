@@ -35,10 +35,12 @@ Plug 'google/vim-searchindex'
 Plug 'jiangmiao/auto-pairs'
 Plug 'Shougo/neosnippet.vim'
 Plug 'Shougo/neosnippet-snippets'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'neovim/nvim-lspconfig'
 Plug 'ray-x/lsp_signature.nvim'
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'hrsh7th/nvim-cmp'
+
+" nvim-cmp sources
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/cmp-path'
@@ -94,7 +96,7 @@ nnoremap <Space> :let @/=""<CR>
 " custom mappings
 map <C-n> :cnext<CR>
 map <C-m> :cprevious<CR>
-nnoremap <leader>a :cclose<CR>
+nnoremap <Leader>a :cclose<CR>
 
 " Using tmux/screen with ctrl-a 
 nnoremap + <C-a>
@@ -171,6 +173,7 @@ nnoremap <silent> gr    <cmd>lua vim.lsp.buf.references()<CR>
 nnoremap <silent> g0    <cmd>lua vim.lsp.buf.document_symbol()<CR>
 nnoremap <silent> gW    <cmd>lua vim.lsp.buf.workspace_symbol()<CR>
 nnoremap <silent> <F2>  <cmd>lua vim.lsp.buf.rename()<CR>
+nnoremap <Leader>ca     <cmd>lua vim.lsp.buf.code_action()<CR>
 
 " neosnippet
 imap <C-k> <Plug>(neosnippet_expand_or_jump)
