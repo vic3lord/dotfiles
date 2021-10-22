@@ -1,122 +1,109 @@
-set nocompatible " Be iMproved
-filetype off
-
-" vim-plug
-call plug#begin('~/.vim/plugged')
-
-" Themes
-Plug 'morhetz/gruvbox'
-Plug 'hoob3rt/lualine.nvim'
-Plug 'onsails/lspkind-nvim'
-Plug 'kyazdani42/nvim-web-devicons'
-
-" Common stuff
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-fugitive' " Git client
-Plug 'tpope/vim-unimpaired'
-Plug 'tpope/vim-dadbod' " Database client
-Plug 'APZelos/blamer.nvim'
-Plug 'f-person/git-blame.nvim'
-Plug 'vitapluvia/vim-gurl' " Github URL to clipboard
-Plug 'editorconfig/editorconfig-vim'
-Plug 'junegunn/limelight.vim'
-Plug 'junegunn/goyo.vim'
-Plug 'godlygeek/tabular'
-
-" Search and navigation
-Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
-Plug 'ojroques/nvim-lspfuzzy' " FZF navigation for LSP
-Plug 'unblevable/quick-scope'
-Plug 'google/vim-searchindex'
-
-" Completion, lint, fix
-Plug 'jiangmiao/auto-pairs'
-Plug 'Shougo/neosnippet.vim'
-Plug 'Shougo/neosnippet-snippets'
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-Plug 'neovim/nvim-lspconfig'
-Plug 'ray-x/lsp_signature.nvim'
-Plug 'hrsh7th/nvim-cmp'
-
-" nvim-cmp sources
-Plug 'hrsh7th/cmp-nvim-lsp'
-Plug 'hrsh7th/cmp-buffer'
-Plug 'hrsh7th/cmp-path'
-Plug 'notomo/cmp-neosnippet'
-Plug 'ray-x/cmp-treesitter'
-
-" Language specific plugins
-Plug 'hashivim/vim-terraform'
-Plug 'rust-lang/rust.vim', {'for': 'rust'}
-Plug 'elixir-lang/vim-elixir', {'for': 'elixir'}
-
-" Add plugins to runtime
-call plug#end()
-
-filetype plugin indent on
-
-" Silent errors if colorscheme not exist
-silent! colorscheme gruvbox
-set termguicolors
-
-" Global
-syntax on
-set background=dark
-set timeoutlen=1000
-set ttimeoutlen=0
-set encoding=utf-8
-set fileencoding=utf-8
-set number
-set relativenumber
-set numberwidth=1
-set modeline
-set modelines=5
-set laststatus=2
-set undofile
-set undodir=$HOME/.vim/undo
-set noshowcmd
-set cursorline
-set cursorcolumn
-set autowrite
-set backspace=2
-set completeopt=menuone,noinsert,noselect
-set shortmess+=c
-
-" Search settings
-set incsearch " show search matches as you type
-set showmatch
-set hlsearch
-set smartcase " ignore case if search pattern is all lowercase, case-sensitive otherwise
-set ignorecase
-set clipboard+=unnamedplus " add clipboard support
-nnoremap <Space> :let @/=""<CR>
-
-" custom mappings
-map <C-n> :cnext<CR>
-map <C-m> :cprevious<CR>
-nnoremap <Leader>a :cclose<CR>
-
-" Using tmux/screen with ctrl-a 
-nnoremap + <C-a>
-nnoremap - <C-x>
-xnoremap + g<C-a>
-xnoremap - g<C-x>
-
 lua <<END
+vim.cmd('filetype off')
+
+-- vim-plug
+local Plug = vim.fn['plug#']
+vim.call('plug#begin', '~/.vim/plugged')
+
+-- Themes
+Plug('morhetz/gruvbox')
+Plug('nvim-lualine/lualine.nvim')
+Plug('onsails/lspkind-nvim')
+Plug('kyazdani42/nvim-web-devicons')
+
+-- Common stuff
+Plug('tpope/vim-surround')
+Plug('tpope/vim-commentary')
+Plug('tpope/vim-repeat')
+Plug('tpope/vim-fugitive') -- Git client
+Plug('tpope/vim-unimpaired')
+Plug('tpope/vim-dadbod') -- Database client
+Plug('APZelos/blamer.nvim')
+Plug('f-person/git-blame.nvim')
+Plug('vitapluvia/vim-gurl') -- Github URL to clipboard
+Plug('editorconfig/editorconfig-vim')
+Plug('junegunn/limelight.vim')
+Plug('junegunn/goyo.vim')
+Plug('godlygeek/tabular')
+
+-- Search and navigation
+Plug('/usr/local/opt/fzf') -- Source from homebrew
+Plug('junegunn/fzf.vim')
+Plug('ojroques/nvim-lspfuzzy') -- FZF navigation for LSP
+Plug('unblevable/quick-scope')
+Plug('google/vim-searchindex')
+
+-- Completion, lint, fix
+Plug('jiangmiao/auto-pairs')
+Plug('Shougo/neosnippet.vim')
+Plug('Shougo/neosnippet-snippets')
+Plug('nvim-treesitter/nvim-treesitter', {['do'] = ':TSUpdate'})
+Plug('neovim/nvim-lspconfig')
+Plug('ray-x/lsp_signature.nvim')
+Plug('hrsh7th/nvim-cmp')
+
+-- nvim-cmp sources
+Plug('hrsh7th/cmp-nvim-lsp')
+Plug('hrsh7th/cmp-buffer')
+Plug('hrsh7th/cmp-path')
+Plug('notomo/cmp-neosnippet')
+Plug('ray-x/cmp-treesitter')
+
+-- Language specific plugins
+Plug('hashivim/vim-terraform')
+Plug('rust-lang/rust.vim', {['for'] = 'rust'})
+Plug('elixir-lang/vim-elixir', {['for'] = 'elixir'})
+
+vim.call('plug#end')
+
+vim.cmd('filetype plugin indent on')
+vim.cmd('silent! colorscheme gruvbox') -- Set Gruvbox theme
+vim.cmd('syntax on')
+
+-- Global options
+vim.opt.termguicolors = true
+vim.opt.background = 'dark'
+vim.opt.timeoutlen = 1000
+vim.opt.ttimeoutlen = 0
+vim.opt.encoding = 'utf-8'
+vim.opt.fileencoding = 'utf-8'
+vim.opt.number = true
+vim.opt.relativenumber = true
+vim.opt.numberwidth = 1
+vim.opt.modeline = true
+vim.opt.modelines = 5
+vim.opt.laststatus = 2
+vim.opt.undofile = true
+vim.opt.showcmd = false
+vim.opt.cursorline = true
+vim.opt.cursorcolumn = true
+vim.opt.autowrite = true
+vim.opt.shortmess = vim.opt.shortmess + 'c'
+vim.opt.completeopt = {'menuone', 'noinsert', 'noselect'}
+vim.opt.incsearch = true -- show search matches as you type
+vim.opt.showmatch = true
+vim.opt.hlsearch = true
+vim.opt.smartcase = true -- ignore case if search pattern is all lowercase, case-sensitive otherwise
+vim.opt.ignorecase = true
+vim.opt.clipboard = vim.opt.clipboard + 'unnamedplus' -- add clipboard support
+
+-- Variables
+vim.g['rustfmt_autosave'] = 1 -- Rust.vim
+vim.g['terraform_fmt_on_save'] = 1 -- Terraform fmt
+
 require('lualine').setup{}
+require('lspfuzzy').setup{}
 
 local lspconfig = require 'lspconfig'
 lspconfig.gopls.setup{}
 lspconfig.jsonls.setup{}
+lspconfig.html.setup{}
+lspconfig.cssls.setup{}
 lspconfig.vuels.setup{}
 lspconfig.yamlls.setup{}
 lspconfig.tsserver.setup{}
 lspconfig.bashls.setup{}
 lspconfig.terraformls.setup{}
-
-require('lspfuzzy').setup{}
 
 require'nvim-treesitter.configs'.setup {
   -- ensure_installed = "all",
@@ -162,16 +149,33 @@ require'lsp_signature'.setup {
 }
 END
 
+" Clear search highlight
+nnoremap <Space> :let @/=""<CR>
+
+" custom mappings
+map <C-n> :cnext<CR>
+map <C-m> :cprevious<CR>
+nnoremap <Leader>a :cclose<CR>
+
+" Using tmux/screen with ctrl-a 
+nnoremap + <C-a>
+nnoremap - <C-x>
+xnoremap + g<C-a>
+xnoremap - g<C-x>
+
 " Neovim LSP
-nnoremap <silent> <c-]> <cmd>lua vim.lsp.buf.declaration()<CR>
+nnoremap <silent> gD    <cmd>lua vim.lsp.buf.declaration()<CR>
 nnoremap <silent> gd 	<cmd>lua vim.lsp.buf.definition()<CR>
 nnoremap <silent> K     <cmd>lua vim.lsp.buf.hover()<CR>
-nnoremap <silent> gD    <cmd>lua vim.lsp.buf.implementation()<CR>
-nnoremap <silent> <c-k> <cmd>lua vim.lsp.buf.signature_help()<CR>
-nnoremap <silent> 1gD   <cmd>lua vim.lsp.buf.type_definition()<CR>
+nnoremap <silent> gi    <cmd>lua vim.lsp.buf.implementation()<CR>
+nnoremap <silent> <C-k> <cmd>lua vim.lsp.buf.signature_help()<CR>
+nnoremap <silent> 1gd   <cmd>lua vim.lsp.buf.type_definition()<CR>
 nnoremap <silent> gr    <cmd>lua vim.lsp.buf.references()<CR>
 nnoremap <silent> g0    <cmd>lua vim.lsp.buf.document_symbol()<CR>
 nnoremap <silent> gW    <cmd>lua vim.lsp.buf.workspace_symbol()<CR>
+nnoremap <silent> <F2>  <cmd>lua vim.lsp.buf.rename()<CR>
+nnoremap <silent> [d    <cmd>lua vim.lsp.diagnostic.goto_prev()<CR>
+nnoremap <silent> ]d    <cmd>lua vim.lsp.diagnostic.goto_prev()<CR>
 nnoremap <silent> <F2>  <cmd>lua vim.lsp.buf.rename()<CR>
 nnoremap <Leader>ca     <cmd>lua vim.lsp.buf.code_action()<CR>
 
@@ -180,17 +184,11 @@ imap <C-k> <Plug>(neosnippet_expand_or_jump)
 smap <C-k> <Plug>(neosnippet_expand_or_jump)
 xmap <C-k> <Plug>(neosnippet_expand_target)
 
-" rust.vim
-let g:rustfmt_autosave = 1
-
 " limelight
 let g:limelight_conceal_ctermfg = 'gray'
 let g:limelight_conceal_ctermfg = 240
 autocmd! User GoyoEnter Limelight
 autocmd! User GoyoLeave Limelight!
-
-" terraform
-let g:terraform_fmt_on_save = 1
 
 " FZF
 nnoremap <Leader>f :Files<CR>
@@ -206,4 +204,4 @@ vnoremap <leader>64 c<c-r>=system('base64 --decode', @")<cr><esc>
 autocmd FileType ruby setlocal shiftwidth=2 sts=2 expandtab smartindent
 autocmd FileType yaml setlocal shiftwidth=2 sts=2 expandtab smartindent
 autocmd FileType html setlocal shiftwidth=2 sts=2 expandtab smartindent
-autocmd BufWritePost *.go lua vim.lsp.buf.formatting()
+autocmd BufWritePre *.go lua vim.lsp.buf.formatting()
