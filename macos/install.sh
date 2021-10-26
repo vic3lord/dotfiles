@@ -3,5 +3,5 @@
 # command line interface to it that we can use to just install everything, so
 # yeah, let's do that.
 
-echo "› sudo softwareupdate -i -a"
+echo "› macos softwareupdate"
 sudo softwareupdate -i -a

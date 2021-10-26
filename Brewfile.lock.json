@@ -1822,7 +1822,7 @@
   "system": {
     "macos": {
       "monterey": {
-        "HOMEBREW_VERSION": "3.3.1-11-g47ef066",
+        "HOMEBREW_VERSION": "3.3.1-15-g273d330",
         "HOMEBREW_PREFIX": "/usr/local",
         "Homebrew/homebrew-core": "aa82a90dd6bcaa37ad4a3cf2da51f98e9d776d9f",
         "CLT": "13.1.0.0.1.1633545042",

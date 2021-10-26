@@ -1,7 +1,5 @@
-#!/usr/bin/env sh
-if [ ! -e ~/.config/newsbeuter ]
+if [ ! -e ~/.config/newsboat ]
 then
-	mkdir -p $HOME/.local/share/newsbeuter
-	ln -s $HOME/.newsbeuter $HOME/.config/newsbeuter
+	mkdir -p $HOME/.local/share/newsboat
+	ln -s $HOME/.dotfiles/newsboat/dotconfig $HOME/.config/newsboat
 fi
-
