@@ -10,5 +10,3 @@ function pcdn() {
 	echo "invalidating path $urlpath for $name"
 	gcloud compute url-maps invalidate-cdn-cache $name --path "$urlpath"
 }
-
-export CLOUDSDK_PYTHON=python3
