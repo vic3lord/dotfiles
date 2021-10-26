@@ -1,7 +1,7 @@
-if [ ! -f ~/.local/share/nvim/site/autoload/plug.vim ]
+PLUG_PATH="~/.local/share/nvim/site/autoload/plug.vim"
+if [ ! -f $PLUG_PATH ]
 do
-	curl -fLo $HOME/.local/share/nvim/site/autoload/plug.vim --create-dirs \
-		https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+	curl -fLo $PLUG_PATH --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 	nvim +PlugInstall +qall
 done
 
