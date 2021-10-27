@@ -1,54 +1,98 @@
 -- vim-plug
-local Plug = vim.fn['plug#']
-vim.call('plug#begin', '~/.vim/plugged')
+vim.cmd('packadd packer.nvim')
+return require('packer').startup(function()
+  use 'wbthomason/packer.nvim'
 
--- Themes
-Plug 'morhetz/gruvbox'
-Plug 'nvim-lualine/lualine.nvim'
-Plug 'onsails/lspkind-nvim'
-Plug 'kyazdani42/nvim-web-devicons'
+  -- Themes
+  use 'morhetz/gruvbox'
+  use 'nvim-lualine/lualine.nvim'
+  use { 'onsails/lspkind-nvim', requires = { { 'kyazdani42/nvim-web-devicons' } } } 
 
--- Common stuff
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-fugitive' -- Git client
-Plug 'tpope/vim-unimpaired'
-Plug 'tpope/vim-dadbod' -- Database client
-Plug 'JoosepAlviste/nvim-ts-context-commentstring' -- update commentstring based on treesitter
-Plug 'f-person/git-blame.nvim'
-Plug 'vitapluvia/vim-gurl' -- Github URL to clipboard
-Plug 'editorconfig/editorconfig-vim'
-Plug 'junegunn/limelight.vim'
-Plug 'junegunn/goyo.vim'
-Plug 'godlygeek/tabular'
+  -- Common stuff
+  use 'tpope/vim-surround'
+  use 'tpope/vim-commentary'
+  use 'tpope/vim-repeat'
+  use 'tpope/vim-fugitive' -- Git client
+  use 'tpope/vim-unimpaired'
+  use 'tpope/vim-dadbod' -- Database client
+  use 'JoosepAlviste/nvim-ts-context-commentstring' -- update commentstring based on treesitter
+  use 'f-person/git-blame.nvim'
+  use 'vitapluvia/vim-gurl' -- Github URL to clipboard
+  use 'editorconfig/editorconfig-vim'
+  use 'junegunn/limelight.vim'
+  use 'junegunn/goyo.vim'
+  use 'godlygeek/tabular'
 
--- Search and navigation
-Plug '/usr/local/opt/fzf' -- Source from homebrew
-Plug 'junegunn/fzf.vim'
-Plug 'ojroques/nvim-lspfuzzy' -- FZF navigation for LSP
-Plug 'unblevable/quick-scope'
-Plug 'google/vim-searchindex'
+  -- Search and navigation
+  use { '/usr/local/opt/fzf', requires = { { 'junegunn/fzf.vim' } } }
+  use 'ojroques/nvim-lspfuzzy' -- FZF navigation for LSP
+  use 'unblevable/quick-scope'
+  use 'google/vim-searchindex'
 
--- Completion, lint, fix
-Plug 'jiangmiao/auto-pairs'
-Plug 'Shougo/neosnippet.vim'
-Plug 'Shougo/neosnippet-snippets'
-Plug('nvim-treesitter/nvim-treesitter', {['do'] = ':TSUpdate'})
-Plug 'neovim/nvim-lspconfig'
-Plug 'ray-x/lsp_signature.nvim'
-Plug 'hrsh7th/nvim-cmp'
+  -- Completion, lint, fix
+  use 'jiangmiao/auto-pairs'
+  use 'Shougo/neosnippet.vim'
+  use 'Shougo/neosnippet-snippets'
+  use 'neovim/nvim-lspconfig'
 
--- nvim-cmp sources
-Plug 'hrsh7th/cmp-nvim-lsp'
-Plug 'hrsh7th/cmp-buffer'
-Plug 'hrsh7th/cmp-path'
-Plug 'notomo/cmp-neosnippet'
-Plug 'ray-x/cmp-treesitter'
+  use {
+    'ray-x/lsp_signature.nvim',
+    config = function()
+      require('lsp_signature').setup{
+        bind = true,
+        doc_lines = 5,
+        floating_window = true,
+        hint_enable = false,
+        handler_opts = {border = "single"},
+        extra_trigger_chars = {"(", ","},
+      }
+    end
+  }
 
--- Language specific plugins
-Plug 'hashivim/vim-terraform'
-Plug('rust-lang/rust.vim', {['for'] = 'rust'})
-Plug('elixir-lang/vim-elixir', {['for'] = 'elixir'})
+  use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
 
-vim.call('plug#end')
+  use {
+    'hrsh7th/nvim-cmp',
+    config = function()
+      local lspkind = require('lspkind')
+      local cmp = require('cmp')
+
+      cmp.setup({
+        snippet = {
+          expand = function(args)
+            -- unused due to neosnippet
+          end,
+        },
+        mapping = {
+          ['<C-d>'] = cmp.mapping.scroll_docs(-4),
+          ['<C-f>'] = cmp.mapping.scroll_docs(4),
+          -- ['<C-Space>'] = cmp.mapping.complete(),
+          ['<C-e>'] = cmp.mapping.close(),
+          ['<CR>'] = cmp.mapping.confirm({ select = true }),
+        },
+        sources = {
+          { name = 'nvim_lsp' },
+          { name = 'buffer' },
+          { name = 'neosnippet' },
+          { name = 'path' },
+          { name = 'treesitter' },
+        },
+        formatting = {
+          format = lspkind.cmp_format()
+        },
+      })
+    end
+  }
+
+  use 'hrsh7th/cmp-nvim-lsp'
+  use 'hrsh7th/cmp-nvim-lsp'
+  use 'hrsh7th/cmp-buffer'
+  use 'hrsh7th/cmp-path'
+  use 'notomo/cmp-neosnippet'
+  use 'ray-x/cmp-treesitter'
+
+  -- Language specific plugins
+  use 'hashivim/vim-terraform'
+  use { 'rust-lang/rust.vim', ft = { 'rust' } }
+  use { 'elixir-lang/vim-elixir', ft = { 'elixir' } }
+end)
