@@ -23,10 +23,10 @@ set -g status-keys vi				# bind vi key-mapping
 setw -g mode-keys vi				# vi-style controls for copy mode
 
 # vi yank to macOS clipboard
-bind -T copy-mode-vi y send -X copy-pipe-and-cancel "reattach-to-user-namespace pbcopy"
+bind -T copy-mode-vi y send -X copy-pipe-and-cancel "pbcopy"
 
 # mouse drag and copy selection to clipboard
-bind -T copy-mode-vi MouseDragEnd1Pane send-keys -X copy-pipe-and-cancel "reattach-to-user-namespace pbcopy"
+bind -T copy-mode-vi MouseDragEnd1Pane send-keys -X copy-pipe-and-cancel "pbcopy"
 
 # force a reload of the config file
 bind C-r source-file ~/.tmux.conf \; display "reloaded configuration"
