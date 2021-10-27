@@ -29,3 +29,15 @@ map('n', '<Leader>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
 map('i', '<C-k>', '<Plug>(neosnippet_expand_or_jump)', {})
 map('s', '<C-k>', '<Plug>(neosnippet_expand_or_jump)', {})
 map('x', '<C-k>', '<Plug>(neosnippet_expand_target)', {})
+
+-- FZF
+map('n', '<Leader>f', ':Files<CR>', { noremap = true })
+map('n', '<Leader>b', ':Buffers<CR>', { noremap = true })
+map('n', '<Leader>l', ':Lines<CR>', { noremap = true })
+map('n', '<Leader>c', ':BCommits<CR>', { noremap = true })
+map('n', '<Leader>g', ':Rg<CR>', { noremap = true })
+
+-- Quickfix
+map('', '<C-n>', ':cnext<CR>', {})
+map('', '<C-m>', ':cprevious<CR>', {})
+map('n', '<Leader>a', ':cclose<CR>', { noremap = true })
