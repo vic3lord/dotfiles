@@ -1,12 +1,20 @@
 -- vim-plug
 vim.cmd('packadd packer.nvim')
 return require('packer').startup(function()
+  -- Packer manages itself
   use 'wbthomason/packer.nvim'
 
   -- Themes
   use 'morhetz/gruvbox'
-  use 'nvim-lualine/lualine.nvim'
-  use { 'onsails/lspkind-nvim', requires = { { 'kyazdani42/nvim-web-devicons' } } } 
+  use {
+    'nvim-lualine/lualine.nvim',
+    config = function() require('lualine').setup{} end
+  }
+
+  use {
+    'onsails/lspkind-nvim',
+    requires = { { 'kyazdani42/nvim-web-devicons' } },
+  } 
 
   -- Common stuff
   use 'tpope/vim-surround'
@@ -29,11 +37,17 @@ return require('packer').startup(function()
   use 'unblevable/quick-scope'
   use 'google/vim-searchindex'
 
+  use {
+    'kyazdani42/nvim-tree.lua',
+    requires = 'kyazdani42/nvim-web-devicons',
+    config = function() require('nvim-tree').setup {} end
+}
+
   -- Completion, lint, fix
   use 'jiangmiao/auto-pairs'
   use 'Shougo/neosnippet.vim'
   use 'Shougo/neosnippet-snippets'
-  use 'neovim/nvim-lspconfig'
+  use { 'neovim/nvim-lspconfig' }
 
   use {
     'ray-x/lsp_signature.nvim',
@@ -59,7 +73,7 @@ return require('packer').startup(function()
 
       cmp.setup({
         snippet = {
-          expand = function(args)
+          expand = function(_)
             -- unused due to neosnippet
           end,
         },
@@ -85,14 +99,24 @@ return require('packer').startup(function()
   }
 
   use 'hrsh7th/cmp-nvim-lsp'
-  use 'hrsh7th/cmp-nvim-lsp'
   use 'hrsh7th/cmp-buffer'
   use 'hrsh7th/cmp-path'
   use 'notomo/cmp-neosnippet'
   use 'ray-x/cmp-treesitter'
 
   -- Language specific plugins
-  use 'hashivim/vim-terraform'
-  use { 'rust-lang/rust.vim', ft = { 'rust' } }
-  use { 'elixir-lang/vim-elixir', ft = { 'elixir' } }
+  use {
+    'hashivim/vim-terraform',
+    ft = { 'terraform' },
+  }
+
+  use {
+    'rust-lang/rust.vim',
+    ft = { 'rust' },
+  }
+
+  use {
+    'elixir-lang/vim-elixir',
+    ft = { 'elixir' },
+  }
 end)
