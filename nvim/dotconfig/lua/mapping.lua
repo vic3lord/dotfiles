@@ -41,8 +41,3 @@ map('n', '<Leader>g', ':Rg<CR>', { noremap = true })
 map('', '<C-n>', ':cnext<CR>', {})
 map('', '<C-m>', ':cprevious<CR>', {})
 map('n', '<Leader>a', ':cclose<CR>', { noremap = true })
-
--- NVIM Tree
-map('n', '<C-t>', ':NvimTreeToggle<CR>', { noremap = true })
-map('n', '<Leader-r>', ':NvimTreeRefresh<CR>', { noremap = true })
-map('n', '<Leader-n>', ':NvimTreeFindFile<CR>', { noremap = true })

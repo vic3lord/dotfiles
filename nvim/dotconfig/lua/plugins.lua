@@ -32,21 +32,23 @@ return require('packer').startup(function()
   use 'godlygeek/tabular'
 
   -- Search and navigation
-  use { '/usr/local/opt/fzf', requires = { { 'junegunn/fzf.vim' } } }
+  use {
+    '/usr/local/opt/fzf',
+    requires = { { 'junegunn/fzf.vim' } },
+  }
+
   use 'ojroques/nvim-lspfuzzy' -- FZF navigation for LSP
   use 'unblevable/quick-scope'
   use 'google/vim-searchindex'
 
-  use {
-    'kyazdani42/nvim-tree.lua',
-    requires = 'kyazdani42/nvim-web-devicons',
-    config = function() require('nvim-tree').setup {} end
-}
-
   -- Completion, lint, fix
   use 'jiangmiao/auto-pairs'
-  use 'Shougo/neosnippet.vim'
-  use 'Shougo/neosnippet-snippets'
+
+  use {
+    'Shougo/neosnippet.vim',
+    requires = { { 'Shougo/neosnippet-snippets' } },
+  }
+
   use { 'neovim/nvim-lspconfig' }
 
   use {
@@ -63,7 +65,10 @@ return require('packer').startup(function()
     end
   }
 
-  use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
+  use {
+    'nvim-treesitter/nvim-treesitter',
+    run = ':TSUpdate',
+  }
 
   use {
     'hrsh7th/nvim-cmp',
