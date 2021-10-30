@@ -1,9 +1,8 @@
 [user]
-        name = Or Elimelech
-	email = vic3lord@users.noreply.github.com
-	signingkey = F097B3449561603A
+	name = Alon Gat
+	email = cybertoon@gmail.com
 [github]
-	user = vic3lord
+	user = alongat
 [alias]
 	compare = log --oneline master..
 	author = shortlog -s -e
@@ -14,6 +13,10 @@
 	edit = !vim $(git ls-files -m) -p
 	flux = log --author="flux" --oneline
 	pr = !gh pr create -a @me -f
+	co = checkout
+	s = status
+	l = log
+	cob = checkout -b
 [push]
 	default = simple
 [color]
@@ -36,3 +39,5 @@
 	insteadOf = https://github.com/torqio
 [url "git@github.com:stackpulse"]
 	insteadOf = https://github.com/stackpulse
+[credential]
+	helper = osxkeychain
