@@ -41,4 +41,4 @@ directory_name() {
 }
 
 # set propmpt
-export PROMPT=$'$(directory_name)$(git_dirty)$(need_push)› '
+source ${0:A:h}/git-prompt.zsh
