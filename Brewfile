@@ -7,6 +7,7 @@ tap 'homebrew/cask-fonts'
 # Brews
 brew 'bat'
 brew 'fzf'
+brew 'fd'
 brew 'gh'
 brew 'git'
 brew 'go'
@@ -17,7 +18,7 @@ brew 'k3d'
 brew 'kubectl'
 brew 'minikube'
 brew 'mkcert'
-brew 'neovim'
+brew 'neovim',  args: ['--HEAD']
 brew 'nmap'
 brew 'node'
 brew 'protoc-gen-go'
@@ -58,6 +59,7 @@ cask 'spotify'
 
 # Fonts
 cask 'font-fira-code'
+cask 'font-fira-code-nerd-font'
 
 # App Store
 mas "Copy'em", id: 876540291
