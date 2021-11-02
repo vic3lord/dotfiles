@@ -31,6 +31,11 @@ return require('packer').startup(function()
   use 'junegunn/goyo.vim'
   use 'godlygeek/tabular'
 
+  use {
+    'pwntester/octo.nvim',
+    config=function() require('octo').setup() end,
+  }
+
   -- Search and navigation
   use {
     '/usr/local/opt/fzf',
@@ -72,6 +77,13 @@ return require('packer').startup(function()
 
   use {
     'hrsh7th/nvim-cmp',
+    requires = {
+      { 'hrsh7th/cmp-nvim-lsp' },
+      { 'hrsh7th/cmp-buffer' },
+      { 'hrsh7th/cmp-path' },
+      { 'notomo/cmp-neosnippet' },
+      { 'ray-x/cmp-treesitter' },
+    },
     config = function()
       local lspkind = require('lspkind')
       local cmp = require('cmp')
@@ -102,12 +114,6 @@ return require('packer').startup(function()
       })
     end
   }
-
-  use 'hrsh7th/cmp-nvim-lsp'
-  use 'hrsh7th/cmp-buffer'
-  use 'hrsh7th/cmp-path'
-  use 'notomo/cmp-neosnippet'
-  use 'ray-x/cmp-treesitter'
 
   -- Language specific plugins
   use {
