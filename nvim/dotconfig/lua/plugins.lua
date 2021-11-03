@@ -119,4 +119,9 @@ return require('packer').startup(function()
     'elixir-lang/vim-elixir',
     ft = { 'elixir' },
   }
+
+  use {
+    "folke/which-key.nvim",
+    config = function() require("which-key").setup{} end
+  }
 end)
