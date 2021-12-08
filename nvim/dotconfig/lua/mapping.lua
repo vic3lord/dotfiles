@@ -1,8 +1,5 @@
 local map = vim.api.nvim_set_keymap
 
--- Clear search highlight
-map('n', '<Space>', ':let @/=""<CR>', { noremap = true, silent = true })
-
 -- Using tmux/screen with ctrl-a 
 map('n', '+', '<C-a>', { noremap = true })
 map('n', '-', '<C-x>', { noremap = true })
@@ -21,8 +18,8 @@ map('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
 map('n', 'g0', '<cmd>lua vim.lsp.buf.document_symbol()<CR>', opts)
 map('n', 'gW', '<cmd>lua vim.lsp.buf.workspace_symbol()<CR>', opts)
 map('n', '<F2>', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
-map('n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
-map('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
+map('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
+map('n', ']d', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
 map('n', '<Leader>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
 
 -- Neosnippet
@@ -34,6 +31,8 @@ map('x', '<C-k>', '<Plug>(neosnippet_expand_target)', {})
 map('n', '<Leader>f', ':Files<CR>', { noremap = true })
 map('n', '<Leader>b', ':Buffers<CR>', { noremap = true })
 map('n', '<Leader>l', ':Lines<CR>', { noremap = true })
+map('n', '<Leader>gs', ':GFiles?<CR>', { noremap = true })
+map('n', '<Leader>C', ':Commits<CR>', { noremap = true })
 map('n', '<Leader>c', ':BCommits<CR>', { noremap = true })
 map('n', '<Leader>g', ':Rg<CR>', { noremap = true })
 

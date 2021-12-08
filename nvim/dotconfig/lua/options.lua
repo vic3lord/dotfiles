@@ -1,6 +1,3 @@
--- Set colorscheme
-vim.cmd('silent! colorscheme gruvbox')
-
 local opt = vim.opt
 opt.termguicolors = true
 opt.background = 'dark'
@@ -27,6 +24,9 @@ opt.hlsearch = true
 opt.smartcase = true -- ignore case if search pattern is all lowercase, case-sensitive otherwise
 opt.ignorecase = true
 opt.clipboard = opt.clipboard + 'unnamedplus' -- add clipboard support
+
+-- Set colorscheme
+vim.cmd('silent! colorscheme gruvbox')
 
 -- Rust
 vim.g['rustfmt_autosave'] = 1

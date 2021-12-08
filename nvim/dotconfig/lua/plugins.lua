@@ -42,12 +42,18 @@ return require('packer').startup(function()
     requires = { { 'junegunn/fzf.vim' } },
   }
 
-  use 'ojroques/nvim-lspfuzzy' -- FZF navigation for LSP
+  -- use {
+  --   'ojroques/nvim-lspfuzzy',
+  --   config = function() require('lspfuzzy').setup{} end
+  -- }
+
   use 'unblevable/quick-scope'
   use 'google/vim-searchindex'
 
   -- Completion, lint, fix
   use 'jiangmiao/auto-pairs'
+
+  use 'github/copilot.vim'
 
   use {
     'Shougo/neosnippet.vim',
