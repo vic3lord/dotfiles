@@ -21,6 +21,7 @@ map('n', '<F2>', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
 map('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
 map('n', ']d', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
 map('n', '<Leader>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
+map('n', '<Leader>cl', '<cmd>lua vim.lsp.codelens.run()<CR>', opts)
 
 -- Neosnippet
 map('i', '<C-k>', '<Plug>(neosnippet_expand_or_jump)', {})

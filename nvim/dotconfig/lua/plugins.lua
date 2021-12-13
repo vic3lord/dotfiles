@@ -42,10 +42,16 @@ return require('packer').startup(function()
     requires = { { 'junegunn/fzf.vim' } },
   }
 
-  -- use {
-  --   'ojroques/nvim-lspfuzzy',
-  --   config = function() require('lspfuzzy').setup{} end
-  -- }
+  use {
+    'kyazdani42/nvim-tree.lua',
+    requires = { { 'kyazdani42/nvim-web-devicons' } },
+    config = function() require'nvim-tree'.setup {} end
+  }
+
+  use {
+    'ojroques/nvim-lspfuzzy',
+    config = function() require('lspfuzzy').setup{} end
+  }
 
   use 'unblevable/quick-scope'
   use 'google/vim-searchindex'
