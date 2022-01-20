@@ -40,7 +40,11 @@ return require('packer').startup(function()
   use {
     'kyazdani42/nvim-tree.lua',
     requires = 'kyazdani42/nvim-web-devicons',
-    config = function() require('nvim-tree').setup {} end
+    config = function() require('nvim-tree').setup {
+      update_focused_file = {
+        enable      = true,
+      }
+    } end
 }
 
   -- Completion, lint, fix

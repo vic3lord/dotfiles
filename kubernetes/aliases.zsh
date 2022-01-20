@@ -3,9 +3,9 @@ alias kca='kubectl get --all-namespaces'
 alias kgp='kubectl get pods'
 
 function cronjobjob() {
-	local job=$1
-	local ns=${2:-default}
-	kubectl -n $ns create job --from=cronjob/$job
+    local job=$1
+    local ns=${2:-default}
+    kubectl -n $ns create job --from=cronjob/$job
 }
 
 alias spdemo="gcloud container clusters get-credentials sp-demo --region us-east1-b --project stackpulse-demo ; gcloud config set project stackpulse-demo"
