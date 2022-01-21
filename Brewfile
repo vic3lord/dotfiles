@@ -18,7 +18,7 @@ brew 'k3d'
 brew 'kubectl'
 brew 'minikube'
 brew 'mkcert'
-brew 'neovim',  args: ['--HEAD']
+brew 'neovim'
 brew 'nmap'
 brew 'node'
 brew 'protoc-gen-go'
