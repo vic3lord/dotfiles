@@ -10,7 +10,7 @@ dotfiles:
 .PHONY: install
 install:
 	@echo "find the installers and run them iteratively"
-	mkdir ~/.config
+	mkdir -p ~/.config
 	find . -name install.sh | xargs -I '{}' sh -c "{}"
 	@echo "› brew bundle"
 	brew bundle
