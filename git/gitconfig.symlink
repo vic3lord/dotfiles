@@ -41,3 +41,5 @@
 	insteadOf = https://github.com/stackpulse
 [credential]
 	helper = osxkeychain
+[url "ssh://git@github.com/"]
+	insteadOf = https://github.com/

@@ -30,6 +30,8 @@ brew 'tree'
 brew 'watch'
 brew 'zoxide'
 brew 'mas'
+brew 'iterm2'
+brew 'notion'
 
 # Casks
 cask '1password'
