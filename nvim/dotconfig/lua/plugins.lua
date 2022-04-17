@@ -127,6 +127,42 @@ return require('packer').startup(function()
     end
   }
 
+
+  -- DAP
+  use {
+    'mfussenegger/nvim-dap',
+  }
+
+  -- use {
+  --   'theHamsta/nvim-dap-virtual-text',
+  --   requires = {
+  --     { 'mfussenegger/nvim-dap' },
+  --   },
+  --   config = function()
+  --     require('nvim-dap-virtual-text').setup()
+  --   end
+  -- }
+
+  use {
+    'leoluz/nvim-dap-go',
+    requires = {
+      { 'mfussenegger/nvim-dap' },
+    },
+    config = function()
+      require('dap-go').setup()
+    end
+  }
+
+  use {
+    'rcarriga/nvim-dap-ui',
+    requires = {
+      { 'mfussenegger/nvim-dap' },
+    },
+    config = function()
+      require('dapui').setup()
+    end
+  }
+
   -- Language specific plugins
   use {
     'hashivim/vim-terraform',

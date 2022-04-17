@@ -3,14 +3,20 @@ require('options')
 require('mapping')
 require('treesitter')
 require('lsp')
+require('dapper')
 
 vim.cmd [[
 	autocmd! User GoyoEnter Limelight
 	autocmd! User GoyoLeave Limelight!
-
-	autocmd FileType ruby setlocal shiftwidth=2 sts=2 expandtab smartindent
-	autocmd FileType yaml setlocal shiftwidth=2 sts=2 expandtab smartindent
-	autocmd FileType html setlocal shiftwidth=2 sts=2 expandtab smartindent
-	autocmd FileType lua setlocal shiftwidth=2 sts=2 expandtab smartindent
-	autocmd BufWritePre *.go lua vim.lsp.buf.formatting()
 ]]
+
+vim.api.nvim_create_autocmd("BufWritePre", {
+  pattern = "*.go",
+  command = "lua vim.lsp.buf.formatting()",
+})
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = {"lua", "ruby", "yaml", "html"},
+  command = "setlocal shiftwidth=2 sts=2 expandtab smartindent",
+})
+
