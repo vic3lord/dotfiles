@@ -4,6 +4,7 @@
 	signingKey = ~/.ssh/id_ed25519
 [gpg]
 	format = ssh
+[gpg "ssh"]
 	allowedSignersFile = ~/.git_signers
 [alias]
 	compare = log --oneline master..
