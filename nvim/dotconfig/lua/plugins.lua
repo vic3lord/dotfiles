@@ -107,6 +107,8 @@ return require('packer').startup(function()
           end,
         },
         mapping = {
+          ['<C-p>'] = cmp.mapping.select_prev_item(),
+          ['<C-n>'] = cmp.mapping.select_next_item(),
           ['<C-d>'] = cmp.mapping.scroll_docs(-4),
           ['<C-f>'] = cmp.mapping.scroll_docs(4),
           -- ['<C-Space>'] = cmp.mapping.complete(),
@@ -132,16 +134,6 @@ return require('packer').startup(function()
   use {
     'mfussenegger/nvim-dap',
   }
-
-  -- use {
-  --   'theHamsta/nvim-dap-virtual-text',
-  --   requires = {
-  --     { 'mfussenegger/nvim-dap' },
-  --   },
-  --   config = function()
-  --     require('nvim-dap-virtual-text').setup()
-  --   end
-  -- }
 
   use {
     'leoluz/nvim-dap-go',
@@ -177,5 +169,10 @@ return require('packer').startup(function()
   use {
     'elixir-lang/vim-elixir',
     ft = { 'elixir' },
+  }
+
+  use {
+    'jjo/vim-cue',
+    ft = { 'cue' },
   }
 end)

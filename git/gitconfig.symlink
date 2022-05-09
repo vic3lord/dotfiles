@@ -2,6 +2,8 @@
         name = Or Elimelech
 	email = vic3lord@users.noreply.github.com
 	signingKey = ~/.ssh/id_ed25519
+[gpg]
+	format = ssh
 [alias]
 	compare = log --oneline master..
 	author = shortlog -s -e

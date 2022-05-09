@@ -67,6 +67,7 @@ cask 'tor-browser'
 cask 'transmission'
 cask 'whatsapp'
 cask 'zoom'
+cask 'utm'
 
 # Fonts
 cask 'font-hack-nerd-font'
