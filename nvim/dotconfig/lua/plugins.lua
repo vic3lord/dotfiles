@@ -5,7 +5,8 @@ return require('packer').startup(function()
   use 'wbthomason/packer.nvim'
 
   -- Themes
-  use 'morhetz/gruvbox'
+  use 'rafamadriz/themes.nvim'
+
   use {
     'nvim-lualine/lualine.nvim',
     config = function() require('lualine').setup{} end
@@ -30,11 +31,6 @@ return require('packer').startup(function()
   use 'junegunn/limelight.vim'
   use 'junegunn/goyo.vim'
   use 'godlygeek/tabular'
-
-  use {
-    'pwntester/octo.nvim',
-    config=function() require('octo').setup() end,
-  }
 
   -- Search and navigation
   use {
@@ -85,6 +81,14 @@ return require('packer').startup(function()
   use {
     'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate',
+  }
+
+  use {
+    'nvim-treesitter/nvim-treesitter-context',
+    requires = {
+      { 'nvim-treesitter/nvim-treesitter' },
+    },
+    config = function() require('treesitter-context').setup{} end
   }
 
   use {
@@ -152,6 +156,14 @@ return require('packer').startup(function()
     },
     config = function()
       require('dapui').setup()
+    end
+  }
+
+  
+  use {
+    'klen/nvim-test',
+    config = function()
+      require('nvim-test').setup()
     end
   }
 
