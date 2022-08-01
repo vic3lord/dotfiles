@@ -3,6 +3,7 @@ tap 'homebrew/bundle'
 tap 'homebrew/core'
 tap 'homebrew/services'
 tap 'homebrew/cask-fonts'
+tap 'ankitpokhrel/jira-cli' # JIRA
 
 # Brews
 brew 'age'
@@ -49,6 +50,7 @@ brew 'youtube-dl'
 brew 'zoxide'
 brew 'crane'
 brew 'ko'
+brew 'jira-cli'
 
 # Casks
 cask 'alacritty'
