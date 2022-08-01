@@ -15,7 +15,9 @@
 	st = status -s
 	edit = !vim $(git ls-files -m) -p
 	flux = log --author="flux" --oneline
-	pr = !gh pr create -a @me -f
+	pr = !pull-request
+	wip = commit -am 'wip'
+	web = !gh pr view -w
 [push]
 	default = simple
 [color]

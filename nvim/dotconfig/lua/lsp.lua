@@ -1,6 +1,12 @@
 -- LSP servers configs
 local lspconfig = require('lspconfig')
-lspconfig.gopls.setup{}
+lspconfig.gopls.setup{
+  settings = {
+    gopls = {
+      codelenses = { test = true },
+    }
+  }
+}
 lspconfig.jsonls.setup{}
 lspconfig.html.setup{}
 lspconfig.cssls.setup{}

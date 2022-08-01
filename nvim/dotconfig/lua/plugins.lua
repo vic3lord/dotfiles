@@ -1,5 +1,5 @@
 -- vim-plug
-vim.cmd('packadd packer.nvim')
+vim.cmd.packadd('packer.nvim')
 return require('packer').startup(function()
   -- Packer manages itself
   use 'wbthomason/packer.nvim'

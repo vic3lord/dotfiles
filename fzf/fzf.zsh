@@ -17,7 +17,7 @@ fedit() {
     local file=$(
       fzf --query="$1" --no-multi --select-1 --exit-0 \
           --preview 'bat --color=always --line-range :500 {}'
-      )
+    )
     if [[ -n $file ]]; then
         $EDITOR "$file"
     fi

@@ -24,14 +24,22 @@ opt.ignorecase = true
 opt.clipboard = opt.clipboard + 'unnamedplus' -- add clipboard support
 
 -- Set colorscheme
-vim.cmd('silent! colorscheme gruvbox')
+vim.cmd.colorscheme('gruvbox')
 
 -- Rust
-vim.g['rustfmt_autosave'] = 1
+vim.g.rustfmt_autosave = 1
 
 -- Terraform
-vim.g['terraform_fmt_on_save'] = 1
+vim.g.terraform_fmt_on_save = 1
 
 -- Limelight
-vim.g['limelight_conceal_ctermfg'] = 'gray'
-vim.g['limelight_conceal_ctermfg'] = 240
+vim.g.limelight_conceal_ctermfg = 'gray'
+vim.g.limelight_conceal_ctermfg = 240
+
+-- FZF
+vim.g.fzf_layout = {
+  window = {
+    width = 1,
+    height = 1
+  }
+}
