@@ -3,6 +3,7 @@ tap 'homebrew/bundle'
 tap 'homebrew/core'
 tap 'homebrew/services'
 tap 'homebrew/cask-fonts'
+tap 'ankitpokhrel/jira-cli' # JIRA
 
 # Brews
 brew 'bat'
@@ -47,6 +48,7 @@ cask 'tableplus'
 cask 'transmission'
 cask 'whatsapp'
 cask 'zoom'
+brew 'jira-cli'
 cask 'lens'
 cask 'kap'
 cask 'alfred'
