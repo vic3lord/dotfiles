@@ -1,9 +1,16 @@
 # Dotfiles location
 DOTFILES=$HOME/.dotfiles
-WORKSPACE=$HOME/space
+
+# Support macOS ARM64 and AMD64
+if [ $(uname -m) = "arm64" ]
+then
+  HOMEBREW_PATH="/opt/homebrew"
+else
+  HOMEBREW_PATH="/usr/local"
+fi
 
 # PATH
-export PATH="/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin"
+export PATH="$HOMEBREW_PATH/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin"
 
 # Special dirs
 zstyle ':completion:*' special-dirs true

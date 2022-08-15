@@ -1,4 +1,4 @@
-source "/usr/local/opt/fzf/shell/key-bindings.zsh"
+source "$HOMEBREW_PATH/opt/fzf/shell/key-bindings.zsh"
 
 export FZF_DEFAULT_COMMAND='fd --type f --color=never'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
