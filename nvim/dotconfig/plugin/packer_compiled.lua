@@ -360,21 +360,21 @@ vim.cmd [[au!]]
   -- Filetype lazy-loads
 time([[Defining lazy-load filetype autocommands]], true)
 vim.cmd [[au FileType elixir ++once lua require("packer.load")({'vim-elixir'}, { ft = "elixir" }, _G.packer_plugins)]]
-vim.cmd [[au FileType cue ++once lua require("packer.load")({'vim-cue'}, { ft = "cue" }, _G.packer_plugins)]]
 vim.cmd [[au FileType rust ++once lua require("packer.load")({'rust.vim'}, { ft = "rust" }, _G.packer_plugins)]]
+vim.cmd [[au FileType cue ++once lua require("packer.load")({'vim-cue'}, { ft = "cue" }, _G.packer_plugins)]]
 vim.cmd [[au FileType terraform ++once lua require("packer.load")({'vim-terraform'}, { ft = "terraform" }, _G.packer_plugins)]]
 time([[Defining lazy-load filetype autocommands]], false)
 vim.cmd("augroup END")
 vim.cmd [[augroup filetypedetect]]
+time([[Sourcing ftdetect script at: /Users/ore/.local/share/nvim/site/pack/packer/opt/vim-terraform/ftdetect/hcl.vim]], true)
+vim.cmd [[source /Users/ore/.local/share/nvim/site/pack/packer/opt/vim-terraform/ftdetect/hcl.vim]]
+time([[Sourcing ftdetect script at: /Users/ore/.local/share/nvim/site/pack/packer/opt/vim-terraform/ftdetect/hcl.vim]], false)
 time([[Sourcing ftdetect script at: /Users/ore/.local/share/nvim/site/pack/packer/opt/rust.vim/ftdetect/rust.vim]], true)
 vim.cmd [[source /Users/ore/.local/share/nvim/site/pack/packer/opt/rust.vim/ftdetect/rust.vim]]
 time([[Sourcing ftdetect script at: /Users/ore/.local/share/nvim/site/pack/packer/opt/rust.vim/ftdetect/rust.vim]], false)
 time([[Sourcing ftdetect script at: /Users/ore/.local/share/nvim/site/pack/packer/opt/vim-cue/ftdetect/cue.vim]], true)
 vim.cmd [[source /Users/ore/.local/share/nvim/site/pack/packer/opt/vim-cue/ftdetect/cue.vim]]
 time([[Sourcing ftdetect script at: /Users/ore/.local/share/nvim/site/pack/packer/opt/vim-cue/ftdetect/cue.vim]], false)
-time([[Sourcing ftdetect script at: /Users/ore/.local/share/nvim/site/pack/packer/opt/vim-terraform/ftdetect/hcl.vim]], true)
-vim.cmd [[source /Users/ore/.local/share/nvim/site/pack/packer/opt/vim-terraform/ftdetect/hcl.vim]]
-time([[Sourcing ftdetect script at: /Users/ore/.local/share/nvim/site/pack/packer/opt/vim-terraform/ftdetect/hcl.vim]], false)
 time([[Sourcing ftdetect script at: /Users/ore/.local/share/nvim/site/pack/packer/opt/vim-elixir/ftdetect/elixir.vim]], true)
 vim.cmd [[source /Users/ore/.local/share/nvim/site/pack/packer/opt/vim-elixir/ftdetect/elixir.vim]]
 time([[Sourcing ftdetect script at: /Users/ore/.local/share/nvim/site/pack/packer/opt/vim-elixir/ftdetect/elixir.vim]], false)
