@@ -34,7 +34,7 @@ return require('packer').startup(function()
 
   -- Search and navigation
   use {
-    '/usr/local/opt/fzf',
+    '/opt/homebrew/opt/fzf',
     requires = { { 'junegunn/fzf.vim' } },
   }
 
