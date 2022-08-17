@@ -1,9 +1,9 @@
 # Dotfiles location
 DOTFILES=$HOME/.dotfiles
-HOMEBREW_PATH=$(brew --prefix)
+BREW_PATH=$(brew --prefix)
 
 # PATH
-export PATH="$HOMEBREW_PATH/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin"
+export PATH="$BREW_PATH/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin"
 
 # Special dirs
 zstyle ':completion:*' special-dirs true
