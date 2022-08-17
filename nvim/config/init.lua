@@ -16,7 +16,7 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 })
 
 vim.api.nvim_create_autocmd("FileType", {
-  pattern = {"lua", "ruby", "yaml", "html"},
+  pattern = {"lua", "ruby", "yaml", "html", "json"},
   command = "setlocal shiftwidth=2 sts=2 expandtab smartindent",
 })
 
