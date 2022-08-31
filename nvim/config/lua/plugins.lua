@@ -163,7 +163,12 @@ return require('packer').startup(function()
   use {
     'klen/nvim-test',
     config = function()
-      require('nvim-test').setup()
+      require('nvim-test').setup{
+        termOpts = {
+          direction = "horizontal",
+          go_back = false,
+        },
+      }
     end
   }
 

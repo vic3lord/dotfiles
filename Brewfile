@@ -4,10 +4,13 @@ tap 'homebrew/core'
 tap 'homebrew/services'
 tap 'homebrew/cask-fonts'
 tap 'ankitpokhrel/jira-cli' # JIRA
+tap 'hashicorp/tap'
+tap 'bufbuild/buf'
 
 # Brews
 brew 'age'
 brew 'ansible'
+brew 'buf'
 brew 'bat'
 brew 'elixir'
 brew 'fd'
@@ -48,6 +51,7 @@ brew 'zoxide'
 brew 'crane'
 brew 'ko'
 brew 'jira-cli'
+brew 'terraform-ls'
 
 # Casks
 cask 'alacritty'

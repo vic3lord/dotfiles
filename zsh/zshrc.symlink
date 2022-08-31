@@ -1,6 +1,13 @@
 # Dotfiles location
 DOTFILES=$HOME/.dotfiles
-BREW_PATH=$(brew --prefix)
+
+# Support ARM64 and AMD64 macOS.
+if [ $(uname -m) = "arm64" ]
+then
+	BREW_PATH=/opt/homebrew
+else
+	BREW_PATH=/usr/local
+fi
 
 # PATH
 export PATH="$BREW_PATH/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin"

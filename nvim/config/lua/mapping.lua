@@ -31,6 +31,10 @@ map('n', '<Leader>db', '<cmd>lua require"dap".toggle_breakpoint()<CR>', opts)
 map('n', '<Leader>dc', '<cmd>lua require"dap".clear_breakpoints()<CR>', opts)
 map('n', '<Leader>dt', '<cmd>lua require"dap-go".debug_test()<CR>', opts)
 
+-- nvim-test
+map('n', '<Leader>tf', ':TestFile<CR>', opts)
+map('n', '<Leader>tt', ':TestNearest<CR>', opts)
+
 -- Neosnippet
 map('i', '<C-k>', '<Plug>(neosnippet_expand_or_jump)', {})
 map('s', '<C-k>', '<Plug>(neosnippet_expand_or_jump)', {})

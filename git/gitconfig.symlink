@@ -13,7 +13,7 @@
 	co = checkout
 	br = branch
 	st = status -s
-	edit = !vim $(git ls-files -m) -p
+	edit = !nvim $(git ls-files -m) -p
 	flux = log --author="flux" --oneline
 	pr = !pull-request
 	wip = commit -am 'wip'
