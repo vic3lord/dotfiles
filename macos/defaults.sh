@@ -9,3 +9,6 @@ defaults write com.apple.safari "ShowFullURLInSmartSearchField" -bool "true"
 
 # Finder show extension
 defaults write NSGlobalDomain "AppleShowAllExtensions" -bool "true"
+
+# Clean trashbin after 30 days
+defaults write com.apple.finder "FXRemoveOldTrashItems" -bool "true"
