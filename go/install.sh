@@ -1,5 +1,6 @@
 # Go packages to install
 readonly PACKAGES=(
+	golang.org/x/tools/gopls@latest
 	github.com/bufbuild/buf-language-server/cmd/bufls@latest
 )
 
