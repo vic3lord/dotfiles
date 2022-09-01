@@ -1,4 +1,5 @@
 alias gl="git pull --rebase"
+alias gwip="git wip && git push"
 
 # gitignore.io
 # gi list to get all supported types

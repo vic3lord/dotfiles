@@ -135,7 +135,7 @@ _G.packer_plugins = {
     url = "https://github.com/junegunn/limelight.vim"
   },
   ["lsp_signature.nvim"] = {
-    config = { "\27LJ\2\n¼\1\0\0\4\0\b\0\v6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\4\0=\3\5\0025\3\6\0=\3\a\2B\0\2\1K\0\1\0\24extra_trigger_chars\1\3\0\0\6(\6,\17handler_opts\1\0\1\vborder\vsingle\1\0\4\14doc_lines\3\5\tbind\2\16hint_enable\1\20floating_window\2\nsetup\18lsp_signature\frequire\0" },
+    config = { "\27LJ\2\n¼\1\0\0\4\0\b\0\v6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\4\0=\3\5\0025\3\6\0=\3\a\2B\0\2\1K\0\1\0\24extra_trigger_chars\1\3\0\0\6(\6,\17handler_opts\1\0\1\vborder\vsingle\1\0\4\tbind\2\16hint_enable\1\20floating_window\2\14doc_lines\3\5\nsetup\18lsp_signature\frequire\0" },
     loaded = true,
     path = "/Users/orelimelech/.local/share/nvim/site/pack/packer/start/lsp_signature.nvim",
     url = "https://github.com/ray-x/lsp_signature.nvim"
@@ -319,17 +319,13 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: nvim-test
-time([[Config for nvim-test]], true)
-try_loadstring("\27LJ\2\np\0\0\4\0\6\0\t6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0005\3\3\0=\3\5\2B\0\2\1K\0\1\0\rtermOpts\1\0\0\1\0\2\14direction\15horizontal\fgo_back\1\nsetup\14nvim-test\frequire\0", "config", "nvim-test")
-time([[Config for nvim-test]], false)
 -- Config for: nvim-treesitter-context
 time([[Config for nvim-treesitter-context]], true)
 try_loadstring("\27LJ\2\nD\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\23treesitter-context\frequire\0", "config", "nvim-treesitter-context")
 time([[Config for nvim-treesitter-context]], false)
 -- Config for: lsp_signature.nvim
 time([[Config for lsp_signature.nvim]], true)
-try_loadstring("\27LJ\2\n¼\1\0\0\4\0\b\0\v6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\4\0=\3\5\0025\3\6\0=\3\a\2B\0\2\1K\0\1\0\24extra_trigger_chars\1\3\0\0\6(\6,\17handler_opts\1\0\1\vborder\vsingle\1\0\4\14doc_lines\3\5\tbind\2\16hint_enable\1\20floating_window\2\nsetup\18lsp_signature\frequire\0", "config", "lsp_signature.nvim")
+try_loadstring("\27LJ\2\n¼\1\0\0\4\0\b\0\v6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\4\0=\3\5\0025\3\6\0=\3\a\2B\0\2\1K\0\1\0\24extra_trigger_chars\1\3\0\0\6(\6,\17handler_opts\1\0\1\vborder\vsingle\1\0\4\tbind\2\16hint_enable\1\20floating_window\2\14doc_lines\3\5\nsetup\18lsp_signature\frequire\0", "config", "lsp_signature.nvim")
 time([[Config for lsp_signature.nvim]], false)
 -- Config for: nvim-cmp
 time([[Config for nvim-cmp]], true)
@@ -355,17 +351,24 @@ time([[Config for nvim-dap-go]], false)
 time([[Config for nvim-tree.lua]], true)
 try_loadstring("\27LJ\2\n;\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\14nvim-tree\frequire\0", "config", "nvim-tree.lua")
 time([[Config for nvim-tree.lua]], false)
+-- Config for: nvim-test
+time([[Config for nvim-test]], true)
+try_loadstring("\27LJ\2\np\0\0\4\0\6\0\t6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0005\3\3\0=\3\5\2B\0\2\1K\0\1\0\rtermOpts\1\0\0\1\0\2\14direction\15horizontal\fgo_back\1\nsetup\14nvim-test\frequire\0", "config", "nvim-test")
+time([[Config for nvim-test]], false)
 vim.cmd [[augroup packer_load_aucmds]]
 vim.cmd [[au!]]
   -- Filetype lazy-loads
 time([[Defining lazy-load filetype autocommands]], true)
-vim.cmd [[au FileType rust ++once lua require("packer.load")({'rust.vim'}, { ft = "rust" }, _G.packer_plugins)]]
 vim.cmd [[au FileType elixir ++once lua require("packer.load")({'vim-elixir'}, { ft = "elixir" }, _G.packer_plugins)]]
-vim.cmd [[au FileType terraform ++once lua require("packer.load")({'vim-terraform'}, { ft = "terraform" }, _G.packer_plugins)]]
 vim.cmd [[au FileType cue ++once lua require("packer.load")({'vim-cue'}, { ft = "cue" }, _G.packer_plugins)]]
+vim.cmd [[au FileType rust ++once lua require("packer.load")({'rust.vim'}, { ft = "rust" }, _G.packer_plugins)]]
+vim.cmd [[au FileType terraform ++once lua require("packer.load")({'vim-terraform'}, { ft = "terraform" }, _G.packer_plugins)]]
 time([[Defining lazy-load filetype autocommands]], false)
 vim.cmd("augroup END")
 vim.cmd [[augroup filetypedetect]]
+time([[Sourcing ftdetect script at: /Users/orelimelech/.local/share/nvim/site/pack/packer/opt/vim-elixir/ftdetect/elixir.vim]], true)
+vim.cmd [[source /Users/orelimelech/.local/share/nvim/site/pack/packer/opt/vim-elixir/ftdetect/elixir.vim]]
+time([[Sourcing ftdetect script at: /Users/orelimelech/.local/share/nvim/site/pack/packer/opt/vim-elixir/ftdetect/elixir.vim]], false)
 time([[Sourcing ftdetect script at: /Users/orelimelech/.local/share/nvim/site/pack/packer/opt/vim-terraform/ftdetect/hcl.vim]], true)
 vim.cmd [[source /Users/orelimelech/.local/share/nvim/site/pack/packer/opt/vim-terraform/ftdetect/hcl.vim]]
 time([[Sourcing ftdetect script at: /Users/orelimelech/.local/share/nvim/site/pack/packer/opt/vim-terraform/ftdetect/hcl.vim]], false)
@@ -375,9 +378,6 @@ time([[Sourcing ftdetect script at: /Users/orelimelech/.local/share/nvim/site/pa
 time([[Sourcing ftdetect script at: /Users/orelimelech/.local/share/nvim/site/pack/packer/opt/vim-cue/ftdetect/cue.vim]], true)
 vim.cmd [[source /Users/orelimelech/.local/share/nvim/site/pack/packer/opt/vim-cue/ftdetect/cue.vim]]
 time([[Sourcing ftdetect script at: /Users/orelimelech/.local/share/nvim/site/pack/packer/opt/vim-cue/ftdetect/cue.vim]], false)
-time([[Sourcing ftdetect script at: /Users/orelimelech/.local/share/nvim/site/pack/packer/opt/vim-elixir/ftdetect/elixir.vim]], true)
-vim.cmd [[source /Users/orelimelech/.local/share/nvim/site/pack/packer/opt/vim-elixir/ftdetect/elixir.vim]]
-time([[Sourcing ftdetect script at: /Users/orelimelech/.local/share/nvim/site/pack/packer/opt/vim-elixir/ftdetect/elixir.vim]], false)
 vim.cmd("augroup END")
 if should_profile then save_profiles() end
 
