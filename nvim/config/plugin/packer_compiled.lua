@@ -9,23 +9,26 @@ vim.api.nvim_command('packadd packer.nvim')
 
 local no_errors, error_msg = pcall(function()
 
-  local time
-  local profile_info
-  local should_profile = false
-  if should_profile then
-    local hrtime = vim.loop.hrtime
-    profile_info = {}
-    time = function(chunk, start)
-      if start then
-        profile_info[chunk] = hrtime()
-      else
-        profile_info[chunk] = (hrtime() - profile_info[chunk]) / 1e6
-      end
+_G._packer = _G._packer or {}
+_G._packer.inside_compile = true
+
+local time
+local profile_info
+local should_profile = false
+if should_profile then
+  local hrtime = vim.loop.hrtime
+  profile_info = {}
+  time = function(chunk, start)
+    if start then
+      profile_info[chunk] = hrtime()
+    else
+      profile_info[chunk] = (hrtime() - profile_info[chunk]) / 1e6
     end
-  else
-    time = function(chunk, start) end
   end
-  
+else
+  time = function(chunk, start) end
+end
+
 local function save_profiles(threshold)
   local sorted_times = {}
   for chunk_name, time_taken in pairs(profile_info) do
@@ -38,8 +41,10 @@ local function save_profiles(threshold)
       results[i] = elem[1] .. ' took ' .. elem[2] .. 'ms'
     end
   end
+  if threshold then
+    table.insert(results, '(Only showing plugins that took longer than ' .. threshold .. ' ms ' .. 'to load)')
+  end
 
-  _G._packer = _G._packer or {}
   _G._packer.profile_output = results
 end
 
@@ -135,7 +140,7 @@ _G.packer_plugins = {
     url = "https://github.com/junegunn/limelight.vim"
   },
   ["lsp_signature.nvim"] = {
-    config = { "\27LJ\2\n¼\1\0\0\4\0\b\0\v6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\4\0=\3\5\0025\3\6\0=\3\a\2B\0\2\1K\0\1\0\24extra_trigger_chars\1\3\0\0\6(\6,\17handler_opts\1\0\1\vborder\vsingle\1\0\4\tbind\2\16hint_enable\1\20floating_window\2\14doc_lines\3\5\nsetup\18lsp_signature\frequire\0" },
+    config = { "\27LJ\2\n¼\1\0\0\4\0\b\0\v6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\4\0=\3\5\0025\3\6\0=\3\a\2B\0\2\1K\0\1\0\24extra_trigger_chars\1\3\0\0\6(\6,\17handler_opts\1\0\1\vborder\vsingle\1\0\4\20floating_window\2\14doc_lines\3\5\tbind\2\16hint_enable\1\nsetup\18lsp_signature\frequire\0" },
     loaded = true,
     path = "/Users/orelimelech/.local/share/nvim/site/pack/packer/start/lsp_signature.nvim",
     url = "https://github.com/ray-x/lsp_signature.nvim"
@@ -319,22 +324,18 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: nvim-treesitter-context
-time([[Config for nvim-treesitter-context]], true)
-try_loadstring("\27LJ\2\nD\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\23treesitter-context\frequire\0", "config", "nvim-treesitter-context")
-time([[Config for nvim-treesitter-context]], false)
 -- Config for: lsp_signature.nvim
 time([[Config for lsp_signature.nvim]], true)
-try_loadstring("\27LJ\2\n¼\1\0\0\4\0\b\0\v6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\4\0=\3\5\0025\3\6\0=\3\a\2B\0\2\1K\0\1\0\24extra_trigger_chars\1\3\0\0\6(\6,\17handler_opts\1\0\1\vborder\vsingle\1\0\4\tbind\2\16hint_enable\1\20floating_window\2\14doc_lines\3\5\nsetup\18lsp_signature\frequire\0", "config", "lsp_signature.nvim")
+try_loadstring("\27LJ\2\n¼\1\0\0\4\0\b\0\v6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\4\0=\3\5\0025\3\6\0=\3\a\2B\0\2\1K\0\1\0\24extra_trigger_chars\1\3\0\0\6(\6,\17handler_opts\1\0\1\vborder\vsingle\1\0\4\20floating_window\2\14doc_lines\3\5\tbind\2\16hint_enable\1\nsetup\18lsp_signature\frequire\0", "config", "lsp_signature.nvim")
 time([[Config for lsp_signature.nvim]], false)
 -- Config for: nvim-cmp
 time([[Config for nvim-cmp]], true)
 try_loadstring("\27LJ\2\n\v\0\1\1\0\0\0\1K\0\1\0—\4\1\0\t\0!\0<6\0\0\0'\2\1\0B\0\2\0026\1\0\0'\3\2\0B\1\2\0029\2\3\0015\4\a\0005\5\5\0003\6\4\0=\6\6\5=\5\b\0045\5\v\0009\6\t\0019\6\n\6B\6\1\2=\6\f\0059\6\t\0019\6\r\6B\6\1\2=\6\14\0059\6\t\0019\6\15\6)\büÿB\6\2\2=\6\16\0059\6\t\0019\6\15\6)\b\4\0B\6\2\2=\6\17\0059\6\t\0019\6\18\6B\6\1\2=\6\19\0059\6\t\0019\6\20\0065\b\21\0B\6\2\2=\6\22\5=\5\t\0044\5\6\0005\6\23\0>\6\1\0055\6\24\0>\6\2\0055\6\25\0>\6\3\0055\6\26\0>\6\4\0055\6\27\0>\6\5\5=\5\28\0045\5\30\0009\6\29\0B\6\1\2=\6\31\5=\5 \4B\2\2\1K\0\1\0\15formatting\vformat\1\0\0\15cmp_format\fsources\1\0\1\tname\15treesitter\1\0\1\tname\tpath\1\0\1\tname\15neosnippet\1\0\1\tname\vbuffer\1\0\1\tname\rnvim_lsp\t<CR>\1\0\1\vselect\2\fconfirm\n<C-e>\nclose\n<C-f>\n<C-d>\16scroll_docs\n<C-n>\21select_next_item\n<C-p>\1\0\0\21select_prev_item\fmapping\fsnippet\1\0\0\vexpand\1\0\0\0\nsetup\bcmp\flspkind\frequire\0", "config", "nvim-cmp")
 time([[Config for nvim-cmp]], false)
--- Config for: nvim-lspfuzzy
-time([[Config for nvim-lspfuzzy]], true)
-try_loadstring("\27LJ\2\n:\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\rlspfuzzy\frequire\0", "config", "nvim-lspfuzzy")
-time([[Config for nvim-lspfuzzy]], false)
+-- Config for: nvim-tree.lua
+time([[Config for nvim-tree.lua]], true)
+try_loadstring("\27LJ\2\n;\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\14nvim-tree\frequire\0", "config", "nvim-tree.lua")
+time([[Config for nvim-tree.lua]], false)
 -- Config for: nvim-dap-ui
 time([[Config for nvim-dap-ui]], true)
 try_loadstring("\27LJ\2\n3\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\ndapui\frequire\0", "config", "nvim-dap-ui")
@@ -347,10 +348,14 @@ time([[Config for lualine.nvim]], false)
 time([[Config for nvim-dap-go]], true)
 try_loadstring("\27LJ\2\n4\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\vdap-go\frequire\0", "config", "nvim-dap-go")
 time([[Config for nvim-dap-go]], false)
--- Config for: nvim-tree.lua
-time([[Config for nvim-tree.lua]], true)
-try_loadstring("\27LJ\2\n;\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\14nvim-tree\frequire\0", "config", "nvim-tree.lua")
-time([[Config for nvim-tree.lua]], false)
+-- Config for: nvim-treesitter-context
+time([[Config for nvim-treesitter-context]], true)
+try_loadstring("\27LJ\2\nD\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\23treesitter-context\frequire\0", "config", "nvim-treesitter-context")
+time([[Config for nvim-treesitter-context]], false)
+-- Config for: nvim-lspfuzzy
+time([[Config for nvim-lspfuzzy]], true)
+try_loadstring("\27LJ\2\n:\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\rlspfuzzy\frequire\0", "config", "nvim-lspfuzzy")
+time([[Config for nvim-lspfuzzy]], false)
 -- Config for: nvim-test
 time([[Config for nvim-test]], true)
 try_loadstring("\27LJ\2\np\0\0\4\0\6\0\t6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0005\3\3\0=\3\5\2B\0\2\1K\0\1\0\rtermOpts\1\0\0\1\0\2\14direction\15horizontal\fgo_back\1\nsetup\14nvim-test\frequire\0", "config", "nvim-test")
@@ -359,26 +364,33 @@ vim.cmd [[augroup packer_load_aucmds]]
 vim.cmd [[au!]]
   -- Filetype lazy-loads
 time([[Defining lazy-load filetype autocommands]], true)
-vim.cmd [[au FileType elixir ++once lua require("packer.load")({'vim-elixir'}, { ft = "elixir" }, _G.packer_plugins)]]
-vim.cmd [[au FileType cue ++once lua require("packer.load")({'vim-cue'}, { ft = "cue" }, _G.packer_plugins)]]
-vim.cmd [[au FileType rust ++once lua require("packer.load")({'rust.vim'}, { ft = "rust" }, _G.packer_plugins)]]
 vim.cmd [[au FileType terraform ++once lua require("packer.load")({'vim-terraform'}, { ft = "terraform" }, _G.packer_plugins)]]
+vim.cmd [[au FileType elixir ++once lua require("packer.load")({'vim-elixir'}, { ft = "elixir" }, _G.packer_plugins)]]
+vim.cmd [[au FileType rust ++once lua require("packer.load")({'rust.vim'}, { ft = "rust" }, _G.packer_plugins)]]
+vim.cmd [[au FileType cue ++once lua require("packer.load")({'vim-cue'}, { ft = "cue" }, _G.packer_plugins)]]
 time([[Defining lazy-load filetype autocommands]], false)
 vim.cmd("augroup END")
 vim.cmd [[augroup filetypedetect]]
-time([[Sourcing ftdetect script at: /Users/orelimelech/.local/share/nvim/site/pack/packer/opt/vim-elixir/ftdetect/elixir.vim]], true)
-vim.cmd [[source /Users/orelimelech/.local/share/nvim/site/pack/packer/opt/vim-elixir/ftdetect/elixir.vim]]
-time([[Sourcing ftdetect script at: /Users/orelimelech/.local/share/nvim/site/pack/packer/opt/vim-elixir/ftdetect/elixir.vim]], false)
-time([[Sourcing ftdetect script at: /Users/orelimelech/.local/share/nvim/site/pack/packer/opt/vim-terraform/ftdetect/hcl.vim]], true)
-vim.cmd [[source /Users/orelimelech/.local/share/nvim/site/pack/packer/opt/vim-terraform/ftdetect/hcl.vim]]
-time([[Sourcing ftdetect script at: /Users/orelimelech/.local/share/nvim/site/pack/packer/opt/vim-terraform/ftdetect/hcl.vim]], false)
 time([[Sourcing ftdetect script at: /Users/orelimelech/.local/share/nvim/site/pack/packer/opt/rust.vim/ftdetect/rust.vim]], true)
 vim.cmd [[source /Users/orelimelech/.local/share/nvim/site/pack/packer/opt/rust.vim/ftdetect/rust.vim]]
 time([[Sourcing ftdetect script at: /Users/orelimelech/.local/share/nvim/site/pack/packer/opt/rust.vim/ftdetect/rust.vim]], false)
+time([[Sourcing ftdetect script at: /Users/orelimelech/.local/share/nvim/site/pack/packer/opt/vim-terraform/ftdetect/hcl.vim]], true)
+vim.cmd [[source /Users/orelimelech/.local/share/nvim/site/pack/packer/opt/vim-terraform/ftdetect/hcl.vim]]
+time([[Sourcing ftdetect script at: /Users/orelimelech/.local/share/nvim/site/pack/packer/opt/vim-terraform/ftdetect/hcl.vim]], false)
 time([[Sourcing ftdetect script at: /Users/orelimelech/.local/share/nvim/site/pack/packer/opt/vim-cue/ftdetect/cue.vim]], true)
 vim.cmd [[source /Users/orelimelech/.local/share/nvim/site/pack/packer/opt/vim-cue/ftdetect/cue.vim]]
 time([[Sourcing ftdetect script at: /Users/orelimelech/.local/share/nvim/site/pack/packer/opt/vim-cue/ftdetect/cue.vim]], false)
+time([[Sourcing ftdetect script at: /Users/orelimelech/.local/share/nvim/site/pack/packer/opt/vim-elixir/ftdetect/elixir.vim]], true)
+vim.cmd [[source /Users/orelimelech/.local/share/nvim/site/pack/packer/opt/vim-elixir/ftdetect/elixir.vim]]
+time([[Sourcing ftdetect script at: /Users/orelimelech/.local/share/nvim/site/pack/packer/opt/vim-elixir/ftdetect/elixir.vim]], false)
 vim.cmd("augroup END")
+
+_G._packer.inside_compile = false
+if _G._packer.needs_bufread == true then
+  vim.cmd("doautocmd BufRead")
+end
+_G._packer.needs_bufread = false
+
 if should_profile then save_profiles() end
 
 end)

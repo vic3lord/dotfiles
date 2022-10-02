@@ -2,6 +2,7 @@
 readonly PACKAGES=(
 	golang.org/x/tools/gopls@latest
 	github.com/bufbuild/buf-language-server/cmd/bufls@latest
+	github.com/go-delve/delve/cmd/dlv@latest
 )
 
 if which go > /dev/null 2>&1

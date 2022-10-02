@@ -178,16 +178,3 @@ __go_tool_complete() {
 }
 
 compdef __go_tool_complete go
-
-# aliases: go<~>
-alias gob='go build'
-alias goc='go clean'
-alias god='go doc'
-alias gof='go fmt'
-alias gofa='go fmt . ./...'
-alias gog='go get'
-alias goi='go install'
-alias gol='go list'
-alias gor='go run'
-alias got='go test'
-alias gov='go vet'

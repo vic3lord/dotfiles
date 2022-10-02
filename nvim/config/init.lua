@@ -3,7 +3,7 @@ require('options')
 require('mapping')
 require('treesitter')
 require('lsp')
-require('dapper')
+require('dapconfig')
 
 vim.cmd [[
 	autocmd! User GoyoEnter Limelight
@@ -12,7 +12,7 @@ vim.cmd [[
 
 vim.api.nvim_create_autocmd("BufWritePre", {
   pattern = "*.go",
-  command = "lua vim.lsp.buf.formatting()",
+  command = "lua vim.lsp.buf.format()",
 })
 
 vim.api.nvim_create_autocmd("FileType", {
