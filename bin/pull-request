@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+# vim: ft=bash
+
+readonly ISSUE=$(
+	jira sprint list --current -a $(jira me) --plain --columns key,summary,status --no-headers | grep -v Done |
+		fzf --query="$1" --no-multi --select-1 --exit-0 \
+		--preview "echo {} | awk '{print $1}' | xargs jira issue view"
+)
+
+if [[ -z $ISSUE ]]; then
+	gh pr create \
+	--assignee @me \
+	--draft
+fi
+
+readonly JIRA_URL="https://${JIRA_ORG}.atlassian.net/browse"
+readonly ISSUE_NUMBER=$(echo $ISSUE | awk '{print $1}')
+readonly ISSUE_TITLE=$(echo $ISSUE | awk '{$1=""; print $0}')
+
+git checkout -b $ISSUE_NUMBER
+git commit --allow-empty -m "$ISSUE_TITLE"
+
+gh pr create \
+	--assignee @me \
+	--draft \
+	--title "$ISSUE_NUMBER:$ISSUE_TITLE" \
+	--body "[Ticket]($JIRA_URL/$ISSUE_NUMBER): ${ISSUE_TITLE}"
