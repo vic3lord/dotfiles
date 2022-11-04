@@ -1,11 +1,12 @@
 -- vim-plug
-vim.cmd('packadd packer.nvim')
+vim.cmd.packadd('packer.nvim')
 return require('packer').startup(function()
   -- Packer manages itself
   use 'wbthomason/packer.nvim'
 
   -- Themes
-  use 'morhetz/gruvbox'
+  use 'rafamadriz/themes.nvim'
+
   use {
     'nvim-lualine/lualine.nvim',
     config = function() require('lualine').setup{} end
@@ -32,25 +33,35 @@ return require('packer').startup(function()
   use 'godlygeek/tabular'
 
   -- Search and navigation
-  use { '/usr/local/opt/fzf', requires = { { 'junegunn/fzf.vim' } } }
-  use 'ojroques/nvim-lspfuzzy' -- FZF navigation for LSP
-  use 'unblevable/quick-scope'
-  use 'google/vim-searchindex'
+  use {
+    '/opt/homebrew/opt/fzf',
+    requires = { { 'junegunn/fzf.vim' } },
+  }
 
   use {
     'kyazdani42/nvim-tree.lua',
-    requires = 'kyazdani42/nvim-web-devicons',
-    config = function() require('nvim-tree').setup {
-      update_focused_file = {
-        enable      = true,
-      }
-    } end
-}
+    requires = { { 'kyazdani42/nvim-web-devicons' } },
+    config = function() require'nvim-tree'.setup {} end
+  }
+
+  use {
+    'ojroques/nvim-lspfuzzy',
+    config = function() require('lspfuzzy').setup{} end
+  }
+
+  use 'unblevable/quick-scope'
+  use 'google/vim-searchindex'
 
   -- Completion, lint, fix
   use 'jiangmiao/auto-pairs'
-  use 'Shougo/neosnippet.vim'
-  use 'Shougo/neosnippet-snippets'
+
+  use 'github/copilot.vim'
+
+  use {
+    'Shougo/neosnippet.vim',
+    requires = { { 'Shougo/neosnippet-snippets' } },
+  }
+
   use { 'neovim/nvim-lspconfig' }
 
   use {
@@ -67,10 +78,28 @@ return require('packer').startup(function()
     end
   }
 
-  use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
+  use {
+    'nvim-treesitter/nvim-treesitter',
+    run = ':TSUpdate',
+  }
+
+  use {
+    'nvim-treesitter/nvim-treesitter-context',
+    requires = {
+      { 'nvim-treesitter/nvim-treesitter' },
+    },
+    config = function() require('treesitter-context').setup{} end
+  }
 
   use {
     'hrsh7th/nvim-cmp',
+    requires = {
+      { 'hrsh7th/cmp-nvim-lsp' },
+      { 'hrsh7th/cmp-buffer' },
+      { 'hrsh7th/cmp-path' },
+      { 'notomo/cmp-neosnippet' },
+      { 'ray-x/cmp-treesitter' },
+    },
     config = function()
       local lspkind = require('lspkind')
       local cmp = require('cmp')
@@ -82,6 +111,8 @@ return require('packer').startup(function()
           end,
         },
         mapping = {
+          ['<C-p>'] = cmp.mapping.select_prev_item(),
+          ['<C-n>'] = cmp.mapping.select_next_item(),
           ['<C-d>'] = cmp.mapping.scroll_docs(-4),
           ['<C-f>'] = cmp.mapping.scroll_docs(4),
           -- ['<C-Space>'] = cmp.mapping.complete(),
@@ -102,11 +133,44 @@ return require('packer').startup(function()
     end
   }
 
-  use 'hrsh7th/cmp-nvim-lsp'
-  use 'hrsh7th/cmp-buffer'
-  use 'hrsh7th/cmp-path'
-  use 'notomo/cmp-neosnippet'
-  use 'ray-x/cmp-treesitter'
+
+  -- DAP
+  use {
+    'mfussenegger/nvim-dap',
+  }
+
+  use {
+    'leoluz/nvim-dap-go',
+    requires = {
+      { 'mfussenegger/nvim-dap' },
+    },
+    config = function()
+      require('dap-go').setup()
+    end
+  }
+
+  use {
+    'rcarriga/nvim-dap-ui',
+    requires = {
+      { 'mfussenegger/nvim-dap' },
+    },
+    config = function()
+      require('dapui').setup()
+    end
+  }
+
+  
+  use {
+    'klen/nvim-test',
+    config = function()
+      require('nvim-test').setup{
+        termOpts = {
+          direction = "horizontal",
+          go_back = false,
+        },
+      }
+    end
+  }
 
   -- Language specific plugins
   use {
@@ -125,7 +189,7 @@ return require('packer').startup(function()
   }
 
   use {
-    "folke/which-key.nvim",
-    config = function() require("which-key").setup{} end
+    'jjo/vim-cue',
+    ft = { 'cue' },
   }
 end)

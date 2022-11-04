@@ -10,13 +10,15 @@
 	co = checkout
 	br = branch
 	st = status -s
-	edit = !vim $(git ls-files -m) -p
+	edit = !nvim $(git ls-files -m) -p
 	flux = log --author="flux" --oneline
 	pr = !pull-request
 	co = checkout
 	s = status
 	l = log
 	cob = checkout -b
+	wip = commit -am 'wip'
+	web = !gh pr view -w
 [push]
 	default = simple
 [color]
@@ -33,6 +35,7 @@
 	prompt = false
 [mergetool]
 	path = nvim
+	keepBackup = false
 [mergetool "vimdiff"]
 	path = nvim
 [url "git@github.com:torqio"]

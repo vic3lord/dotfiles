@@ -1,6 +1,7 @@
 -- LSP servers configs
 local lspconfig = require('lspconfig')
 lspconfig.gopls.setup{}
+lspconfig.bufls.setup{}
 lspconfig.jsonls.setup{}
 lspconfig.html.setup{}
 lspconfig.cssls.setup{}
@@ -9,5 +10,4 @@ lspconfig.yamlls.setup{}
 lspconfig.tsserver.setup{}
 lspconfig.bashls.setup{}
 lspconfig.terraformls.setup{}
-
-require('lspfuzzy').setup{}
+lspconfig.sqls.setup{}

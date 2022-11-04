@@ -5,7 +5,14 @@
 #### END FIG ENV VARIABLES ####
 # Dotfiles location
 DOTFILES=$HOME/.dotfiles
-WORKSPACE=$HOME/space
+
+# Support ARM64 and AMD64 macOS.
+if [ $(uname -m) = "arm64" ]
+then
+	BREW_PATH=/opt/homebrew
+else
+	BREW_PATH=/usr/local
+fi
 
 # export ZSH="$HOME/.oh-my-zsh"
 # ZSH_THEME="robbyrussell"
@@ -14,7 +21,7 @@ WORKSPACE=$HOME/space
 # source $ZSH/oh-my-zsh.sh
 
 # PATH
-export PATH="/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin"
+export PATH="$BREW_PATH/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin"
 
 autoload -U +X compinit && compinit
 
