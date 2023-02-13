@@ -2,7 +2,7 @@
 # vim: ft=bash
 
 readonly ISSUE=$(
-	jira sprint list --current -a $(jira me) -q 'status NOT IN (Done, Closed)' --plain --columns key,summary --no-headers |
+	jira issue list -a $(jira me) -q 'status NOT IN (Done, Closed)' --plain --columns key,summary --no-headers |
 		fzf --query="$1" --no-multi --select-1 --exit-0 \
 		--preview "echo {} | awk '{print $1}' | xargs jira issue view"
 )
