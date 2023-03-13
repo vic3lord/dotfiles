@@ -36,7 +36,6 @@ brew 'neovim', args: ['HEAD']
 brew 'newsboat'
 brew 'nmap'
 brew 'node'
-brew 'protoc-gen-go-grpc'
 brew 'qpdf'
 brew 'ripgrep'
 brew 'rust'
@@ -68,6 +67,7 @@ cask 'transmission'
 cask 'utm'
 cask 'whatsapp'
 cask 'zoom'
+cask 'linear-linear'
 
 # Fonts
 cask 'font-hack-nerd-font'

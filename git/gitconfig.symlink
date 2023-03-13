@@ -39,5 +39,3 @@
 	path = nvim
 [url "git@github.com:torqio"]
 	insteadOf = https://github.com/torqio
-[url "git@github.com:stackpulse"]
-	insteadOf = https://github.com/stackpulse
