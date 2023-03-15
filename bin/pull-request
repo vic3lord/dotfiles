@@ -2,31 +2,35 @@
 # vim: ft=bash
 
 readonly ISSUE=$(
-	jira issue list -a $(jira me) -q 'status NOT IN (Done, Closed)' --plain --columns key,summary --no-headers |
-		fzf --query="$1" --no-multi --select-1 --exit-0 \
-		--preview "echo {} | awk '{print $1}' | xargs jira issue view"
+	curl \
+		--silent \
+		-XPOST \
+		-H "Content-Type: application/json" \
+		-H "Authorization: $LINEAR_TOKEN" \
+		-d '{ "query": "{ issues(filter: {assignee: {isMe: {eq: true}}}) { nodes { identifier title } } }" }' \
+		--url "https://api.linear.app/graphql" \
+		| jq -r '.data.issues.nodes[] | "\(.identifier): \(.title)"' \
+		| fzf --query="$1" --no-multi --select-1 --exit-0 
 )
 
 if [[ -z $ISSUE ]]; then
 	exit 0
 fi
 
-readonly JIRA_URL="https://${JIRA_ORG}.atlassian.net/browse"
-readonly ISSUE_NUMBER=$(echo $ISSUE | awk '{print $1}')
-readonly ISSUE_TITLE=$(echo $ISSUE | awk '{$1=""; print $0}')
+readonly ISSUE_BRANCH="$(echo $ISSUE | awk -F': ' '{print $1}')"
+readonly ISSUE_TITLE="$(echo $ISSUE | awk -F': ' '{print $2}')"
 
-if [ $(git branch | grep $ISSUE_NUMBER) ]
+if git branch | grep $ISSUE_BRANCH
 then
 	echo "Already exists, switching!"
-	git switch $ISSUE_NUMBER
+	git switch $ISSUE_BRANCH
 	exit 0
 fi
 
-git checkout -b $ISSUE_NUMBER
+git checkout -b $ISSUE_BRANCH
 git commit --allow-empty -m "$ISSUE_TITLE"
 
 gh pr create \
 	--assignee @me \
 	--draft \
-	--title "$ISSUE_NUMBER:$ISSUE_TITLE" \
-	--body "[Ticket]($JIRA_URL/$ISSUE_NUMBER): ${ISSUE_TITLE}"
+	--title "$ISSUE_TITLE"

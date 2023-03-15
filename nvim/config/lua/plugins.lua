@@ -65,6 +65,11 @@ return require('packer').startup(function()
   use { 'neovim/nvim-lspconfig' }
 
   use {
+    'williamboman/mason.nvim',
+    config = function() require('mason').setup{} end
+  }
+
+  use {
     'ray-x/lsp_signature.nvim',
     config = function()
       require('lsp_signature').setup{
