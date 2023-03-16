@@ -37,5 +37,6 @@
 	keepBackup = false
 [mergetool "vimdiff"]
 	path = nvim
+	layout = "(LOCAL,REMOTE)/MERGED"
 [url "git@github.com:torqio"]
 	insteadOf = https://github.com/torqio

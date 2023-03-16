@@ -8,6 +8,7 @@ lspconfig.cssls.setup{}
 lspconfig.vuels.setup{}
 lspconfig.yamlls.setup{}
 lspconfig.tsserver.setup{}
+lspconfig.eslint.setup{}
 lspconfig.bashls.setup{}
 lspconfig.terraformls.setup{}
 lspconfig.sqls.setup{}
