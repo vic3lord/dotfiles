@@ -8,9 +8,9 @@ readonly ISSUE=$(
 		-XPOST \
 		-H "Content-Type: application/json" \
 		-H "Authorization: $LINEAR_TOKEN" \
-		-d '{ "query": "{ issues(filter: {assignee: {isMe: {eq: true}}}) { nodes { identifier title } } }" }' \
+		-d '{ "query": "{ issues(filter: { assignee: {isMe: {eq: true}} }) { nodes { branchName title } } }" }' \
 		--url "https://api.linear.app/graphql" \
-		| jq -r '.data.issues.nodes[] | "\(.identifier): \(.title)"' \
+		| jq -r '.data.issues.nodes[] | "\(.branchName): \(.title)"' \
 		| fzf --query="$1" --no-multi --select-1 --exit-0 
 )
 
@@ -34,4 +34,5 @@ git commit --allow-empty -m "$ISSUE_TITLE"
 gh pr create \
 	--assignee @me \
 	--draft \
+	--fill \
 	--title "$SEMANTIC: $ISSUE_TITLE"
