@@ -3,15 +3,28 @@
 
 readonly SEMANTIC=$(echo -e 'feat\nchore\nfix' | fzf --no-multi -1 --exit-0)
 readonly ISSUE=$(
-	curl \
-		--silent \
-		-XPOST \
-		-H "Content-Type: application/json" \
-		-H "Authorization: $LINEAR_TOKEN" \
-		-d '{ "query": "{ issues(filter: { assignee: {isMe: {eq: true}} }) { nodes { branchName title } } }" }' \
-		--url "https://api.linear.app/graphql" \
-		| jq -r '.data.issues.nodes[] | "\(.branchName): \(.title)"' \
-		| fzf --query="$1" --no-multi --select-1 --exit-0 
+	jq -cn '{query: $query}' \
+	--arg query '
+	query AssignedIssues {
+	  issues(filter: { 
+	    assignee: {isMe: {eq: true}}
+	    state: {type: {neqIgnoreCase: "completed"}}
+	  }) {
+	    nodes {
+	      branchName
+	      title
+	    }
+	  }
+	}' \
+	| curl \
+	    --silent \
+	    -XPOST \
+	    -H "Content-Type: application/json" \
+	    -H "Authorization: $LINEAR_TOKEN" \
+	    --data @- \
+	    https://api.linear.app/graphql \
+	    | jq -r '.data.issues.nodes[] | "\(.branchName): \(.title)"' \
+	    | fzf --query="$1" --no-multi --select-1 --exit-0
 )
 
 if [[ -z $ISSUE ]]; then
