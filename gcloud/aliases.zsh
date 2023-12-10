@@ -1,5 +1,5 @@
 alias g='gcloud config configurations activate'
-alias gssh='gcloud beta compute ssh --ssh-key-file ~/.ssh/id_ed25519 --tunnel-through-iap'
+alias gssh='gcloud compute ssh --ssh-key-file ~/.ssh/id_ed25519 --tunnel-through-iap'
 
 # purge cdn
 # pcdn service-name-here "/some-path/*"

@@ -28,6 +28,7 @@ vim.opt.spell = false
 
 -- Set colorscheme
 vim.cmd.colorscheme('gruvbox')
+-- vim.cmd.colorscheme('base16-grayscale-dark')
 
 -- Rust
 vim.g.rustfmt_autosave = 1
@@ -46,3 +47,6 @@ vim.g.fzf_layout = {
     height = 1
   }
 }
+
+-- Comment string
+vim.g.skip_ts_context_commentstring_module = true

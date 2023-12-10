@@ -7,6 +7,8 @@ return require('packer').startup(function()
   -- Themes
   use 'rafamadriz/themes.nvim'
 
+  use 'RRethy/nvim-base16'
+
   use {
     'nvim-lualine/lualine.nvim',
     config = function() require('lualine').setup{} end
@@ -27,7 +29,6 @@ return require('packer').startup(function()
   use 'JoosepAlviste/nvim-ts-context-commentstring' -- update commentstring based on treesitter
   use 'f-person/git-blame.nvim'
   use 'vitapluvia/vim-gurl' -- Github URL to clipboard
-  use 'editorconfig/editorconfig-vim'
   use 'junegunn/limelight.vim'
   use 'junegunn/goyo.vim'
   use 'godlygeek/tabular'

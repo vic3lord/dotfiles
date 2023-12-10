@@ -1,6 +1,5 @@
 # Taps
 tap 'homebrew/bundle'
-tap 'homebrew/core'
 tap 'homebrew/services'
 tap 'homebrew/cask-fonts'
 tap 'hashicorp/tap'
@@ -9,7 +8,9 @@ tap 'bufbuild/buf'
 # Brews
 brew 'age'
 brew 'ansible'
+brew 'ast-grep'
 brew 'bat'
+brew 'berglas'
 brew 'buf'
 brew 'crane'
 brew 'elixir'

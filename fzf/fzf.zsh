@@ -12,7 +12,6 @@ export FZF_DEFAULT_OPTS="
 	--color info:#83a598,prompt:#bdae93,spinner:#fabd2f,pointer:#83a598,marker:#fe8019,header:#665c54
 "
 
-
 fedit() {
     local file=$(
       fzf --query="$1" --no-multi --select-1 --exit-0 \
