@@ -86,7 +86,8 @@ set -g status-left "#[fg=colour248,bg=colour241] #I:#P #[fg=colour241,bg=colour2
 # right
 set -g status-right-style none
 set -g status-right-length 80
-set -g status-right "#[fg=colour239,bg=colour237,nobold,nounderscore,noitalics]#[fg=colour246,bg=colour239] %d-%m %H:%M #[fg=colour248,bg=colour239,nobold,nounderscore,noitalics]#[fg=colour237,bg=colour248] k8s/#(kubectl config current-context) gcp/#(gcloud config configurations list|awk '/True/ {print $1}') "
+set -g status-right "#[fg=colour239,bg=colour237,nobold,nounderscore,noitalics]#[fg=colour246,bg=colour239] %H:%M #[fg=colour248,bg=colour239,nobold,nounderscore,noitalics]#[fg=colour237,bg=colour248] k8s/#(kubectl config current-context) gcp/#(gcloud config configurations list|awk '/True/ {print $1}') "
+# set -g status-right "#[fg=colour239,bg=colour237,nobold,nounderscore,noitalics]#[fg=colour246,bg=colour239] %d-%m %H:%M #[fg=colour248,bg=colour239,nobold,nounderscore,noitalics]#[fg=colour237,bg=colour248] k8s/#(kubectl config current-context) gcp/#(gcloud config configurations list|awk '/True/ {print $1}') "
 
 # clock mode
 set -g clock-mode-colour colour109

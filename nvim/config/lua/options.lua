@@ -47,6 +47,3 @@ vim.g.fzf_layout = {
     height = 1
   }
 }
-
--- Comment string
-vim.g.skip_ts_context_commentstring_module = true

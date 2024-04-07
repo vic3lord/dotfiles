@@ -10,7 +10,7 @@ else
 fi
 
 # PATH
-export PATH="$BREW_PATH/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin"
+export PATH="$BREW_PATH/bin:$BREW_PATH/sbin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin"
 
 # Special dirs
 zstyle ':completion:*' special-dirs true

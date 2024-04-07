@@ -3,7 +3,6 @@ require('options')
 require('mapping')
 require('treesitter')
 require('lsp')
-require('dapconfig')
 
 vim.cmd [[
 	autocmd! User GoyoEnter Limelight

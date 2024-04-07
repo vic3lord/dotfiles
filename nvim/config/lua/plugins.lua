@@ -1,4 +1,3 @@
--- vim-plug
 vim.cmd.packadd('packer.nvim')
 return require('packer').startup(function()
   -- Packer manages itself
@@ -21,12 +20,11 @@ return require('packer').startup(function()
 
   -- Common stuff
   use 'tpope/vim-surround'
-  use 'tpope/vim-commentary'
   use 'tpope/vim-repeat'
   use 'tpope/vim-fugitive' -- Git client
   use 'tpope/vim-unimpaired'
   use 'tpope/vim-dadbod' -- Database client
-  use 'JoosepAlviste/nvim-ts-context-commentstring' -- update commentstring based on treesitter
+  -- use 'JoosepAlviste/nvim-ts-context-commentstring' -- update commentstring based on treesitter
   use 'f-person/git-blame.nvim'
   use 'vitapluvia/vim-gurl' -- Github URL to clipboard
   use 'junegunn/limelight.vim'
@@ -35,9 +33,9 @@ return require('packer').startup(function()
 
   -- Search and navigation
   use {
-    '/opt/homebrew/opt/fzf',
-    requires = { { 'junegunn/fzf.vim' } },
-  }
+    'junegunn/fzf.vim',
+    requires = { '/opt/homebrew/opt/fzf' }
+ }
 
   use {
     'kyazdani42/nvim-tree.lua',
@@ -139,33 +137,6 @@ return require('packer').startup(function()
     end
   }
 
-
-  -- DAP
-  use {
-    'mfussenegger/nvim-dap',
-  }
-
-  use {
-    'leoluz/nvim-dap-go',
-    requires = {
-      { 'mfussenegger/nvim-dap' },
-    },
-    config = function()
-      require('dap-go').setup()
-    end
-  }
-
-  use {
-    'rcarriga/nvim-dap-ui',
-    requires = {
-      { 'mfussenegger/nvim-dap' },
-    },
-    config = function()
-      require('dapui').setup()
-    end
-  }
-
-  
   use {
     'klen/nvim-test',
     config = function()
@@ -187,15 +158,5 @@ return require('packer').startup(function()
   use {
     'rust-lang/rust.vim',
     ft = { 'rust' },
-  }
-
-  use {
-    'elixir-lang/vim-elixir',
-    ft = { 'elixir' },
-  }
-
-  use {
-    'jjo/vim-cue',
-    ft = { 'cue' },
   }
 end)

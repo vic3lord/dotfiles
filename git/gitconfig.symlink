@@ -18,6 +18,7 @@
 	pr = !pull-request
 	wip = commit -am 'wip'
 	web = !gh pr view -w
+	fswitch = !git branch | fzf | xargs git switch
 [push]
 	default = simple
 [color]
@@ -28,6 +29,7 @@
 	remote = green
 [merge]
 	tool = vimdiff
+	conflictStyle = zdiff3
 [diff]
 	tool = vimdiff
 [difftool]

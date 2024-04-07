@@ -12,3 +12,5 @@ lspconfig.eslint.setup{}
 lspconfig.bashls.setup{}
 lspconfig.terraformls.setup{}
 lspconfig.sqlls.setup{}
+lspconfig.pylsp.setup{}
+lspconfig.ast_grep.setup{}

@@ -1,2 +1,2 @@
-export PATH="$PATH:/usr/local/opt/fzf/bin"
-export MANPATH="$MANPATH:/usr/local/opt/fzf/man"
+export PATH="$PATH:$BREW_PATH/opt/fzf/bin"
+export MANPATH="$MANPATH:$BREW_PATH/opt/fzf/man"
