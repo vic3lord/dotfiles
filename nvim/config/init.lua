@@ -1,4 +1,4 @@
-require('plugins')
+require('lazy_bootstrap')
 require('options')
 require('mapping')
 require('treesitter')
