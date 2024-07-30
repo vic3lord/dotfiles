@@ -19,7 +19,6 @@ return {
   "tpope/vim-repeat",
   "tpope/vim-fugitive", -- Git client
   "tpope/vim-unimpaired",
-  "tpope/vim-dadbod", -- Database client
   "f-person/git-blame.nvim",
   "vitapluvia/vim-gurl", -- Github URL to clipboard
   "junegunn/limelight.vim",
@@ -136,6 +135,15 @@ return {
         go_back = false,
       },
     },
+  },
+
+  {
+    "kndndrj/nvim-dbee",
+    dependencies = { "MunifTanjim/nui.nvim" },
+    build = function()
+      require("dbee").install()
+    end,
+    opts = {},
   },
 
   -- Language specific plugins
