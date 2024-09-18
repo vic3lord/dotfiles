@@ -3,7 +3,7 @@ auto-reload	yes
 reload-time	600
 
 # News settings
-max-items			20
+max-items			100
 text-width			80
 browser				"open %u"
 feedlist-format			"%4n %9u %t"

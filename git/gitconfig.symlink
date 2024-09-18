@@ -42,3 +42,5 @@
 	layout = "(LOCAL,REMOTE)/MERGED"
 [url "git@github.com:mind-security"]
 	insteadOf = https://github.com/mind-security
+[url "git@github.com:tanninio"]
+	insteadOf = https://github.com/tanninio

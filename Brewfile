@@ -1,7 +1,6 @@
 # Taps
 tap 'homebrew/bundle'
 tap 'homebrew/services'
-tap 'homebrew/cask-fonts'
 tap 'hashicorp/tap'
 tap 'bufbuild/buf'
 tap 'dagger/tap'

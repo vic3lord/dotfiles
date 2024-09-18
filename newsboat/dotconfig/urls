@@ -7,15 +7,15 @@ https://derflounder.wordpress.com/feed
 https://ericasadun.com/feed/
 https://engineering.fb.com/feed/
 https://blog.filippo.io/rss/
-http://google-opensource.blogspot.com/atom.xml
-https://inessential.com/feed.json
 https://jvns.ca/atom.xml
 http://krebsonsecurity.com/feed
 http://undeadly.org/cgi?action=rss
 http://rachelbythebay.com/w/atom.xml
 http://antirez.com/rss
 https://feross.org/atom.xml
-https://www.justuseemail.com/index.xml
+https://www.justuseemail.com/feed/
+https://go.dev/blog/feed.atom
+http://feeds.feedburner.com/mnmlist
 
 # Vlogs / Podcasts
 http://www.youtube.com/feeds/videos.xml?channel_id=UC_BzFbxG2za3bp5NRRRXJSw podcasts vlogs
