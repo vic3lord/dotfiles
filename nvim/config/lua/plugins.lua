@@ -1,7 +1,5 @@
 return {
   -- Themes
-  "rafamadriz/themes.nvim",
-
   "RRethy/nvim-base16",
 
   {
@@ -46,7 +44,7 @@ return {
   "google/vim-searchindex",
 
   -- Completion, lint, fix
-  "jiangmiao/auto-pairs",
+  -- "jiangmiao/auto-pairs",
 
   "github/copilot.vim",
 
@@ -65,12 +63,12 @@ return {
   {
     "ray-x/lsp_signature.nvim",
     opts = {
-        bind = true,
-        doc_lines = 5,
-        floating_window = true,
-        hint_enable = false,
-        handler_opts = {border = "single"},
-        extra_trigger_chars = {"(", ","},
+      bind = true,
+      doc_lines = 5,
+      floating_window = true,
+      hint_enable = false,
+      handler_opts = {border = "single"},
+      extra_trigger_chars = {"(", ","},
     },
   },
 
@@ -83,6 +81,11 @@ return {
     "nvim-treesitter/nvim-treesitter-context",
     dependencies = { "nvim-treesitter/nvim-treesitter" },
     opts = {},
+  },
+
+  {
+    "nvim-treesitter/nvim-treesitter-textobjects",
+    dependencies = { "nvim-treesitter/nvim-treesitter" },
   },
 
   {

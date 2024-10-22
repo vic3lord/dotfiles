@@ -4,6 +4,7 @@ lspconfig.gopls.setup{}
 lspconfig.bufls.setup{}
 lspconfig.jsonls.setup{}
 lspconfig.html.setup{}
+lspconfig.htmx.setup{}
 lspconfig.cssls.setup{}
 lspconfig.vuels.setup{}
 -- lspconfig.yamlls.setup{}
