@@ -57,6 +57,7 @@ brew 'unbound'
 brew 'watch'
 brew 'youtube-dl'
 brew 'zoxide'
+brew 'zig'
 
 # Casks
 cask 'alacritty'
