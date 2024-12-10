@@ -1,7 +1,7 @@
 -- LSP servers configs
 local lspconfig = require('lspconfig')
 lspconfig.gopls.setup{}
-lspconfig.bufls.setup{}
+lspconfig.buf_ls.setup{}
 lspconfig.jsonls.setup{}
 lspconfig.html.setup{}
 lspconfig.htmx.setup{}
