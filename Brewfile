@@ -31,6 +31,7 @@ brew 'kubectl'
 brew 'mercurial'
 brew 'minikube'
 brew 'mkcert'
+brew 'utf8proc', args: ['HEAD']
 brew 'neovim', args: ['HEAD']
 brew 'newsboat'
 brew 'nmap'
@@ -42,9 +43,7 @@ brew 'sops'
 brew 'tig'
 brew 'tmux'
 brew 'tree'
-brew 'unbound'
 brew 'watch'
-brew 'youtube-dl'
 brew 'zoxide'
 brew 'zig'
 
