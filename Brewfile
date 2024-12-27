@@ -34,6 +34,7 @@ brew 'mkcert'
 brew 'utf8proc', args: ['HEAD']
 brew 'neovim', args: ['HEAD']
 brew 'newsboat'
+brew 'node'
 brew 'nmap'
 brew 'podman'
 brew 'qpdf'
@@ -48,7 +49,7 @@ brew 'zoxide'
 brew 'zig'
 
 # Casks
-cask 'alacritty'
+cask 'ghostty'
 cask 'firefox'
 cask 'google-cloud-sdk'
 cask 'iina'
@@ -62,6 +63,7 @@ cask 'transmission'
 cask 'utm'
 cask 'whatsapp'
 cask 'linear-linear'
+cask 'zoom'
 
 # Fonts
 cask 'font-hack-nerd-font'
