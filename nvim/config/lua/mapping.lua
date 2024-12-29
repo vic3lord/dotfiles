@@ -1,9 +1,3 @@
--- Using tmux/screen with ctrl-a 
-vim.keymap.set('n', '+', '<C-a>', { noremap = true })
-vim.keymap.set('n', '-', '<C-x>', { noremap = true })
-vim.keymap.set('x', '+', 'g<C-a>', { noremap = true })
-vim.keymap.set('x', '-', 'g<C-x>', { noremap = true })
-
 -- LSP
 local opts = { noremap = true, silent = true }
 vim.keymap.set('n', 'gD', ':lua vim.lsp.buf.declaration()<CR>', opts)
