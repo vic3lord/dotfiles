@@ -24,19 +24,14 @@ return {
   "godlygeek/tabular",
 
   -- Search and navigation
-  {
-    "junegunn/fzf.vim",
-    dependencies = { { "junegunn/fzf", build = "./install --all" } },
+  { 
+    "ibhagwan/fzf-lua",
+    opts = {},
   },
 
   {
     "kyazdani42/nvim-tree.lua",
     dependencies = { "kyazdani42/nvim-web-devicons" },
-    opts = {},
-  },
-
-  {
-    "ojroques/nvim-lspfuzzy",
     opts = {},
   },
 
@@ -46,7 +41,7 @@ return {
   -- Completion, lint, fix
   -- "jiangmiao/auto-pairs",
 
-  "github/copilot.vim",
+  -- "github/copilot.vim",
 
   {
     "Shougo/neosnippet.vim",
@@ -102,11 +97,6 @@ return {
       local cmp = require("cmp")
 
       cmp.setup({
-        snippet = {
-          expand = function(_)
-            -- unused due to neosnippet
-          end,
-        },
         mapping = {
           ['<C-p>'] = cmp.mapping.select_prev_item(),
           ['<C-n>'] = cmp.mapping.select_next_item(),

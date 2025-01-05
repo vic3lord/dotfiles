@@ -1,5 +1,4 @@
 vim.opt.termguicolors = true
-vim.opt.background = 'dark'
 vim.opt.timeoutlen = 1000
 vim.opt.ttimeoutlen = 0
 vim.opt.number = true
@@ -27,7 +26,7 @@ vim.opt.spelllang = 'en_us'
 vim.opt.spell = false
 
 -- Set colorscheme
-vim.cmd.colorscheme('base16-gruvbox-dark-medium')
+vim.cmd.colorscheme('base16-gruvbox-dark-hard')
 
 -- Rust
 vim.g.rustfmt_autosave = 1
