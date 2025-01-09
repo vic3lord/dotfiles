@@ -1,4 +1,4 @@
 font-size = 16
-# theme = dark:GruvboxDarkHard,light:GruvboxLight
+theme = dark:GruvboxDarkHard,light:GruvboxLight
 # Change when nvim supports as well.
-theme = GruvboxDarkHard
+# theme = GruvboxDarkHard
