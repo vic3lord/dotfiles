@@ -1,13 +1,6 @@
 require('lazy_bootstrap')
 require('options')
-require('mapping')
-require('treesitter')
-require('lsp')
-
-vim.cmd [[
-	autocmd! User GoyoEnter Limelight
-	autocmd! User GoyoLeave Limelight!
-]]
+require('keymaps')
 
 vim.api.nvim_create_autocmd("BufWritePre", {
   pattern = "*.go",

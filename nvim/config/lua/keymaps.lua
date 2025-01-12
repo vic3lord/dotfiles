@@ -26,11 +26,6 @@ vim.keymap.set('n', '<leader>dt', ':lua require"dap-go".debug_test()<CR>', opts)
 vim.keymap.set('n', '<leader>tf', ':TestFile<CR>', opts)
 vim.keymap.set('n', '<leader>tt', ':TestNearest<CR>', opts)
 
--- Neosnippet
-vim.keymap.set('i', '<C-k>', '<Plug>(neosnippet_expand_or_jump)', {})
-vim.keymap.set('s', '<C-k>', '<Plug>(neosnippet_expand_or_jump)', {})
-vim.keymap.set('x', '<C-k>', '<Plug>(neosnippet_expand_target)', {})
-
 -- FZF
 vim.keymap.set('n', '<leader>f', ':FzfLua files<CR>', { noremap = true })
 vim.keymap.set('n', '<leader>b', ':FzfLua buffers<CR>', { noremap = true })
@@ -40,19 +35,9 @@ vim.keymap.set('n', '<leader>C', ':FzfLua git_commits<CR>', { noremap = true })
 vim.keymap.set('n', '<leader>c', ':FzfLua git_bcommits<CR>', { noremap = true })
 vim.keymap.set('n', '<leader>g', ':FzfLua grep_project<CR>', { noremap = true })
 
--- vim.keymap.set('n', 'tt', ':lua vim.lsp.buf.type_definition()<CR>', opts)
--- vim.keymap.set('n', 'gr', ':lua vim.lsp.buf.references()<CR>', opts)
--- vim.keymap.set('n', 'g0', ':lua vim.lsp.buf.document_symbol()<CR>', opts)
--- vim.keymap.set('n', 'gW', ':lua vim.lsp.buf.workspace_symbol()<CR>', opts)
--- vim.keymap.set('n', '<F2>', ':lua vim.lsp.buf.rename()<CR>', opts)
--- vim.keymap.set('n', '<leader>ca', ':lua vim.lsp.buf.code_action()<CR>', opts)
--- vim.keymap.set('n', '<leader>cl', ':lua vim.lsp.codelens.run()<CR>', opts)
-
 -- Quickfix
-vim.keymap.set('', '<C-n>', ':cnext<CR>', {})
-vim.keymap.set('', '<C-m>', ':cprevious<CR>', {})
-vim.keymap.set('n', '<leader>a', ':cclose<CR>', { noremap = true })
+vim.keymap.set('', '<M-j>', ':cnext<CR>', {})
+vim.keymap.set('', '<M-k>', ':cprevious<CR>', {})
 
--- Nvim tree
-vim.keymap.set('n', '<leader>q', ':NvimTreeToggle<CR>', opts)
-vim.keymap.set('n', '<leader>n', ':NvimTreeFindFile<CR>', opts)
+-- Oil.nvim
+vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })

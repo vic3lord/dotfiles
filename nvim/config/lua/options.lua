@@ -24,17 +24,3 @@ vim.opt.clipboard = vim.opt.clipboard + 'unnamedplus' -- add clipboard support
 -- Enable spell check
 vim.opt.spelllang = 'en_us'
 vim.opt.spell = false
-
--- Set colorscheme
--- vim.cmd.colorscheme('base16-gruvbox-dark-hard')
--- vim.cmd.colorscheme('base16-gruvbox-light-medium')
-
--- Rust
-vim.g.rustfmt_autosave = 1
-
--- Terraform
-vim.g.terraform_fmt_on_save = 1
-
--- Limelight
-vim.g.limelight_conceal_ctermfg = 'gray'
-vim.g.limelight_conceal_ctermfg = 240
