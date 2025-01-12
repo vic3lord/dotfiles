@@ -1,7 +1,6 @@
 -- LSP
 local opts = { noremap = true, silent = true }
 vim.keymap.set('n', 'gD', ':FzfLua lsp_declarations<CR>', opts)
--- vim.keymap.set('n', 'gd', ':FzfLua lsp_definitions<CR>', opts)
 vim.keymap.set('n', 'gd', ':lua vim.lsp.buf.definition()<CR>', opts)
 vim.keymap.set('n', 'gi', ':FzfLua lsp_implementations<CR>', opts)
 vim.keymap.set('n', '<C-k>', ':lua vim.lsp.buf.signature_help()<CR>', opts)
@@ -12,15 +11,6 @@ vim.keymap.set('n', 'gW', ':FzfLua lsp_live_workspace_symbols<CR>', opts)
 vim.keymap.set('n', '<F2>', ':lua vim.lsp.buf.rename()<CR>', opts)
 vim.keymap.set('n', '<leader>ca', ':lua vim.lsp.buf.code_action()<CR>', opts)
 vim.keymap.set('n', '<leader>cl', ':lua vim.lsp.codelens.run()<CR>', opts)
-
--- DAP
-vim.keymap.set('n', '<F7>', ':lua require"dap".step_into()<CR>', opts)
-vim.keymap.set('n', '<F8>', ':lua require"dap".step_over()<CR>', opts)
-vim.keymap.set('n', '<F9>', ':lua require"dap".continue()<CR>', opts)
-vim.keymap.set('n', '<leader>db', ':lua require"dap".toggle_breakpoint()<CR>', opts)
-vim.keymap.set('n', '<leader>B', ':lua require"dap".set_breakpoint(vim.fn.input("Breakpoint condition: "))<CR>', opts)
-vim.keymap.set('n', '<leader>dc', ':lua require"dap".clear_breakpoints()<CR>', opts)
-vim.keymap.set('n', '<leader>dt', ':lua require"dap-go".debug_test()<CR>', opts)
 
 -- nvim-test
 vim.keymap.set('n', '<leader>tf', ':TestFile<CR>', opts)
