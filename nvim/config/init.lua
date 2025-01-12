@@ -1,4 +1,4 @@
-require('lazy_bootstrap')
+require('bootstrap')
 require('options')
 require('keymaps')
 
