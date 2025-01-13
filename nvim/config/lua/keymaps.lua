@@ -3,6 +3,9 @@ local opts = { noremap = true, silent = true }
 -- Global
 vim.keymap.set('n', '<leader>h', ':FzfLua helptags<CR>', opts)
 
+-- Jump to context (e.g function signature).
+vim.keymap.set("n", "[c", function() require("treesitter-context").go_to_context(vim.v.count1) end, opts)
+
 -- LSP
 vim.keymap.set('n', 'gD', ':FzfLua lsp_declarations<CR>', opts)
 vim.keymap.set('n', 'gd', ':lua vim.lsp.buf.definition()<CR>', opts)
