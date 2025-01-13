@@ -33,8 +33,8 @@ vim.keymap.set('n', '<leader>c', ':FzfLua git_bcommits<CR>', { noremap = true })
 vim.keymap.set('n', '<leader>g', ':FzfLua grep_project<CR>', { noremap = true })
 
 -- Quickfix
-vim.keymap.set('', '<M-j>', ':cnext<CR>', {})
-vim.keymap.set('', '<M-k>', ':cprevious<CR>', {})
+vim.keymap.set('', '<C-n>', ':cnext<CR>', {})
+vim.keymap.set('', '<C-m>', ':cprev<CR>', {})
 
 -- Oil.nvim
-vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
+vim.keymap.set('n', '-', '<CMD>Oil<CR>', { desc = 'Open parent directory' })
