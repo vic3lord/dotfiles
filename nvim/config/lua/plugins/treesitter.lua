@@ -2,20 +2,22 @@ return {
   {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
-    opts = {
-      ensure_installed = 'all',
-      ignore_install = {
-        'phpdoc' -- phpdoc has issues with ARM64
-      },
+    config = function() 
+      require('nvim-treesitter.configs').setup{
+        ensure_installed = 'all',
+        ignore_install = {
+          'phpdoc' -- phpdoc has issues with ARM64
+        },
 
-      highlight = {
-        enable = true,
-      },
+        highlight = {
+          enable = true,
+        },
 
-      incremental_selection = {
-        enable = true,
-      },
-    },
+        incremental_selection = {
+          enable = true,
+        },
+      }
+    end
   },
 
   {

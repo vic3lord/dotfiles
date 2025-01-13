@@ -1,5 +1,9 @@
--- LSP
 local opts = { noremap = true, silent = true }
+
+-- Global
+vim.keymap.set('n', '<leader>h', ':FzfLua helptags<CR>', opts)
+
+-- LSP
 vim.keymap.set('n', 'gD', ':FzfLua lsp_declarations<CR>', opts)
 vim.keymap.set('n', 'gd', ':lua vim.lsp.buf.definition()<CR>', opts)
 vim.keymap.set('n', 'gi', ':FzfLua lsp_implementations<CR>', opts)
