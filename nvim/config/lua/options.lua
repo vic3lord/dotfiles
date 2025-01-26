@@ -1,4 +1,3 @@
-vim.opt.termguicolors = true
 vim.opt.timeoutlen = 1000
 vim.opt.ttimeoutlen = 0
 vim.opt.number = true

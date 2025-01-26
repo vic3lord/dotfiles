@@ -5,7 +5,7 @@ readonly PACKAGES=(
 	github.com/go-delve/delve/cmd/dlv@latest
 )
 
-if which go > /dev/null 2>&1
+if type go &> /dev/null
 then
 	for pkg in ${PACKAGES[@]}
 	do

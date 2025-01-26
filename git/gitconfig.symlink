@@ -21,6 +21,7 @@
 	fswitch = !git branch | fzf | xargs git switch
 [push]
 	default = simple
+	autoSetupRemote = true
 [color]
 	ui = true
 [color "branch"]

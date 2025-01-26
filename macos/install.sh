@@ -1,4 +1,4 @@
-if [ "$(uname)" == "Darwin" ]
+if [[ $OSTYPE =~ darwin ]]
 then
 	echo "› macos softwareupdate"
 	sudo softwareupdate -i -a

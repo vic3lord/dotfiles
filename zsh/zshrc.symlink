@@ -1,72 +1,53 @@
-# Dotfiles location
 DOTFILES=$HOME/.dotfiles
+HOMEBREW=/opt/homebrew
 
-# Support ARM64 and AMD64 macOS.
-if [ $(uname -m) = "arm64" ]
-then
-	BREW_PATH=/opt/homebrew
-else
-	BREW_PATH=/usr/local
-fi
+# Make sure the array has unique items.
+typeset -U ZSH_FILES
+ZSH_FILES=($DOTFILES/**/*.zsh)
 
 # PATH
-export PATH="$BREW_PATH/bin:$BREW_PATH/sbin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin"
-
-# Special dirs
-zstyle ':completion:*' special-dirs true
+export PATH="$HOMEBREW/bin:$HOMEBREW/sbin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin"
 
 # vi-mode
 bindkey -v
 export KEYTIMEOUT=1
 
-# Use vim cli mode
-bindkey '^P' up-history
-bindkey '^N' down-history
-
 # backspace and ^h working even after
 # returning from command mode
-bindkey '^?' backward-delete-char
 bindkey '^h' backward-delete-char
 
 # ctrl-w removed word backwards
 bindkey '^w' backward-kill-word
 
-# ctrl-r starts searching history backward (overridden by fzf)
-# bindkey '^r' history-incremental-search-backward
-
-autoload -U edit-command-line
+autoload -Uz edit-command-line
 zle -N edit-command-line
 bindkey -M vicmd v edit-command-line
 
-if [[ -a ~/.localrc ]]
+if [[ -e ~/.localrc ]]
 then
   source ~/.localrc
 fi
 
 # all of our zsh files
-typeset -U config_files
-config_files=($DOTFILES/**/*.zsh)
 
 # load the path files
-for file in ${(M)config_files:#*/path.zsh}
+for file in ${(M)ZSH_FILES:#*/path.zsh}
 do
   source $file
 done
 
 # load everything but the path and completion files
-for file in ${${config_files:#*/path.zsh}:#*/completion.zsh}
+for file in ${${ZSH_FILES:#*/path.zsh}:#*/completion.zsh}
 do
   source $file
 done
 
 # initialize autocomplete here, otherwise functions won't be loaded
-autoload -U compinit
+autoload -Uz compinit
 compinit
 
 # load every completion after autocomplete loads
-for file in ${(M)config_files:#*/completion.zsh}
+for file in ${(M)ZSH_FILES:#*/completion.zsh}
 do
   source $file
 done
-
-unset config_files

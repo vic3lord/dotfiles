@@ -1,4 +1,4 @@
-if which kubectl > /dev/null 2>&1
+if type kubectl &> /dev/null
 then
 	source <(kubectl completion zsh)
 fi
@@ -8,9 +8,3 @@ function __k {
 }
 
 compdef __k k
-
-# Minikube
-if which minikube > /dev/null 2>&1
-then
-	source <(minikube completion zsh)
-fi

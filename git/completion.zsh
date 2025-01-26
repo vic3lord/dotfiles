@@ -1,4 +1,4 @@
-if which gh > /dev/null 2>&1
+if type gh &> /dev/null
 then
 	source <(gh completion -s zsh)
 fi
