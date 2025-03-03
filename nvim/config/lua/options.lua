@@ -23,3 +23,6 @@ vim.opt.clipboard = vim.opt.clipboard + 'unnamedplus' -- add clipboard support
 -- Enable spell check
 vim.opt.spelllang = 'en_us'
 vim.opt.spell = false
+
+-- Change how diagnostics appear
+vim.diagnostic.config({ virtual_text = true })

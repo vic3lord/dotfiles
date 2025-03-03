@@ -1,6 +1,11 @@
 #!/usr/bin/env bash
 # vim: ft=bash
 
+if !type jira &> /dev/null
+then
+	go install github.com/ankitpokhrel/jira-cli/cmd/jira@latest
+fi
+
 readonly ISSUE=$(
 	jira issue list -a $(jira me) -q 'status NOT IN (Done, Closed)' --plain --columns key,summary --no-headers |
 		fzf --query="$1" --no-multi --select-1 --exit-0 \
@@ -11,22 +16,23 @@ if [[ -z $ISSUE ]]; then
 	exit 0
 fi
 
-readonly JIRA_URL="https://${JIRA_ORG}.atlassian.net/browse"
 readonly ISSUE_NUMBER=$(echo $ISSUE | awk '{print $1}')
 readonly ISSUE_TITLE=$(echo $ISSUE | awk '{$1=""; print $0}')
+readonly TITLE_SANITIZED=$(echo "$ISSUE_TITLE" | tr '[:upper:]' '[:lower:]' | tr -s ' ' '-' | sed 's/^-//;s/-$//')
+readonly ISSUE_BRANCH="$ISSUE_NUMBER-$TITLE_SANITIZED"
 
-if [ $(git branch | grep $ISSUE_NUMBER) ]
+if [ $(git branch | grep $ISSUE_BRANCH) ]
 then
 	echo "Already exists, switching!"
-	git switch $ISSUE_NUMBER
+	git switch $ISSUE_BRANCH
 	exit 0
 fi
 
-git checkout -b $ISSUE_NUMBER
-git commit --allow-empty -m "$ISSUE_TITLE"
+git checkout -b "$ISSUE_BRANCH"
+git commit --allow-empty -m "$ISSUE_NUMBER: $ISSUE_TITLE"
 
 gh pr create \
 	--assignee @me \
 	--draft \
-	--title "$ISSUE_NUMBER:$ISSUE_TITLE" \
-	--body "[Ticket]($JIRA_URL/$ISSUE_NUMBER): ${ISSUE_TITLE}"
+	--fill \
+	--title "$ISSUE_NUMBER: $ISSUE_TITLE" \

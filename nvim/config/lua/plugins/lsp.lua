@@ -17,6 +17,7 @@ return {
       lspconfig.sqlls.setup{}
       lspconfig.pylsp.setup{}
       lspconfig.zls.setup{}
+      lspconfig.gleam.setup{}
     end
   },
 

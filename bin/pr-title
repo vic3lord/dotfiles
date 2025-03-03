@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+# vim: ft=bash
+
+read -p "Enter Jira title: " ISSUE
+
+if [[ -z $ISSUE ]]; then
+	exit 0
+fi
+
+readonly ISSUE_BRANCH="$(echo $ISSUE | awk -F': ' '{print $1}')"
+readonly ISSUE_TITLE="$(echo $ISSUE | awk -F': ' '{print $2}')"
+
+if git branch | grep $ISSUE_BRANCH
+then
+	echo "Already exists, switching!"
+	git switch $ISSUE_BRANCH
+	exit 0
+fi
+
+git checkout -b $ISSUE_BRANCH
+git commit --allow-empty -m "$ISSUE_TITLE"
+
+gh pr create \
+	--assignee @me \
+	--draft \
+	--fill \
+	--title "$ISSUE_TITLE"

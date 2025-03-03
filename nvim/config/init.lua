@@ -3,8 +3,10 @@ require('options')
 require('keymaps')
 
 vim.api.nvim_create_autocmd("BufWritePre", {
-  pattern = "*.go",
-  command = "lua vim.lsp.buf.format()",
+  pattern = {"*.go", "*.tf"},
+  callback = function()
+    vim.lsp.buf.format()
+  end
 })
 
 vim.api.nvim_create_autocmd({"BufRead", "BufNewFile"}, {

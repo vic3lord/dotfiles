@@ -1,3 +1,5 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
 format = """
 $username\
 $hostname\
@@ -12,8 +14,6 @@ $git_metrics\
 $git_status\
 $hg_branch\
 $package\
-$elixir\
-$golang\
 $buf\
 $memory_usage\
 $direnv\
@@ -30,4 +30,5 @@ $container\
 $shell\
 $character"""
 
-# $gcloud\
+[kubernetes]
+disabled = true

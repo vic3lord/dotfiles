@@ -1,4 +1,5 @@
+window-inherit-working-directory = true
 font-size = 16
 theme = dark:GruvboxDarkHard,light:GruvboxLight
-# Change when nvim supports as well.
-# theme = GruvboxDarkHard
+keybind = super+enter=unbind
+fullscreen = true

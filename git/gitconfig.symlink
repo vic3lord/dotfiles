@@ -6,33 +6,36 @@
 	format = ssh
 [gpg "ssh"]
 	allowedSignersFile = ~/.git_signers
+[branch]
+        sort = -committerdate
+[fetch]
+        prune = true
+        pruneTags = true
+        all = true
+[push]
+	default = simple
+	autoSetupRemote = true
+[color]
+	ui = true
+[merge]
+	tool = nvimdiff
+[diff]
+	tool = nvimdiff
+	algorithm = histogram
+[difftool]
+	prompt = false
+[mergetool]
+	keepBackup = false
 [alias]
-	compare = log --oneline master..
-	author = shortlog -s -e
+	compare = log --oneline main..
+	author = !git shortlog -s -e | sort -r
 	ci = commit
 	co = checkout
 	br = branch
 	st = status -s
 	edit = !nvim $(git ls-files -m) -p
 	flux = log --author="flux" --oneline
-	pr = !pull-request
+	pr = !pr-jira
 	wip = commit -am 'wip'
 	web = !gh pr view -w
 	fswitch = !git branch | fzf | xargs git switch
-[push]
-	default = simple
-	autoSetupRemote = true
-[color]
-	ui = true
-[color "branch"]
-	current = yellow reverse
-	local = yellow
-	remote = green
-[merge]
-	tool = nvimdiff
-[diff]
-	tool = nvimdiff
-[difftool]
-	prompt = false
-[mergetool]
-	keepBackup = false

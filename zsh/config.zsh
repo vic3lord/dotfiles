@@ -23,6 +23,10 @@ setopt NO_NOMATCH
 #   like: git comm-[tab]
 setopt complete_aliases
 
+# delete words bash style
+autoload -U select-word-style
+select-word-style bash
+
 # bring up menu selection
 zstyle ':completion:*' menu select
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|=*' 'l:|=* r:|=*'

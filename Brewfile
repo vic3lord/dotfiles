@@ -42,7 +42,6 @@ brew 'ripgrep'
 brew 'rust'
 brew 'sops'
 brew 'tig'
-brew 'tmux'
 brew 'tree'
 brew 'utf8proc', args: ['HEAD']
 brew 'watch'
