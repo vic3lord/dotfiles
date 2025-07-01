@@ -26,3 +26,6 @@ vim.opt.spell = false
 
 -- Change how diagnostics appear
 vim.diagnostic.config({ virtual_text = true })
+
+-- Theme
+vim.cmd.colorscheme('base16-gruvbox-dark-hard')

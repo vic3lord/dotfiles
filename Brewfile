@@ -65,6 +65,3 @@ cask 'utm'
 cask 'whatsapp'
 cask 'linear-linear'
 cask 'zoom'
-
-# Fonts
-cask 'font-hack-nerd-font'

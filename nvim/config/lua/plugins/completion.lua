@@ -7,6 +7,9 @@ return {
     opts = {
       keymap = { preset = 'default' },
       signature = { enabled = true },
+      -- sources = {
+      --   default = { 'lsp', 'path', 'snippets', 'buffer', 'codecompanion', 'cmdline' },
+      -- },
     },
   },
 

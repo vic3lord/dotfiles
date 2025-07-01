@@ -3,26 +3,29 @@ return {
     "neovim/nvim-lspconfig",
     config = function()
       local lspconfig = require('lspconfig')
-      lspconfig.gopls.setup{}
-      lspconfig.buf_ls.setup{}
-      lspconfig.jsonls.setup{}
-      lspconfig.html.setup{}
-      lspconfig.htmx.setup{}
-      lspconfig.cssls.setup{}
-      lspconfig.vuels.setup{}
-      -- lspconfig.yamlls.setup{}
-      lspconfig.ts_ls.setup{}
-      lspconfig.bashls.setup{}
-      lspconfig.terraformls.setup{}
-      lspconfig.sqlls.setup{}
-      lspconfig.pylsp.setup{}
-      lspconfig.zls.setup{}
-      lspconfig.gleam.setup{}
+      local servers = {
+        "gopls",
+        "buf_ls",
+        "jsonls",
+        "html",
+        "htmx",
+        "cssls",
+        "ts_ls",
+        "bashls",
+        "terraformls",
+        "sqlls",
+        "zls",
+        "gleam",
+      }
+
+      for _, server in ipairs(servers) do
+        lspconfig[server].setup{}
+      end
     end
   },
 
   {
-    "williamboman/mason.nvim", -- Manage LSP servers.
+    "mason-org/mason.nvim", -- Manage LSP servers.
     opts = {},
   },
 }
