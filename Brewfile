@@ -1,6 +1,4 @@
 # Taps
-tap 'homebrew/bundle'
-tap 'homebrew/services'
 tap 'hashicorp/tap'
 tap 'bufbuild/buf'
 tap 'oven-sh/bun'
@@ -50,9 +48,10 @@ brew 'zoxide'
 brew 'starship'
 
 # Casks
+cask 'container'
 cask 'ghostty'
 cask 'firefox'
-cask 'google-cloud-sdk'
+cask 'gcloud-cli'
 cask 'iina'
 cask 'obs'
 cask 'osquery'

@@ -1,1 +1,1 @@
-source "$HOMEBREW/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc"
+source "$HOMEBREW/Caskroom/gcloud-cli/latest/google-cloud-sdk/path.zsh.inc"
