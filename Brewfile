@@ -37,7 +37,6 @@ brew 'neovim', args: ['HEAD']
 brew 'newsboat'
 brew 'nmap'
 brew 'node'
-brew 'opencode'
 brew 'podman'
 brew 'qpdf'
 brew 'ripgrep'
