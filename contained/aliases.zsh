@@ -1,6 +1,6 @@
 # Docker containers instead of installed apps
-function contained() {
-	docker run -it --rm -v $(pwd):/workspace -w /workspace $@
+function ctr() {
+	container run -it --rm -v $(pwd):/workspace -w /workspace $@
 }
 
-alias promtool='contained --entrypoint promtool prom/prometheus'
+alias promtool='ctr --entrypoint promtool prom/prometheus'

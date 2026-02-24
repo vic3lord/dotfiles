@@ -1,7 +1,7 @@
 require('bootstrap')
 require('options')
 require('keymaps')
-
+require('syntax')
 
 vim.api.nvim_create_autocmd("BufWritePre", {
   pattern = {"*.go"},

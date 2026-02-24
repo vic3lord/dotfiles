@@ -2,7 +2,6 @@ return {
   {
     "neovim/nvim-lspconfig",
     config = function()
-      local lspconfig = require('lspconfig')
       local servers = {
         "gopls",
         "buf_ls",
@@ -19,7 +18,7 @@ return {
       }
 
       for _, server in ipairs(servers) do
-        lspconfig[server].setup{}
+        vim.lsp.enable(server)
       end
     end
   },

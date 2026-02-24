@@ -5,37 +5,25 @@ return {
     branch = "main",
     lazy = false,
     opts = {
-    -- config = function() 
-      -- require('nvim-treesitter.configs').setup{
-        ensure_installed = 'all',
-        ignore_install = {
-          'phpdoc' -- phpdoc has issues with ARM64
-        },
+      incremental_selection = {
+        enable = true,
+      },
 
-        highlight = {
+      textobjects = {
+        select = {
           enable = true,
-        },
 
-        incremental_selection = {
-          enable = true,
-        },
+          -- Automatically jump forward to textobj, similar to targets.vim
+          lookahead = true,
 
-        textobjects = {
-          select = {
-            enable = true,
-
-            -- Automatically jump forward to textobj, similar to targets.vim
-            lookahead = true,
-
-            keymaps = {
-              -- You can use the capture groups defined in textobjects.scm
-              ["af"] = "@function.outer",
-              ["if"] = "@function.inner",
-            },
+          keymaps = {
+            -- You can use the capture groups defined in textobjects.scm
+            ["af"] = "@function.outer",
+            ["if"] = "@function.inner",
           },
         },
-      }
-    -- end
+      },
+    }
   },
 
   {

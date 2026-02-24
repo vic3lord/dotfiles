@@ -1,6 +1,6 @@
 window-inherit-working-directory = true
 font-size = 16
 #theme = dark:GruvboxDarkHard,light:GruvboxLight
-theme = GruvboxDarkHard
+theme = Gruvbox Dark Hard
 keybind = super+enter=unbind
 fullscreen = true
