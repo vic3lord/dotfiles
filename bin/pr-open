@@ -1,0 +1,124 @@
+#!/usr/bin/env bash
+
+# Source the helper script
+source "$(dirname "$0")/pr-helper.sh"
+
+# Ensure we're in a git repo and have basic tools
+ensure_git_repo
+ensure_dependencies "fzf" "gh" "jq"
+
+usage() {
+    echo "Usage: pr-open --provider [github|jira|linear]"
+    exit 1
+}
+
+# Parse flags
+PROVIDER=""
+while [[ $# -gt 0 ]]; do
+    case $1 in
+        --provider)
+            PROVIDER="$2"
+            shift 2
+            ;;
+        *)
+            usage
+            ;;
+    esac
+done
+
+if [[ -z "$PROVIDER" ]]; then
+    usage
+fi
+
+# Get semantic prefix globally
+SEMANTIC=$(get_semantic_prefix)
+
+case "$PROVIDER" in
+    github)
+        ensure_dependencies "gh"
+        
+        # Detect if we should use the meta repo for issue fetching
+        # We check the owner of the current repository
+        OWNER=$(gh repo view --json owner -q '.owner.login' 2>/dev/null || echo "")
+        ISSUE_REPO_ARG=""
+        if [[ "$OWNER" == "sequentech" ]]; then
+            log_info "Detected sequentech organization, fetching issues from sequentech/meta"
+            ISSUE_REPO_ARG="--repo sequentech/meta"
+        fi
+        
+        # Fetch issues
+        ISSUE=$(gh issue list $ISSUE_REPO_ARG --assignee @me --json number,title -q '.[] | "\(.number): \(.title)"' | fzf --no-multi -1 --exit-0 --header="Select GitHub Issue")
+        
+        if [[ -z "$ISSUE" ]]; then exit 0; fi
+        
+        ISSUE_NUMBER="$(echo "$ISSUE" | awk -F': ' '{print $1}')"
+        ISSUE_TITLE="$(echo "$ISSUE" | awk -F': ' '{print $2}')"
+        TITLE_SANITIZED=$(sanitize_title "$ISSUE_TITLE")
+        
+        BRANCH_NAME="$SEMANTIC/$ISSUE_NUMBER/$TITLE_SANITIZED"
+        COMMIT_MSG="$ISSUE_TITLE"
+        PR_TITLE="$SEMANTIC: $ISSUE_TITLE"
+        ;;
+
+    jira)
+        ensure_dependencies "jira"
+        
+        # Fetch issues
+        ISSUE=$(jira issue list -a $(jira me) -q 'status NOT IN (Done, Closed)' --plain --columns key,summary --no-headers | 
+                fzf --no-multi --select-1 --exit-0 
+                --header="Select Jira Issue" 
+                --preview "echo {} | awk '{print \$1}' | xargs jira issue view")
+        
+        if [[ -z "$ISSUE" ]]; then exit 0; fi
+        
+        ISSUE_NUMBER=$(echo "$ISSUE" | awk '{print $1}')
+        ISSUE_TITLE=$(echo "$ISSUE" | awk '{$1=""; print $0}' | sed 's/^ //')
+        TITLE_SANITIZED=$(sanitize_title "$ISSUE_TITLE")
+        
+        # Use semantic prefix for Jira as well
+        BRANCH_NAME="$SEMANTIC/$ISSUE_NUMBER/$TITLE_SANITIZED"
+        COMMIT_MSG="$ISSUE_NUMBER: $ISSUE_TITLE"
+        PR_TITLE="$SEMANTIC: $ISSUE_NUMBER: $ISSUE_TITLE"
+        ;;
+
+    linear)
+        if [[ -z "${LINEAR_TOKEN:-}" ]]; then
+            log_error "LINEAR_TOKEN environment variable is not set."
+            exit 1
+        fi
+        
+        # Fetch issues via Linear API
+        ISSUE=$(jq -cn '{query: $query}' --arg query '
+            query AssignedIssues {
+              issues(filter: { 
+                assignee: {isMe: {eq: true}}
+                state: {type: {neqIgnoreCase: "completed"}}
+              }) {
+                nodes {
+                  branchName
+                  title
+                }
+              }
+            }' | curl --silent -XPOST -H "Content-Type: application/json" -H "Authorization: $LINEAR_TOKEN" --data @- https://api.linear.app/graphql 
+               | jq -r '.data.issues.nodes[] | "\(.branchName): \(.title)"' 
+               | fzf --no-multi --select-1 --exit-0 --header="Select Linear Issue")
+
+        if [[ -z "$ISSUE" ]]; then exit 0; fi
+
+        ISSUE_BRANCH="$(echo "$ISSUE" | awk -F': ' '{print $1}')"
+        ISSUE_TITLE="$(echo "$ISSUE" | awk -F': ' '{print $2}' | sed 's/^ //')"
+        
+        BRANCH_NAME="$ISSUE_BRANCH"
+        COMMIT_MSG="$ISSUE_TITLE"
+        PR_TITLE="$SEMANTIC: $ISSUE_TITLE"
+        ;;
+
+    *)
+        log_error "Unsupported provider: $PROVIDER"
+        usage
+        ;;
+esac
+
+# Execute shared branch logic and PR creation
+handle_branch_logic "$BRANCH_NAME" "$COMMIT_MSG"
+create_gh_pr "$PR_TITLE"
