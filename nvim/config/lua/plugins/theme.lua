@@ -1,21 +1,38 @@
 return {
   "RRethy/nvim-base16",
 
-  -- {
-  --   "f-person/auto-dark-mode.nvim",
-  --   opts = {
-  --     update_interval = 10000,
-  --     set_dark_mode = function()
-  --       vim.cmd.colorscheme('base16-gruvbox-dark-hard')
-  --     end,
-  --     set_light_mode = function()
-  --       vim.cmd.colorscheme('base16-gruvbox-light-medium')
-  --     end,
-  --   },
-  -- },
-
   {
     "nvim-lualine/lualine.nvim",
-    opts = {},
+    dependencies = { 'nvim-tree/nvim-web-devicons' },
+    opts = {
+      sections = {
+        lualine_b = {
+          {
+            "branch",
+            fmt = function(str)
+              if #str > 20 then
+                return str:sub(1, 17) .. "..."
+              end
+              return str
+            end,
+          },
+          "diff",
+          "diagnostics",
+        },
+        lualine_c = {
+          {
+            'filename',
+            path = 1,
+            fmt = function(path)
+              local parts = vim.split(path, "/")
+              if #parts > 4 then
+                return ".../" .. table.concat(parts, "/", #parts - 2)
+              end
+              return path
+            end,
+          },
+        },
+      },
+    },
   },
 }

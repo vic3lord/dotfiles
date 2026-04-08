@@ -15,6 +15,7 @@ return {
         "sqlls",
         "zls",
         "gleam",
+        "marksman",
       }
 
       for _, server in ipairs(servers) do

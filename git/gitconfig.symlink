@@ -35,7 +35,7 @@
 	st = status -s
 	edit = !nvim $(git ls-files -m) -p
 	flux = log --author="flux" --oneline
-	pr = !pr-jira
+	pr = !pr-open --provider github
 	wip = commit -am 'wip'
 	web = !gh pr view -w
 	fswitch = !git branch | fzf | xargs git switch

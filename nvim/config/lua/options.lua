@@ -16,9 +16,15 @@ vim.opt.completeopt = {'menuone', 'noinsert', 'noselect'}
 vim.opt.incsearch = true -- show search matches as you type
 vim.opt.showmatch = true
 vim.opt.hlsearch = true
-vim.opt.smartcase = true -- ignore case if search pattern is all lowercase, case-sensitive otherwise
+
+-- Ignore case-sensitive for search
 vim.opt.ignorecase = true
-vim.opt.clipboard = vim.opt.clipboard + 'unnamedplus' -- add clipboard support
+
+-- Switch to case-sensitive when capital letter is used
+vim.opt.smartcase = true
+
+-- Add clipboard support
+vim.opt.clipboard = 'unnamedplus'
 
 -- Enable spell check
 vim.opt.spelllang = 'en_us'
