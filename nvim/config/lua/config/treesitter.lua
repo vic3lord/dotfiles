@@ -25,22 +25,12 @@ require('nvim-treesitter').setup({
     }
 })
 
--- Treesitter
-local grammer_list = {
-  'go',
-  'gomod',
-  'gosum',
-  'javascript',
-  'typescript',
-  'rust',
-  'zig',
-  'gleam',
-  'elixir',
-  'bash',
-  'lua',
-  'terraform',
-  'hcl',
-}
+local grammer_list = vim
+  .iter(require("config.languages"))
+  :map(function(grammer) return grammer.treesitter end)
+  :filter(function(grammer) return grammer end)
+  :flatten()
+  :totable()
 
 require('nvim-treesitter').install(grammer_list)
 

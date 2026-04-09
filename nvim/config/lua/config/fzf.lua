@@ -7,6 +7,9 @@ require('fzf-lua').setup({
   fzf_colors = true
 })
 
+local opts = { noremap = true, silent = true }
+
+vim.keymap.set('n', '<leader>h', ':FzfLua helptags<CR>', opts)
 vim.keymap.set('n', '<leader>f', ':FzfLua files<CR>', { noremap = true })
 vim.keymap.set('n', '<leader>gf', ':FzfLua git_files<CR>', { noremap = true })
 vim.keymap.set('n', '<leader>b', ':FzfLua buffers<CR>', { noremap = true })

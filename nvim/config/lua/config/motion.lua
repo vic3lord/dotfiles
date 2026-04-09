@@ -1,9 +1,7 @@
-local gh = function(x) return 'https://github.com/' .. x end
-
 vim.pack.add({
-  gh('tpope/vim-surround'),
-  gh('tpope/vim-repeat'),
-  gh('tpope/vim-unimpaired'),
-  gh('unblevable/quick-scope'),
-  gh('google/vim-searchindex'),
+  'https://github.com/tpope/vim-surround',
+  'https://github.com/tpope/vim-repeat',
+  'https://github.com/tpope/vim-unimpaired',
+  'https://github.com/unblevable/quick-scope',
+  'https://github.com/google/vim-searchindex',
 })

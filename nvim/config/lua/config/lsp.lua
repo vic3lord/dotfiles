@@ -5,22 +5,12 @@ vim.pack.add({
 
 require('mason').setup()
 
-local servers = {
-  "lua_ls",
-  "gopls",
-  "buf_ls",
-  "jsonls",
-  "html",
-  "htmx",
-  "cssls",
-  "ts_ls",
-  "bashls",
-  "terraformls",
-  "sqlls",
-  "zls",
-  "gleam",
-  "marksman",
-}
+local servers = vim
+  .iter(require("config.languages"))
+  :map(function(lang) return lang.lsp end)
+  :filter(function(lsp) return lsp end)
+  :flatten()
+  :totable()
 
 for _, server in ipairs(servers) do
   vim.lsp.enable(server)
