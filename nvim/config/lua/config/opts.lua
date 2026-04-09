@@ -1,3 +1,6 @@
+-- New UI opt-in
+require('vim._core.ui2').enable({})
+
 vim.opt.timeoutlen = 1000
 vim.opt.ttimeoutlen = 0
 vim.opt.number = true
@@ -12,7 +15,6 @@ vim.opt.cursorline = true
 vim.opt.cursorcolumn = true
 vim.opt.autowrite = true
 vim.opt.shortmess = vim.opt.shortmess + 'c'
-vim.opt.completeopt = {'menuone', 'noinsert', 'noselect'}
 vim.opt.incsearch = true -- show search matches as you type
 vim.opt.showmatch = true
 vim.opt.hlsearch = true
@@ -32,6 +34,3 @@ vim.opt.spell = false
 
 -- Change how diagnostics appear
 vim.diagnostic.config({ virtual_text = true })
-
--- Theme
-vim.cmd.colorscheme('base16-gruvbox-dark-hard')
