@@ -4,12 +4,17 @@ vim.api.nvim_create_autocmd({"BufRead", "BufNewFile"}, {
 })
 
 vim.api.nvim_create_autocmd("FileType", {
-  pattern = {"lua", "ruby", "yaml", "html", "json"},
-  callback = function ()
-    vim.opt_local.tabstop = 2
-    vim.opt_local.shiftwidth = 2
-    vim.opt_local.softtabstop = 2
-    vim.opt_local.expandtab = true
-    vim.opt_local.smartindent = true
+  pattern = { "lua", "ruby", "yaml", "html", "json" },
+  callback = function()
+    local opts = {
+      tabstop = 2,
+      shiftwidth = 2,
+      softtabstop = 2,
+      expandtab = true,
+      smartindent = true,
+    }
+    for k, v in pairs(opts) do
+      vim.opt_local[k] = v
+    end
   end
 })

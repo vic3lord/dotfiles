@@ -1,10 +1,16 @@
-require('config/opts')
-require('config/keymaps')
-require('config/theme')
-require('config/oil')
-require('config/treesitter')
-require('config/lsp')
-require('config/fzf')
-require('config/motion')
-require('config/autocmds')
-require('config/git')
+local configs = {
+	'opts',
+	'keymaps',
+	'theme',
+	'oil',
+	'treesitter',
+	'lsp',
+	'fzf',
+	'motion',
+	'autocmds',
+	'git',
+}
+
+for _, config in ipairs(configs) do
+	require('config.' .. config)
+end
