@@ -1,0 +1,3 @@
+-- Rex config, migrated from ~/.config/ghostty/config.
+-- Ghostty's only keybind line (super+enter=unbind) removes a Ghostty default,
+-- so there is nothing to bind here. cmd+k keeps Rex's session picker.
