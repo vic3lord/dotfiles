@@ -32,5 +32,10 @@ vim.opt.clipboard = 'unnamedplus'
 vim.opt.spelllang = 'en_us'
 vim.opt.spell = false
 
+-- Follow the Rex theme: draw with the terminal's ANSI palette instead of
+-- truecolor, and leave 'background' unset so nvim tracks Rex's light/dark
+-- switches live (OSC 11 + DEC mode 2031).
+vim.opt.termguicolors = false
+
 -- Change how diagnostics appear
 vim.diagnostic.config({ virtual_text = true })
