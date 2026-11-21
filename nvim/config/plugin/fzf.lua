@@ -2,6 +2,15 @@ vim.pack.add({
   'https://github.com/ibhagwan/fzf-lua',
 })
 
+-- Follow the Rex theme: start from fzf's 16-color ANSI base scheme (its
+-- default 256-color palette ignores the terminal theme). Set through
+-- FZF_DEFAULT_OPTS so it comes before fzf-lua's generated --color overrides;
+-- a later base-scheme --color would reset them.
+local fzf_opts = vim.env.FZF_DEFAULT_OPTS or ''
+if not fzf_opts:find('--color=16', 1, true) then
+  vim.env.FZF_DEFAULT_OPTS = vim.trim('--color=16 ' .. fzf_opts)
+end
+
 require('fzf-lua').setup({
   fzf_colors = true
 })
