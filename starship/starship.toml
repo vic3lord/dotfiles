@@ -5,7 +5,6 @@ $username\
 $hostname\
 $localip\
 $shlvl\
-$kubernetes\
 $directory\
 $git_branch\
 $git_commit\
@@ -17,7 +16,6 @@ $package\
 $buf\
 $memory_usage\
 $direnv\
-$env_var\
 $custom\
 $sudo\
 $cmd_duration\
@@ -30,5 +28,44 @@ $container\
 $shell\
 $character"""
 
+# Cloud context sits on the right of the input line so the left prompt stays short.
+right_format = "$kubernetes$gcloud$aws"
+
 [kubernetes]
-disabled = true
+disabled = false
+format = '[⎈ $context( \($namespace\))]($style) '
+style = "cyan"
+
+# First matching rule wins. Prod rules come first: bold red + shortened name.
+[[kubernetes.contexts]]
+context_pattern = "gke_.*_(?P<cluster>[\\w-]*prod[\\w-]*)"
+context_alias = "$cluster"
+style = "bold red"
+
+[[kubernetes.contexts]]
+context_pattern = "arn:aws:eks:[\\w-]+:\\d+:cluster/(?P<cluster>[\\w-]*prod[\\w-]*)"
+context_alias = "$cluster"
+style = "bold red"
+
+[[kubernetes.contexts]]
+context_pattern = ".*prod.*"
+style = "bold red"
+
+# Shorten long cluster names: gke_<project>_<zone>_<name> and EKS ARNs -> <name>
+[[kubernetes.contexts]]
+context_pattern = "gke_.*_(?P<cluster>[\\w-]+)"
+context_alias = "$cluster"
+
+[[kubernetes.contexts]]
+context_pattern = "arn:aws:eks:[\\w-]+:\\d+:cluster/(?P<cluster>[\\w-]+)"
+context_alias = "$cluster"
+
+[gcloud]
+format = '[☁ $project]($style) '
+style = "blue"
+
+[aws]
+# $duration = time left on temporary creds; shows expiration_symbol once expired
+format = '[aws(:$profile)( \[$duration\]) ]($style)'
+style = "yellow"
+expiration_symbol = "EXPIRED"
